@@ -1,3 +1,5 @@
+import HeroSection from "@/components/home/HeroSection";
+
 export const metadata = {
   title: "EssenceVFX",
   description:
@@ -14,5 +16,9 @@ export const metadata = {
 };
 
 export default function Home() {
-  return <section className="">test</section>;
+  return (
+    <section className="">
+      <HeroSection />
+    </section>
+  );
 }

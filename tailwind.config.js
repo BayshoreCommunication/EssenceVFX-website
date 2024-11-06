@@ -10,13 +10,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#35E3D7",
-        secondary: "#08A1E9",
+        primary: "#F61F1F",
+        secondary: "#131313",
         black: "#000000",
         white: "#FFFFFF",
-      },
-      backgroundImage: {
-        doctors: `url('/assets/Testimonials/transparentGradient.png')`,
       },
     },
     container: {
@@ -26,14 +23,14 @@ module.exports = {
         sm: "2rem",
         lg: "4rem",
         xl: "5rem",
-        "2xl": "1rem",
+        "2xl": "10rem",
       },
     },
     maxWidth: {
-      "2xl": "1536px", // The default value for 2xl in Tailwind CSS
+      "2xl": "1280px",
     },
   },
- 
+
   darkMode: "class",
   plugins: [nextui()],
 };

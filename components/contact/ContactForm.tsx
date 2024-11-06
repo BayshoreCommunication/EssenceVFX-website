@@ -11,7 +11,6 @@ type EmailFormType = {
   name: string;
   phone: string;
   email: string;
-  subject: string;
   message: string;
 };
 
@@ -22,7 +21,6 @@ const ContactForm: React.FC = () => {
     name: "",
     phone: "",
     email: "",
-    subject: "",
     message: "",
   });
 
@@ -42,9 +40,6 @@ const ContactForm: React.FC = () => {
     }
     if (!values.phone) {
       errors.phone = "Phone number is required!";
-    }
-    if (!values.subject) {
-      errors.subject = "Subject is required!";
     }
     if (!values.message) {
       errors.message = "Message is required!";
@@ -77,7 +72,6 @@ const ContactForm: React.FC = () => {
               name: "",
               phone: "",
               email: "",
-              subject: "",
               message: "",
             });
           });
@@ -92,7 +86,6 @@ const ContactForm: React.FC = () => {
               name: "",
               phone: "",
               email: "",
-              subject: "",
               message: "",
             });
             setLoading(false);
@@ -105,47 +98,47 @@ const ContactForm: React.FC = () => {
 
   return (
     <div className="w-full">
-      <h1 className="text-xl md:text-3xl font-bold leading-tight md:text-left text-center text-black mb-8 mt-4 md:mt-">
+      <h1 className="text-xl md:text-3xl font-bold leading-tight md:text-left text-center text-white mb-8 mt-4 md:mt-14">
         Get in Touch
       </h1>
       <form className="w-full" onSubmit={handleSubmit}>
-        <div className="mb-5 w-full flex flex-col md:flex-row gap-5">
+        <div className="mb-5 w-full ">
           {/* First Name */}
-          <div className=" w-full">
-            <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
-              placeholder="Your Name"
-              required
-              type="text"
-              name="name"
-              value={emailForm.name}
-              onChange={(event) => {
-                setEmailForm({
-                  ...emailForm,
-                  name: event.target.value,
-                });
-              }}
-            />
-            <span className="text-red-500">{formErrors.name}</span>
-          </div>
-          {/* Last Name */}
-          <div className=" w-full">
-            <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
-              placeholder="Your Email"
-              required
-              type="email"
-              name="email"
-              value={emailForm.email}
-              onChange={(event) => {
-                setEmailForm({
-                  ...emailForm,
-                  email: event.target.value,
-                });
-              }}
-            />
-            <span className="text-red-500">{formErrors.email}</span>
-          </div>
+
+          <input
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
+            placeholder="Your Name"
+            required
+            type="text"
+            name="name"
+            value={emailForm.name}
+            onChange={(event) => {
+              setEmailForm({
+                ...emailForm,
+                name: event.target.value,
+              });
+            }}
+          />
+          <span className="text-red-500">{formErrors.name}</span>
+        </div>
+        {/* Last Name */}
+
+        <div className="w-full mb-5">
+          <input
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
+            placeholder="Your Email"
+            required
+            type="email"
+            name="email"
+            value={emailForm.email}
+            onChange={(event) => {
+              setEmailForm({
+                ...emailForm,
+                email: event.target.value,
+              });
+            }}
+          />
+          <span className="text-red-500">{formErrors.email}</span>
         </div>
 
         <div className="mb-5 w-full flex flex-col md:flex-row gap-5">
@@ -166,24 +159,6 @@ const ContactForm: React.FC = () => {
               }}
             />
             <span className="text-red-500">{formErrors.phone}</span>
-          </div>
-          {/* Zip Code */}
-          <div className=" w-full">
-            <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
-              placeholder="Your Subject"
-              required
-              type="text"
-              name="subject"
-              value={emailForm.subject}
-              onChange={(event) => {
-                setEmailForm({
-                  ...emailForm,
-                  subject: event.target.value,
-                });
-              }}
-            />
-            <span className="text-red-500">{formErrors.subject}</span>
           </div>
         </div>
 
@@ -237,12 +212,16 @@ const ContactForm: React.FC = () => {
           <button
             type="submit"
             // onClick={handleSubmit}
-            className="text-white bg-secondary   font-medium  text-base w-full rounded  cursor-pointer px-5 py-2 xl:py-4 text-center"
+            className="text-white bg-primary   font-medium  text-base w-full rounded  cursor-pointer px-5 py-2 xl:py-4 text-center"
           >
-            Make An Apponment
+            Submit
           </button>
         )}
       </form>
+      <p className="text-white text-base mt-5">
+        *I understand that the use of this form for communication with
+        EssenceVFX.
+      </p>
     </div>
   );
 };
