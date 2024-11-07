@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import Image from "next/image";
+import { sliderPortfolioData } from "@/config/data";
 
 const HomeSilderSection = () => {
   // Refs for navigation buttons
@@ -31,7 +32,7 @@ const HomeSilderSection = () => {
   }, []);
 
   return (
-    <div className={`mx-14`}>
+    <div className={`px-16 -mb-36`}>
       <div className="flex items-center">
         <button
           ref={prevButtonRef}
@@ -49,83 +50,72 @@ const HomeSilderSection = () => {
           }}
           className="mySwiper"
         >
-          {[1, 2, 3, 4, 5].map((el, index) => (
+          {sliderPortfolioData?.map((el, index) => (
             <SwiperSlide key={index}>
-              <div className="flex items-center justify-between container  pt-[120px] pb-20">
+              <div className="flex items-start justify-between container  pt-[120px] -mt-10">
                 <div className="w-[40%] text-white">
                   <div className="">
-                    <div className="flex items-center py-4">
+                    <div className="flex items-center py-4 mt-10">
                       <ul className="flex items-center text-white text-center list-none text-[16px] md:text-[18px] gap-3 md:gap-4 font-light ml-0 pl-0">
                         <li className="">
-                          <Link href="#" className="">
-                            <p>USA</p>
-                          </Link>
+                          <p>{el?.topInfo?.location}</p>
                         </li>
                         <div className="h-5 border-l-2 border-white "></div>
                         <li className="">
-                          <Link
-                            href="privacy-policy"
-                            className="hover:underline"
-                          >
-                            <p>May 1 2024</p>
-                          </Link>
+                          <p>{el?.topInfo?.date}</p>
                         </li>
                         <div className="h-5 border-l-2 border-white "></div>
                         <li className="">
-                          <Link
-                            href="/terms-of-use"
-                            className="hover:underline"
-                          >
-                            <p>bboyswirv & kianadaigneault</p>
-                          </Link>
+                          <p>{el?.topInfo?.createBy}</p>
                         </li>
                       </ul>
                     </div>
-                    <h1 className="text-6xl font-extrabold leading-tight pb-3">
-                      Double Blade Lightsaber vs Blaster Fight
+                    <h1 className="text-4xl font-extrabold leading-tight pb-3">
+                      {el?.title}
                     </h1>
 
-                    <p className="text-lg font-normal leading-tight mt-5">
-                      During Star Wars Week, we had a blast (literally) with an
-                      epic showdown that put a double-bladed lightsaber up
-                      against blasters! 🎬 Huge shoutout to Kiana Daigneault for
-                      the incredible lightsaber work and David Hernandez behind
-                      the camera capturing every thrilling moment. Special
-                      thanks to Bboy Swirv for the slick editing that brought it
-                      all together, and much love to Cosplay Powers for pulling
-                      up and delivering top-notch VFX magic! You’ve got to check
-                      them out if you're in need of some epic visual effects.
-                      Also, thanks to This Guy's Audio for the enhanced audio
-                      SFX that made every clash and blaster shot come to life.
-                      🔊
+                    <p className="text-lg font-light leading-tight mt-5">
+                      {el?.descriptionOne}
                     </p>
-                    <p className="text-lg font-normal leading-tight mt-5">
-                      Looking for your own battle-ready lightsaber? Be sure to
-                      check out @byolightsaber for the coolest lightsabers in
-                      the galaxy, perfect for all your epic duels! 🚀 This video
-                      reached over 73,000 viewers and counting, so join in on
-                      the fun!
+                    <p className="text-lg font-light leading-tight mt-5">
+                      {el?.descriptionTwo}
                     </p>
-                    <div className="mt-14">
-                      <div className="bg-primary p-10 rounded-full size-28 relative cursor-pointer">
-                        <p className="absolute -right-24 text-[28px] font-medium">
+                    <div className="mt-10">
+                      <div className="bg-primary p-8 rounded-full size-24 relative cursor-pointer">
+                        <p className="absolute -right-24 text-[22px] font-medium">
                           Watch Video
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="w-[58%] relative">
-                  <Image
-                    className=""
-                    width={1200}
-                    height={700}
-                    src="/assets/home/video-thum.png"
-                    alt="Slider Video"
-                  />
-                  <p className="text-xl font-semibold absolute top-[5%] right-0">
-                    Starwars
-                  </p>
+                <div className="w-[58%] relative -mt-10">
+                  <div className="relative w-full h-[500px] md:h-[1000px] flex items-center justify-center">
+                    <Image
+                      className="absolute inset-0 object-cover bg-center w-full h-full"
+                      width={1920}
+                      height={700}
+                      src={"/assets/home/1111.png"}
+                      alt="Bg Image "
+                    />
+
+                    {/* Centered text */}
+
+                    <div className="relative flex flex-col items-center justify-center w-full z-40">
+                      <div className="relative w-[430px] h-auto -mt-40">
+                        <Image
+                          className="w-full h-auto"
+                          width={500}
+                          height={500}
+                          src="/assets/home/silderVideo.png"
+                          alt="Slider Video"
+                        />
+                        <p className="text-xl font-semibold absolute top-[7%] -right-14 text-left w-[50px] ">
+                          {el?.categories}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>

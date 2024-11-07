@@ -7,74 +7,61 @@ export const siteConfig = {
   },
   siteLogo: { url: "" },
   mainNav: [
-    { title: "Home", slug: "/" },
-    { title: "About Us", slug: "/about" },
-    { title: "Services", slug: "/services" },
-    { title: "Case Studies", slug: "/case-studies" },
-    { title: "Blog", slug: "/blog" },
+    { title: "HOME", slug: "/" },
+    { title: "ABOUT", slug: "/about" },
+    { title: "STATS", slug: "/services" },
+    { title: "CONTACT US", slug: "/contact" },
   ],
 
   footer: {
     footer_logo: "",
     description: "",
-    company: [
+    usefulLinks: [
       {
-        title: "Disclaimers",
-        slug: "/disclaimers",
-      },
-      {
-        title: "Privacy Policy",
-        slug: "/privacy-policy",
-      },
-
-      {
-        title: "Terms of Service",
-        slug: "/terms-of-service",
-      },
-      {
-        title: "Cookie Policy",
-        slug: "/cookie-policy",
-      },
-    ],
-    quick_links: [
-      {
-        title: "About Us",
+        title: "About",
         slug: "/about",
-      },
-      {
-        title: "Practice Areas",
-        slug: "/practice-areas",
       },
       {
         title: "Blog",
         slug: "/blog",
       },
+
       {
-        title: "Testimonials",
-        slug: "/testimonials",
+        title: "Team",
+        slug: "/team",
       },
+    ],
+    categories: [
+      {
+        title: "Starwars",
+        slug: "/starwars",
+      },
+      {
+        title: "Marvel",
+        slug: "/marvel",
+      },
+      {
+        title: "Avatar",
+        slug: "/avatar",
+      },
+      {
+        title: "TMNT",
+        slug: "/tmnt",
+      },
+    ],
+    getInTouch: [
       {
         title: "Contact Us",
         slug: "/contact",
       },
+      {
+        title: "Customer Support",
+        slug: "/customer-support",
+      },
+      {
+        title: "FAQ",
+        slug: "/faq",
+      },
     ],
   },
-  socialLinks: [
-    {
-      title: "Facebook",
-      url: "",
-    },
-    {
-      title: "Twitter",
-      url: "#",
-    },
-    {
-      title: "Instagram",
-      url: "#",
-    },
-    {
-      title: "LinkedIn",
-      url: "#",
-    },
-  ],
 };

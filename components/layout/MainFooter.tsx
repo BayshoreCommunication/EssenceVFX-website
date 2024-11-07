@@ -26,16 +26,16 @@ const MainFooter = () => {
       <footer className="bg-primary">
         <div className="container py-16">
           <div className="">
-            <div className="flex flex-col md:flex-row justify-between">
+            <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between">
               <div className="">
-                <h2 className="text-[22px] font-semibold text-white">
+                <h2 className="text-[22px] font-semibold text-white text-center md:text-left">
                   Useful Links
                 </h2>
                 <hr className="mt-2 mb-6 w-36 border-white" />
                 <ul className="ml-0 text-white list-none text-[18px] font-light">
-                  {siteConfig?.footer?.quick_links?.map((el, index) => (
-                    <li className="mb-4" key={index}>
-                      <Link href={el.slug} className="hover:underline">
+                  {siteConfig?.footer?.usefulLinks?.map((el, index) => (
+                    <li className="mb-4 text-center md:text-left" key={index}>
+                      <Link href={el.slug} className="hover:underline ">
                         {el.title}
                       </Link>
                     </li>
@@ -43,13 +43,13 @@ const MainFooter = () => {
                 </ul>
               </div>
               <div className="">
-                <h2 className="text-[22px] font-semibold text-white">
+                <h2 className="text-[22px] font-semibold text-white text-center md:text-left">
                   Categories
                 </h2>
                 <hr className="w-32 mt-2 mb-6 border-white" />
                 <ul className="ml-0 text-[18px] font-light text-white list-none">
-                  {siteConfig?.footer?.company?.map((el, index) => (
-                    <li className="mb-4" key={index}>
+                  {siteConfig?.footer?.categories?.map((el, index) => (
+                    <li className="mb-4 text-center md:text-left " key={index}>
                       <Link href={el.slug} className="hover:underline">
                         {el.title}
                       </Link>
@@ -58,13 +58,13 @@ const MainFooter = () => {
                 </ul>
               </div>
               <div className="">
-                <h2 className="font-semibold text-white text-[22px]">
+                <h2 className="font-semibold text-white text-[22px] text-center md:text-left">
                   Get In Touch
                 </h2>
                 <hr className="w-36 mt-2 mb-6 border-white" />
                 <ul className="ml-0 text-[18px] font-light text-white list-none">
-                  {siteConfig?.footer?.company?.map((el, index) => (
-                    <li className="mb-4" key={index}>
+                  {siteConfig?.footer?.getInTouch?.map((el, index) => (
+                    <li className="mb-4 text-center md:text-left" key={index}>
                       <Link href={el.slug} className="hover:underline">
                         {el.title}
                       </Link>
