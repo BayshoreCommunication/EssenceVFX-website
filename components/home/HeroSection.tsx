@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section>
       <div className="bg-secondary lg:bg-white md:bg-gradient-to-l  to-secondary to-45% from-transparent from-55%  overflow-hidden">
         {/* for web (larger screens) */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block min-h-screen">
           <HomeSilderSection />
         </div>
 

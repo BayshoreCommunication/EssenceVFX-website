@@ -3,6 +3,7 @@ import HomeSilderSection from "../shared/HomeSilderSection";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
+import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const ContactSection = () => {
   return (
@@ -12,17 +13,22 @@ const ContactSection = () => {
           {/* for mobile (small screens) */}
           <div className="block lg:hidden">
             <div className="mt-6">
-              <Image
-                className="w-[300px h-auto"
-                width={600}
-                height={500}
-                src={"/assets/home/contact.png"}
-                alt="Slider Video"
-              />
+              <ScrollMotionEffect effect="fade-up" duration="2000">
+                <Image
+                  className="w-[300px h-auto"
+                  width={600}
+                  height={500}
+                  src={"/assets/home/contact.png"}
+                  alt="Slider Video"
+                />
+              </ScrollMotionEffect>
             </div>
           </div>
+
           <div className="w-full lg:w-[40%] text-white mb-12 lg:mb-0 mt-12 lg:mt-0">
-            <ContactForm />
+            <ScrollMotionEffect effect="fade-right" duration="2000">
+              <ContactForm />
+            </ScrollMotionEffect>
           </div>
 
           <div className="hidden lg:block w-[58%] ">
@@ -48,21 +54,23 @@ const ContactSection = () => {
               />
 
               {/* Centered text */}
+              <ScrollMotionEffect effect="fade-left" duration="2000">
+                <div className="relative flex flex-col items-center justify-center w-full z-40">
+                  <div className="relative w-[430px] h-auto -mt-40 cursor-pointer">
+                    <Image
+                      className="w-full h-auto"
+                      width={500}
+                      height={500}
+                      src={"/assets/home/contact.png"}
+                      alt="Slider Video"
+                    />
 
-              <div className="relative flex flex-col items-center justify-center w-full z-40">
-                <div className="relative w-[430px] h-auto -mt-40 cursor-pointer">
-                  <Image
-                    className="w-full h-auto"
-                    width={500}
-                    height={500}
-                    src={"/assets/home/contact.png"}
-                    alt="Slider Video"
-                  />
-                  {/* <p className="text-xl font-semibold absolute top-[7%] -right-14 text-left w-[50px] ">
+                    {/* <p className="text-xl font-semibold absolute top-[7%] -right-14 text-left w-[50px] ">
                     {el?.categories}
                   </p> */}
+                  </div>
                 </div>
-              </div>
+              </ScrollMotionEffect>
             </div>
           </div>
         </div>

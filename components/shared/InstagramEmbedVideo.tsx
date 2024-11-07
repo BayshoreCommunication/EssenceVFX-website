@@ -12,6 +12,7 @@ const InstagramEmbedVideo = () => {
         />
       </div>
     </div>
+    
   );
 };
 

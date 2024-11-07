@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   Modal,
   ModalContent,
@@ -29,6 +29,9 @@ import InstagramEmbedVideo from "./InstagramEmbedVideo";
 const HomeSilderSectionForMobile = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+  const [videoUrl, setVideoUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
   const swiperRef = useRef<any>(null);
@@ -42,6 +45,11 @@ const HomeSilderSectionForMobile = () => {
       swiperRef.current.navigation.update();
     }
   }, []);
+
+  const onShowPopUp = (video: any, image: any) => {
+    setVideoUrl(video);
+    setImageUrl(image);
+  };
 
   return (
     <div className="">
@@ -68,7 +76,13 @@ const HomeSilderSectionForMobile = () => {
                     {/* Centered text */}
 
                     <div className="w-full mt-32">
-                      <div className=" cursor-pointer" onClick={onOpen}>
+                      <div
+                        className=" cursor-pointer"
+                        onClick={() => {
+                          onOpen();
+                          onShowPopUp(el?.videoUrl, el?.videoThum);
+                        }}
+                      >
                         <Image
                           className="w-full h-auto"
                           width={500}
@@ -109,7 +123,10 @@ const HomeSilderSectionForMobile = () => {
                       <div className="mt-11 pb-24 flex items-center cursor-pointer overflow-hidden justify-center mx-auto">
                         <Button
                           className="bg-primary p-4 w-24 h-24 rounded-full"
-                          onClick={onOpen}
+                          onClick={() => {
+                            onOpen();
+                            onShowPopUp(el?.videoUrl, el?.videoThum);
+                          }}
                         />
                         <p className="text-[22px] font-medium -ml-8 relative z-40">
                           Watch Video
@@ -124,11 +141,23 @@ const HomeSilderSectionForMobile = () => {
         </div>
       </div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="sm">
-        <ModalContent className="w-[400px]">
+        <ModalContent className="w-[600px]">
           {(onClose) => (
             <ModalBody>
               <div className="pt-4 pb-2">
-                <InstagramEmbedVideo />
+                {/* <InstagramEmbedVideo /> */}
+                <video
+                  autoPlay
+                  src={videoUrl}
+                  muted
+                  preload="metadata"
+                  className="mx-auto"
+                  width={200}
+                  height={50}
+                  playsInline
+                  controls
+                  poster={imageUrl}
+                />
               </div>
             </ModalBody>
           )}

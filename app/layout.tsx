@@ -9,7 +9,7 @@ import MainFooter from "@/components/layout/MainFooter";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL("https://tampa-motion-website.vercel.app"),
+  metadataBase: new URL("https://essence-vfx-website.vercel.app"),
 };
 
 export default function RootLayout({
