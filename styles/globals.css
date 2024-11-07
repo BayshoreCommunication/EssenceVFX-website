@@ -53,3 +53,22 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+/* Custom pagination styles */
+.mySwiper .swiper-pagination-bullet {
+  background-color: white; /* Set the default pagination color to white */
+  width: 15px; /* Set the bullet size */
+  height: 15px; /* Set the bullet size */
+  border-radius: 50%; /* Make the bullet round */
+  transition: background-color 0.3s ease;
+}
+
+/* Custom hover state */
+.mySwiper .swiper-pagination-bullet:hover {
+  background-color: #c70039; /* Hover color */
+}
+
+/* Custom active pagination bullet color */
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #ff5733; /* Active bullet color */
+}

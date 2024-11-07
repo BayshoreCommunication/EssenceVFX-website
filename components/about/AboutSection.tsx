@@ -4,7 +4,7 @@ import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const AboutSection = () => {
   return (
-    <div className="relative w-full h-[500px] md:h-[700px] flex items-center justify-center">
+    <div className="relative w-full h-[900px] md:h-[700px] flex items-center justify-center -mt-20">
       <Image
         className="absolute inset-0 object-cover bg-bottom w-full h-full"
         width={1920}
@@ -13,12 +13,12 @@ const AboutSection = () => {
         alt="Bg Image "
       />
 
-      <div className="container relative flex flex-col items-center justify-center w-full ">
+      <div className="container relative flex flex-col items-center justify-center w-full mt-36">
         <ScrollMotionEffect effect="fade-up" duration="2000">
           <h2 className="mt-4 md:mt-6 text-[30px] md:text-[55px] font-semibold text-white text-center leading-tight">
             About
           </h2>
-          <p className="text-white text-center text-lg mt-4">
+          <p className="text-white text-center text-base lg:text-lg mt-4">
             At EssenceVFX, we've been bringing imagination to life for over a
             decade. Our journey began at an anime convention where we approached
             cosplayers, offering on-the-spot VFX using just a mobile app. What

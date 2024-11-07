@@ -26,7 +26,7 @@ import Image from "next/image";
 import { sliderPortfolioData } from "@/config/data";
 import InstagramEmbedVideo from "./InstagramEmbedVideo";
 
-const HomeSilderSection = () => {
+const HomeSilderSectionForMobile = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -44,16 +44,14 @@ const HomeSilderSection = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
-      <div className={`mt-14  px-16 -mb-36`}>
+    <div className="">
+      <div className={`mt-6`}>
         <div className="lg:flex items-center">
-          <button
-            ref={prevButtonRef}
-            className=" text-black hover:text-gray-900 p-2 bg-white rounded-full shadow-md "
-          >
-            <IoIosArrowBack className="size-9" />
-          </button>
           <Swiper
+            pagination={{
+              clickable: true, // Allows pagination to be clickable
+              type: "bullets", // You can also use 'progressbar', 'fraction', etc.
+            }}
             cssMode={true}
             mousewheel={true}
             keyboard={true}
@@ -65,11 +63,26 @@ const HomeSilderSection = () => {
           >
             {sliderPortfolioData?.map((el, index) => (
               <SwiperSlide key={index}>
-                <div className="flex items-start justify-between container  pt-[120px] -mt-10">
-                  <div className="w-[40%] text-white">
+                <div className="container">
+                  <div className="">
+                    {/* Centered text */}
+
+                    <div className="w-full mt-32">
+                      <div className=" cursor-pointer" onClick={onOpen}>
+                        <Image
+                          className="w-full h-auto"
+                          width={500}
+                          height={500}
+                          src="/assets/home/silderVideo.png"
+                          alt="Slider Video"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className=" text-white text-center">
                     <div className="">
-                      <div className="flex items-center py-4 mt-10">
-                        <ul className="flex items-center text-white text-center list-none text-[16px] md:text-[18px] gap-3 md:gap-4 font-light ml-0 pl-0">
+                      <div className="flex items-center py-4 mt-10 justify-center">
+                        <ul className="flex items-center text-white text-center justify-center list-none text-[16px] md:text-[18px] gap-3 font-light ml-0 pl-0">
                           <li className="">
                             <p>{el?.topInfo?.location}</p>
                           </li>
@@ -93,7 +106,7 @@ const HomeSilderSection = () => {
                       <p className="text-lg font-light leading-tight mt-5">
                         {el?.descriptionTwo}
                       </p>
-                      <div className="mt-11 flex items-center cursor-pointer overflow-hidden">
+                      <div className="mt-11 pb-24 flex items-center cursor-pointer overflow-hidden justify-center mx-auto">
                         <Button
                           className="bg-primary p-4 w-24 h-24 rounded-full"
                           onClick={onOpen}
@@ -104,48 +117,10 @@ const HomeSilderSection = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="w-[58%] relative -mt-10">
-                    <div className="relative w-full h-[500px] md:h-[1000px] flex items-center justify-center ">
-                      <Image
-                        className="absolute inset-0 object-cover bg-center w-full h-full"
-                        width={1920}
-                        height={700}
-                        src={"/assets/home/1111.png"}
-                        alt="Bg Image "
-                      />
-
-                      {/* Centered text */}
-
-                      <div className="relative flex flex-col items-center justify-center w-full z-40">
-                        <div
-                          className="relative w-[430px] h-auto -mt-40 cursor-pointer"
-                          onClick={onOpen}
-                        >
-                          <Image
-                            className="w-full h-auto"
-                            width={500}
-                            height={500}
-                            src="/assets/home/silderVideo.png"
-                            alt="Slider Video"
-                          />
-                          <p className="text-xl font-semibold absolute top-[7%] -right-14 text-left w-[50px] ">
-                            {el?.categories}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-
-          <button
-            className=" text-black hover:text-gray-900 p-2 bg-white rounded-full shadow-large shadow-black border"
-            ref={nextButtonRef}
-          >
-            <IoIosArrowForward className="size-9" />
-          </button>
         </div>
       </div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="sm">
@@ -163,4 +138,4 @@ const HomeSilderSection = () => {
   );
 };
 
-export default HomeSilderSection;
+export default HomeSilderSectionForMobile;

@@ -58,8 +58,8 @@ const MainHeader = () => {
 
   return (
     <section className="relative z-50">
-      <div className="mt-2 py-2 md:py-5">
-        <div className=" hidden md:block">
+      <div className="mt-2 py-2 lg:py-5 ">
+        <div className=" hidden lg:block">
           <div className="flex items-center container  justify-between">
             <div className=" flex items-center gap-x-10 2xl:gap-x-16">
               <Link href={"/"}>
@@ -73,7 +73,7 @@ const MainHeader = () => {
                   <Link
                     key={el.slug}
                     href={`${el.slug}`}
-                    className={`cursor-pointer  text-sm xl:text-[16px] font-medium  nav-item ${pathname === el.slug ? "border-b-2 border-primary" : ""}  ${pathname === "/about" ? "!text-white " : "!text-black"}`}
+                    className={`cursor-pointer text-sm lg:text-[16px] font-medium  nav-item ${pathname === el.slug ? "border-b-2 border-primary" : ""}  ${pathname === "/about" ? "!text-white " : "!text-black"}`}
                   >
                     {el.title}
                   </Link>
@@ -82,16 +82,16 @@ const MainHeader = () => {
             </div>
           </div>
         </div>
-        <div className="md:hidden ">
+        <div className="lg:hidden ">
           <Navbar
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
-            className={`!mx-0 !px-0 pb-0 pt-0  md:pb-3 md:pt-4 bg-white`}
+            className={` bg-white py-3`}
           >
             <NavbarContent>
               <NavbarMenuToggle
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                className="md:hidden text-black"
+                className="lg:hidden text-black"
               />
               <NavbarBrand>
                 <Link href="/">
