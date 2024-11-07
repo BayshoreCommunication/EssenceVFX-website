@@ -69,7 +69,7 @@ const HomeSilderSection = () => {
                   <div className="w-[40%] text-white">
                     <div className="">
                       <div className="flex items-center py-4 mt-10">
-                        <ul className="flex items-center text-white text-center list-none text-[16px] md:text-[18px] gap-3 md:gap-4 font-light ml-0 pl-0">
+                        <ul className="flex items-center text-white text-center list-none text-[14px] xl:text-[18px] gap-2 xl:gap-2 font-light ml-0 pl-0">
                           <li className="">
                             <p>{el?.topInfo?.location}</p>
                           </li>
@@ -83,14 +83,14 @@ const HomeSilderSection = () => {
                           </li>
                         </ul>
                       </div>
-                      <h1 className="text-4xl font-extrabold leading-tight pb-3">
+                      <h1 className="text-xl xl:text-4xl font-extrabold leading-tight pb-3">
                         {el?.title}
                       </h1>
 
-                      <p className="text-lg font-light leading-tight mt-5">
+                      <p className="text-sm xl:text-lg font-light leading-tight mt-5">
                         {el?.descriptionOne}
                       </p>
-                      <p className="text-lg font-light leading-tight mt-5">
+                      <p className="text-sm xl:text-lg font-light leading-tight mt-5">
                         {el?.descriptionTwo}
                       </p>
                       <div className="mt-11 flex items-center cursor-pointer overflow-hidden">
@@ -125,7 +125,7 @@ const HomeSilderSection = () => {
                             className="w-full h-auto"
                             width={500}
                             height={500}
-                            src="/assets/home/silderVideo.png"
+                            src={el?.videoThum}
                             alt="Slider Video"
                           />
                           <p className="text-xl font-semibold absolute top-[7%] -right-14 text-left w-[50px] ">

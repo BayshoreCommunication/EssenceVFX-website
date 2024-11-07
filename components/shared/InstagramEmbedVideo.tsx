@@ -7,7 +7,6 @@ const InstagramEmbedVideo = () => {
     <div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <InstagramEmbed
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
           url="https://www.instagram.com/reel/DCCeKW6IA-3/?igsh=NHljaHlkMnFiZHI3"
           width={328}
         />

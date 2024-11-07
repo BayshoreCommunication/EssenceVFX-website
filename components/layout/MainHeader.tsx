@@ -102,9 +102,9 @@ const MainHeader = () => {
               </NavbarBrand>
             </NavbarContent>
 
-            <NavbarMenu className="overflow-hidden">
+            <NavbarMenu className="overflow-hidden  mt-6">
               {menuItems.map((el, index) => (
-                <NavbarMenuItem key={el.slug} className="flex flex-row">
+                <NavbarMenuItem key={el.slug} className="flex flex-row mt-2">
                   <Link
                     className={`w-full  text-black text-center !text-xl font-medium py-1 ${pathname === el.slug ? "!text-primary" : ""} ${index === 0 ? "mt-6" : ""}`}
                     href={el.slug}

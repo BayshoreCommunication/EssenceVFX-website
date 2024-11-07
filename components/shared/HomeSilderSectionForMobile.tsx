@@ -73,7 +73,7 @@ const HomeSilderSectionForMobile = () => {
                           className="w-full h-auto"
                           width={500}
                           height={500}
-                          src="/assets/home/silderVideo.png"
+                          src={el?.videoThum}
                           alt="Slider Video"
                         />
                       </div>
