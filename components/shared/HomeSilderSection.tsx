@@ -180,7 +180,7 @@ const HomeSilderSection = () => {
         </div>
       </div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="sm">
-        <ModalContent className="w-[400px]">
+        <ModalContent className="w-[600px]  h-auto">
           {(onClose) => (
             <ModalBody>
               <div className="pt-4 pb-2">
@@ -191,7 +191,7 @@ const HomeSilderSection = () => {
                   preload="metadata"
                   className="mx-auto"
                   width={200}
-                  height={50}
+                  height={600}
                   playsInline
                   controls
                   poster={imageUrl}

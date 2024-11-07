@@ -56,10 +56,10 @@ const ContactForm: React.FC = () => {
 
     if (Object.keys(errors).length === 0) {
       send(
-        "service_8n2c08r",
-        "template_l80dw67",
+        "service_rumqikr",
+        "template_dse9v8i",
         emailForm,
-        "892_ctuJSgLrPDjJ7"
+        "YJi0fWczqElZyheiJ"
       )
         .then((response) => {
           setLoading(false);
