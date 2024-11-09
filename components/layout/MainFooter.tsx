@@ -11,6 +11,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { IoMdHome } from "react-icons/io";
+import { FaTiktok } from "react-icons/fa";
 
 import {
   FaFacebookF,
@@ -82,35 +83,35 @@ const MainFooter = () => {
 
             <div className="text-white  flex justify-center md:justify-start gap-3 mt-4 md:mt-6 ">
               <Link
-                href="https://www.facebook.com/MelamedLawPLLC"
+                href="https://www.facebook.com/cosplaypowers"
                 target="_blank"
                 className="inline-block p-2 rounded  duration-300"
               >
                 <FaFacebookF className="size-5 hover:text-black" />
               </Link>
-              <Link
+              {/* <Link
                 href="https://www.linkedin.com/company/melamedlawpllc"
                 target="_blank"
                 className="inline-block p-2 rounded duration-300"
               >
                 <FaLinkedinIn className="size-5 hover:text-black" />
-              </Link>
+              </Link> */}
               <Link
-                href="https://x.com/Melamedlawpllc"
+                href="https://www.tiktok.com/@webslinger"
                 target="_blank"
                 className="inline-block p-2 rounded  duration-300"
               >
-                <FaTwitter className="size-5 hover:text-black" />
+                <FaTiktok className="size-5 hover:text-black" />
               </Link>
               <Link
-                href="https://www.instagram.com/melamedlaw_pllc"
+                href="https://www.instagram.com/cosplaypowers/"
                 target="_blank"
                 className="inline-block p-2 rounded  duration-300"
               >
                 <FaInstagram className="size-5 hover:text-black" />
               </Link>
               <Link
-                href="https://www.youtube.com/@melamedlawpllc"
+                href="https://www.youtube.com/@webslingers"
                 target="_blank"
                 className="inline-block p-2 rounded duration-300"
               >

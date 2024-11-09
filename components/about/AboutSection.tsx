@@ -4,7 +4,7 @@ import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const AboutSection = () => {
   return (
-    <div className="relative w-full h-[900px] md:h-[700px] flex items-center justify-center -mt-20">
+    <div className="relative w-full h-[1100px] md:h-[700px] flex items-center justify-center -mt-20">
       <Image
         className="absolute inset-0 object-cover bg-bottom w-full h-full"
         width={1920}
