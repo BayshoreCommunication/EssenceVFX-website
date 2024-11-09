@@ -80,14 +80,15 @@ const HomeSilderSectionForMobile = () => {
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
-            onSlideChange={handleSlideChange} // Trigger slide change event
+            onSlideChange={handleSlideChange}
             className="mySwiper"
           >
             {sliderPortfolioData?.map((el, index) => (
               <SwiperSlide key={index}>
                 <motion.div
                   initial="hidden"
-                  animate={currentIndex === index ? "visible" : "hidden"} // Animate on index match
+                  animate={currentIndex === index ? "visible" : "hidden"}
+                  match
                   exit="hidden"
                   variants={variants}
                   className="container"
@@ -128,7 +129,7 @@ const HomeSilderSectionForMobile = () => {
                         initial={{ opacity: 0, scale: 0.99 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, ease: "easeInOut" }}
-                        className="flex items-center text-white text-center justify-center list-none text-[16px] md:text-[18px] gap-3 font-light ml-0 pl-0 mb-6"
+                        className="flex items-center text-white text-center justify-center list-none text-[12px] gap-2 font-light ml-0 pl-0 mb-6"
                       >
                         <li>
                           <p>{el?.topInfo?.location}</p>
