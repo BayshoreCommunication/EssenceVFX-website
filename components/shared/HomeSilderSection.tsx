@@ -139,22 +139,24 @@ const HomeSilderSection = () => {
                   {heroInfoData?.descriptionTwo}
                 </motion.p>
 
-                <motion.div
-                  variants={variants}
-                  className="mt-11 mb-10 flex items-center cursor-pointer w-[350px] group"
-                >
+                <motion.div variants={variants} className="">
                   <button
-                    className="bg-primary w-[75px] group-hover:w-[200px] h-[75px] rounded-full transition-all duration-300 relative z-10 group-hover:bg-hoverColor"
+                    className="mt-11 mb-10 flex items-center cursor-pointer w-[350px] group"
                     onClick={() => {
                       onOpen();
-                      // onShowPopUp(el?.videoUrl, el?.videoThum);
+                      onShowPopUp(
+                        heroInfoData?.videoUrl,
+                        heroInfoData?.videoThum
+                      );
                     }}
-                  />
+                  >
+                    <div className="bg-primary w-[75px] group-hover:w-[200px] h-[75px] rounded-full transition-all duration-300 relative z-10 group-hover:bg-hoverColor" />
 
-                  <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-300 group-hover:text-hoverColor flex items-center">
-                    <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-300  text-white size-6" />
-                    Watch Video
-                  </p>
+                    <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-300 group-hover:text-hoverColor flex items-center">
+                      <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-300  text-white size-6" />
+                      Watch Video
+                    </p>
+                  </button>
                 </motion.div>
               </motion.div>
             </div>

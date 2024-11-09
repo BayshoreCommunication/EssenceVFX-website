@@ -168,26 +168,21 @@ const HomeSilderSectionForMobile = () => {
                       </motion.p>
 
                       {/* Button and Video Section */}
-                      <motion.div
-                        variants={variants}
-                        className="mt-11 pb-24 flex items-center cursor-pointer overflow-hidden justify-center mx-auto"
-                      >
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ duration: 0.5, ease: "easeInOut" }}
+                      <motion.div variants={variants} className="">
+                        <button
+                          className="mt-11 mb-10 flex items-center cursor-pointer w-[350px] group"
+                          onClick={() => {
+                            onOpen();
+                            onShowPopUp(el?.videoUrl, el?.videoThum);
+                          }}
                         >
-                          <Button
-                            className="bg-primary p-4 w-24 h-24 rounded-full"
-                            onClick={() => {
-                              onOpen();
-                              onShowPopUp(el?.videoUrl, el?.videoThum);
-                            }}
-                          />
-                        </motion.div>
-                        <p className="text-[22px] font-medium -ml-8 relative z-40">
-                          Watch Video
-                        </p>
+                          <div className="bg-primary w-[75px] group-hover:w-[200px] h-[75px] rounded-full transition-all duration-300 relative z-10 group-hover:bg-hoverColor" />
+
+                          <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-300 group-hover:text-hoverColor flex items-center">
+                            <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-300  text-white size-6" />
+                            Watch Video
+                          </p>
+                        </button>
                       </motion.div>
                     </motion.div>
                   </div>
