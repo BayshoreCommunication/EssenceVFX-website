@@ -73,7 +73,7 @@ const HomeSilderSection = () => {
 
   return (
     <div className="">
-      <div className={`mt-14 px-8 xl:px-10 mb-16`}>
+      <div className={`mt-14 px-8 xl:px-10 mb-20`}>
         <div className="lg:flex items-center">
           <button
             ref={prevButtonRef}
