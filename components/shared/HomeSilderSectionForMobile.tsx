@@ -14,7 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FaQuoteRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
-
+import { IoMdArrowDropright } from "react-icons/io";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 
 import "swiper/css";
