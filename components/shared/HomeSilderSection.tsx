@@ -73,7 +73,7 @@ const HomeSilderSection = () => {
 
   return (
     <div className="">
-      <div className={`mt-14  px-16 mb-16`}>
+      <div className={`mt-14 px-8 xl:px-10 mb-16`}>
         <div className="lg:flex items-center">
           <button
             ref={prevButtonRef}
@@ -82,7 +82,7 @@ const HomeSilderSection = () => {
             <IoIosArrowBack className="size-9 text-black group-hover:text-white" />
           </button>
 
-          <div className="flex items-start justify-between container pt-14 -mb-24 gap-x-10">
+          <div className="flex items-start justify-between container pt-14 -mb-24 gap-x-14">
             <div className="w-[42%] text-white">
               <motion.div
                 key={sliderIndex}
@@ -97,7 +97,7 @@ const HomeSilderSection = () => {
                     initial={{ opacity: 0, scale: 0.99 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, ease: "easeInOut" }}
-                    className="flex items-center text-white text-center list-none text-[14px] xl:text-[18px] gap-2 xl:gap-2 font-light ml-0 pl-0"
+                    className="flex items-center text-white text-center list-none text-[10px] lg:text-[12px] xl:text-[18px] gap-2 xl:gap-1 font-light ml-0 pl-0"
                   >
                     <li className="">
                       <p>{heroInfoData?.topInfo?.location}</p>
@@ -120,21 +120,21 @@ const HomeSilderSection = () => {
 
                 <motion.h1
                   variants={variants}
-                  className="text-xl xl:text-4xl font-extrabold leading-tight pb-3"
+                  className="text-xl lg:text-3xl xl:text-4xl font-extrabold leading-tight pb-3"
                 >
                   {heroInfoData?.title}
                 </motion.h1>
 
                 <motion.p
                   variants={variants}
-                  className="text-sm xl:text-lg font-light leading-tight mt-5"
+                  className="text-sm lg:text-base xl:text-lg font-light leading-tight mt-5"
                 >
                   {heroInfoData?.descriptionOne}
                 </motion.p>
 
                 <motion.p
                   variants={variants}
-                  className="text-sm xl:text-lg font-light leading-tight mt-5"
+                  className="text-sm lg:text-base xl:text-lg font-light leading-tight mt-5"
                 >
                   {heroInfoData?.descriptionTwo}
                 </motion.p>
