@@ -88,7 +88,6 @@ const HomeSilderSectionForMobile = () => {
                 <motion.div
                   initial="hidden"
                   animate={currentIndex === index ? "visible" : "hidden"}
-                  match
                   exit="hidden"
                   variants={variants}
                   className="container"
