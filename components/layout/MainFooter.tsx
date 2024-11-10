@@ -124,10 +124,7 @@ const MainFooter = () => {
           <div className="md:flex :items-center sm:justify-between ">
             <div className="text-[18px] font-light text-center text-white">
               © 2024{" "}
-              <a
-                href="https://trip-law.com/"
-                className="hover:underline text-white"
-              >
+              <a href="" className="hover:underline text-white">
                 EssenceVFX
               </a>
               . All Rights Reserved.
@@ -136,7 +133,7 @@ const MainFooter = () => {
             <div className="text-[18px] font-light text-center text-white mt-4 md:mt-0">
               Design & Developed by{" "}
               <a
-                href="https://www.bayshorecommunication.com//"
+                href="https://www.bayshorecommunication.com/"
                 target="_blank"
                 className="font-light hover:underline text-white"
               >
