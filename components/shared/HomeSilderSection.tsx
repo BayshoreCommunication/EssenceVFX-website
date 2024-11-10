@@ -57,7 +57,7 @@ const HomeSilderSection = () => {
     setVideoUrl(video);
     setImageUrl(image);
   };
-
+  // px-8 xl:px-10
   const variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -73,7 +73,7 @@ const HomeSilderSection = () => {
 
   return (
     <div className="">
-      <div className={`mt-14 px-8 xl:px-10 mb-20`}>
+      <div className={`mt-14  mb-20 mx-10`}>
         <div className="lg:flex items-center">
           <button
             ref={prevButtonRef}

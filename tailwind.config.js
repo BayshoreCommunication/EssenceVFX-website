@@ -16,6 +16,19 @@ module.exports = {
         white: "#FFFFFF",
       },
     },
+    // container: {
+    //   center: true,
+    //   padding: {
+    //     DEFAULT: "1rem",
+    //     sm: "2rem",
+    //     lg: "4rem",
+    //     xl: "5rem",
+    //     "2xl": "10rem",
+    //   },
+    // },
+    // maxWidth: {
+    //   "2xl": "1280px",
+    // },
     container: {
       center: true,
       padding: {
@@ -23,11 +36,11 @@ module.exports = {
         sm: "2rem",
         lg: "4rem",
         xl: "5rem",
-        "2xl": "10rem",
+        "2xl": "1rem",
       },
     },
     maxWidth: {
-      "2xl": "1280px",
+      "2xl": "1536px", // The default value for 2xl in Tailwind CSS
     },
   },
 
