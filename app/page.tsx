@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import dynamic from "next/dynamic";
 
 export const metadata = {
   title: "EssenceVFX",

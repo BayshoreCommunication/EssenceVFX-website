@@ -72,6 +72,8 @@ const HomeSilderSection = () => {
     },
   };
 
+  console.log("check value 75", sliderIndex);
+
   return (
     <div className="relative">
       <button
@@ -106,7 +108,7 @@ const HomeSilderSection = () => {
                   initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="flex items-center text-white text-center list-none text-[12px] lg:text-[14px] xl:text-[16px] gap-2 xl:gap-2 font-light ml-0 pl-0"
+                  className="flex items-center text-white text-center list-none text-[12px] lg:text-[14px] xl:text-[16px] gap-2 xl:gap-4 font-light ml-0 pl-0"
                 >
                   <li>
                     <p>{heroInfoData?.topInfo?.location}</p>
@@ -181,7 +183,7 @@ const HomeSilderSection = () => {
               cssMode={true}
               mousewheel={true}
               keyboard={true}
-              loop={true}
+              // loop={true}
               modules={[Navigation, Pagination, Mousewheel, Keyboard]}
               onBeforeInit={(swiper) => {
                 swiperRef.current = swiper;
@@ -208,8 +210,8 @@ const HomeSilderSection = () => {
                         src={el?.videoThum}
                         alt="Slider Video"
                       />
-                      <p className="text-lg font-normal absolute top-[3.5%] left-[100%] text-left  bg-primary w-[35px] h-[70px] group-hover:w-[90px] transition-all duration-300 flex items-center rounded-r-md z-50">
-                        <span className="pl-1.5 capitalize text-secondary">
+                      <p className="text-sm font-light absolute top-[3.5%] left-[100%] text-left  bg-primary w-[35px] h-[70px] group-hover:w-[90px] transition-all duration-300 flex items-center rounded-r-md z-50">
+                        <span className="pl-1.5 uppercase text-secondary">
                           {el?.categories}
                         </span>
                       </p>

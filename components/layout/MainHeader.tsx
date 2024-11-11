@@ -12,13 +12,24 @@ import { LuUser2 } from "react-icons/lu";
 import { IoCall } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Orbitron } from "next/font/google";
 import { BsTelephoneForwardFill } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
 import { HiOutlineMail } from "react-icons/hi";
 import Image from "next/image";
 
-const orbitron = Orbitron({ subsets: ["latin"] });
+const debounce = <T extends (...args: any[]) => void>(
+  func: T,
+  wait: number
+) => {
+  let timeout: NodeJS.Timeout | undefined;
+
+  return (...args: Parameters<T>): void => {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => func(...args), wait);
+  };
+};
 
 const MainHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,23 +52,27 @@ const MainHeader = () => {
     []
   );
 
-  // const handleScroll = useCallback(
-  //   debounce(() => {
-  //     setNavbarColor(window.scrollY >= 100);
-  //   }, 100),
-  //   []
-  // );
+  const handleScroll = useCallback(
+    debounce(() => {
+      setNavbarColor(window.scrollY >= 100);
+    }, 100),
+    []
+  );
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [handleScroll]);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
+  // className={`pb-0 pt-2 md:pb-3 md:pt-4 fixed top-0 transition-colors duration-300 ${navbarColor ? "!bg-white shadow-small duration-1000" : "bg-transparent"}`}
 
   return (
-    <section className="relative z-50">
-      <div className="mt-2 py-2 lg:py-5 ">
+    <section className={`relative z-50 `}>
+      <div
+        className={`w-full py-2 fixed top-0 transition-colors duration-300 ${navbarColor ? "!bg-white shadow-small duration-1000" : "bg-transparent"}`}
+      >
         <div className=" hidden lg:block">
           <div className="flex items-center container  justify-between">
             <div className=" flex items-center gap-x-10 2xl:gap-x-16">

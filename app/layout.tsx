@@ -48,7 +48,7 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class" }}>
           <MainHeader />
-          <div className="overflow-x-hidden -mt-[105px]">{children}</div>
+          <div className="overflow-x-hidden">{children}</div>
           <MainFooter />
           <ScrollToTopButton />
         </Providers>
