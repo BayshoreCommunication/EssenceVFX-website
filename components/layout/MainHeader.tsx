@@ -16,7 +16,6 @@ import { Orbitron } from "next/font/google";
 import { BsTelephoneForwardFill } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
 import { HiOutlineMail } from "react-icons/hi";
-
 import Image from "next/image";
 
 const orbitron = Orbitron({ subsets: ["latin"] });
@@ -36,7 +35,7 @@ const MainHeader = () => {
     () => [
       { title: "HOME", slug: "/" },
       { title: "ABOUT", slug: "/about" },
-      { title: "STATS", slug: "/services" },
+      // { title: "STATS", slug: "/services" },
       { title: "CONTACT US", slug: "/contact" },
     ],
     []
@@ -63,17 +62,24 @@ const MainHeader = () => {
           <div className="flex items-center container  justify-between">
             <div className=" flex items-center gap-x-10 2xl:gap-x-16">
               <Link href={"/"}>
-                <h2 className="text-4xl font-black text-primary">EssenceVFX</h2>
+                {/* <h2 className="text-4xl font-black text-primary">EssenceVFX</h2> */}
+                <Image
+                  src="/assets/site-logo/site-logo.png"
+                  alt="EssenceVFX"
+                  width={500}
+                  height={500}
+                  className="cursor-pointer w-[180px] xl:w-[300px]  h-auto mt-2 mb-2"
+                />
               </Link>
             </div>
 
             <div className="">
-              <div className="flex items-center justify-stretch gap-x-2  xl:gap-x-8">
+              <div className="flex items-center justify-stretch gap-x-2  xl:gap-x-14">
                 {menuItems.map((el) => (
                   <Link
                     key={el.slug}
                     href={`${el.slug}`}
-                    className={`cursor-pointer text-sm lg:text-[16px] font-medium  nav-item ${pathname === el.slug ? "border-b-2 border-primary" : ""}  ${pathname === "/about" ? "!text-white " : "!text-black"}`}
+                    className={`cursor-pointer text-sm lg:text-[14px] font-semibold hover:border-b-2 hover:border-primary transition-all duration-300 h-7  ${pathname === el.slug ? "border-b-2 border-primary border-spacing-y-2" : ""}  ${pathname === "/about" ? "!text-white " : "!text-black"}`}
                   >
                     {el.title}
                   </Link>
@@ -86,7 +92,7 @@ const MainHeader = () => {
           <Navbar
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
-            className={` bg-white py-3`}
+            className={` bg-white -mt-4 py-4`}
           >
             <NavbarContent>
               <NavbarMenuToggle

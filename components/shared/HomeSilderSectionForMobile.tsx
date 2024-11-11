@@ -156,13 +156,13 @@ const HomeSilderSectionForMobile = () => {
                       {/* Descriptions */}
                       <motion.p
                         variants={variants}
-                        className="text-lg font-light leading-tight mt-5"
+                        className="text-base font-light leading-tight mt-5"
                       >
                         {el?.descriptionOne}
                       </motion.p>
                       <motion.p
                         variants={variants}
-                        className="text-lg font-light leading-tight mt-5"
+                        className="text-base  font-light leading-tight mt-5"
                       >
                         {el?.descriptionTwo}
                       </motion.p>

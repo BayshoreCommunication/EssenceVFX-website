@@ -12,23 +12,14 @@ export const sliderPortfolioData = [
     categories: "Starwars",
     videoThum: "/assets/home/starwars-thum.png",
     videoUrl: "/assets/video/starwars-thum.mp4",
-    title: "Double Blade Lightsaber vs Blaster Fight",
-    descriptionOne: ` During Star Wars Week, we had a blast (literally) with an
-                    epic showdown that put a double-bladed lightsaber up against
-                    blasters! 🎬 Huge shoutout to Kiana Daigneault for the
-                    incredible lightsaber work and David Hernandez behind the
-                    camera capturing every thrilling moment. Special thanks to
-                    Bboy Swirv for the slick editing that brought it all
-                    together, and much love to Cosplay Powers for pulling up and
-                    delivering top-notch VFX magic! You’ve got to check them out
-                    if you're in need of some epic visual effects. Also, thanks
-                    to This Guy's Audio for the enhanced audio SFX that made
-                    every clash and blaster shot come to life. 🔊`,
-    descriptionTwo: ` Looking for your own battle-ready lightsaber? Be sure to
+    title: "Double Blade",
+    subTitle: "Lightsaber vs Blaster Fight",
+    descriptionOne: ` Looking for your own battle-ready lightsaber? Be sure to
                       check out @byolightsaber for the coolest lightsabers in
                       the galaxy, perfect for all your epic duels! 🚀 This video
                       reached over 73,000 viewers and counting, so join in on
                       the fun!`,
+    descriptionTwo: ` `,
   },
 
   {
@@ -100,7 +91,7 @@ export const sliderPortfolioData = [
     categories: "Marvel",
     videoThum: "/assets/home/marvel-thum 2.png",
     videoUrl: "/assets/video/marvel-thum2.mp4",
-    title: "Optic Blast! Cyclops",
+    title: "Optic Blast!",
     descriptionOne: `Cyclops Optic Blast 💥 – As part of a dynamic collaboration with cosplayer @hellspawned_cosplay, this project showcased stunning visual effects that captured the iconic power of Cyclops. With over 45,000 people reached, this video brought the character to life through expertly crafted VFX and engaging cosplay performance.`,
   },
 ];

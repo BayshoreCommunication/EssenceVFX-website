@@ -29,11 +29,11 @@ const MainFooter = () => {
           <div className="">
             <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between">
               <div className="">
-                <h2 className="text-[22px] font-semibold text-white text-center md:text-left">
+                <h2 className="text-[20px] font-semibold text-white text-center md:text-left">
                   Useful Links
                 </h2>
                 <hr className="mt-2 mb-6 w-36 border-white" />
-                <ul className="ml-0 text-white list-none text-[18px] font-light">
+                <ul className="ml-0 text-white list-none text-[16px] font-light">
                   {siteConfig?.footer?.usefulLinks?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left" key={index}>
                       <Link href={el.slug} className="hover:underline ">
@@ -44,11 +44,11 @@ const MainFooter = () => {
                 </ul>
               </div>
               <div className="">
-                <h2 className="text-[22px] font-semibold text-white text-center md:text-left">
+                <h2 className="text-[20px] font-semibold text-white text-center md:text-left">
                   Categories
                 </h2>
                 <hr className="w-32 mt-2 mb-6 border-white" />
-                <ul className="ml-0 text-[18px] font-light text-white list-none">
+                <ul className="ml-0 text-[16px] font-light text-white list-none">
                   {siteConfig?.footer?.categories?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left " key={index}>
                       <Link href={el.slug} className="hover:underline">
@@ -59,11 +59,11 @@ const MainFooter = () => {
                 </ul>
               </div>
               <div className="">
-                <h2 className="font-semibold text-white text-[22px] text-center md:text-left">
+                <h2 className="font-semibold text-white text-[20px] text-center md:text-left">
                   Get In Touch
                 </h2>
                 <hr className="w-36 mt-2 mb-6 border-white" />
-                <ul className="ml-0 text-[18px] font-light text-white list-none">
+                <ul className="ml-0 text-[16px] font-light text-white list-none">
                   {siteConfig?.footer?.getInTouch?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left" key={index}>
                       <Link href={el.slug} className="hover:underline">
@@ -122,7 +122,7 @@ const MainFooter = () => {
 
           <hr className="my-6 border-white sm:mx-auto lg:my-8" />
           <div className="md:flex :items-center sm:justify-between ">
-            <div className="text-[18px] font-light text-center text-white">
+            <div className="text-[16px] font-light text-center text-white">
               © 2024{" "}
               <a href="" className="hover:underline text-white">
                 EssenceVFX
@@ -130,7 +130,7 @@ const MainFooter = () => {
               . All Rights Reserved.
             </div>
 
-            <div className="text-[18px] font-light text-center text-white mt-4 md:mt-0">
+            <div className="text-[16px] font-light text-center text-white mt-4 md:mt-0">
               Design & Developed by{" "}
               <a
                 href="https://www.bayshorecommunication.com/"

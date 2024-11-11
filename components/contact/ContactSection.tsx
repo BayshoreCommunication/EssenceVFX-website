@@ -7,12 +7,11 @@ import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const ContactSection = () => {
   return (
-    <section>
-      <div className="bg-secondary lg:bg-white md:bg-gradient-to-l  to-secondary to-45% from-transparent from-55%  overflow-hidden">
-        <div className="lg:flex items-start  justify-center lg:justify-between container  pt-[120px] ">
-          {/* for mobile (small screens) */}
+    <section className="">
+      <div className="container">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-between gap-x-8 pt-24 mb-40 h-[550px] ">
           <div className="block lg:hidden">
-            <div className="mt-6">
+            <div className="mt-6 flex justify-center items-center">
               <ScrollMotionEffect effect="fade-up" duration="2000">
                 <Image
                   className="w-[300px h-auto"
@@ -25,13 +24,13 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-[40%] text-white mb-12 lg:mb-0 mt-12 lg:mt-0">
+          <div className=" text-white pb-12 lg:mb-0 pt-12 lg:mt-0  w-full lg:max-w-[550px] ">
             <ScrollMotionEffect effect="fade-right" duration="2000">
               <ContactForm />
             </ScrollMotionEffect>
           </div>
 
-          <div className="hidden lg:block w-[58%] ">
+          <div className="hidden lg:block w-full ">
             {/* <div className="relative flex justify-center lg:block">
               <Image
                 className="w-[300px h-auto"
@@ -44,33 +43,25 @@ const ContactSection = () => {
                 Starwars
               </p>
             </div> */}
-            <div className="relative w-full h-[500px] md:h-[1000px] flex items-center justify-center ">
-              <Image
-                className="absolute inset-0 object-cover bg-center w-full h-full"
-                width={1920}
-                height={700}
-                src={"/assets/home/1111.png"}
-                alt="Bg Image "
-              />
+            <div className="w-full flex items-center justify-center">
+              <div className="relative w-[400px] h-[532px] cursor-pointer  group mt-8">
+                <Image
+                  className="w-full h-auto shadow-5xl z-40 relative shadow-2xl "
+                  width={500}
+                  height={500}
+                  src={"/assets/home/contact.png"}
+                  alt="Slider Video"
+                />
+                <p className="text-xl font-normal absolute top-[3.5%] left-[100%] text-left  bg-primary w-[25px] h-[70px] group-hover:w-[100px] transition-all duration-300 flex items-center rounded-r-md z-50"></p>
 
-              {/* Centered text */}
-              <ScrollMotionEffect effect="fade-left" duration="2000">
-                <div className="relative flex flex-col items-center justify-center w-full z-40">
-                  <div className="relative w-[430px] h-auto -mt-40 cursor-pointer">
-                    <Image
-                      className="w-full h-auto"
-                      width={500}
-                      height={500}
-                      src={"/assets/home/contact.png"}
-                      alt="Slider Video"
-                    />
-
-                    {/* <p className="text-xl font-semibold absolute top-[7%] -right-14 text-left w-[50px] ">
-                    {el?.categories}
-                  </p> */}
-                  </div>
-                </div>
-              </ScrollMotionEffect>
+                <Image
+                  className=" z-10  absolute top-[7%] left-[-6%] group-hover:top-[-5%] group-hover:left-[5%] transition-all duration-300"
+                  width={500}
+                  height={300}
+                  src={"/assets/home/image-hover-border-new.png"}
+                  alt="Slider Video"
+                />
+              </div>
             </div>
           </div>
         </div>

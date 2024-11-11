@@ -54,14 +54,14 @@ export const siteConfig = {
         title: "Contact Us",
         slug: "/contact",
       },
-      {
-        title: "Customer Support",
-        slug: "/customer-support",
-      },
-      {
-        title: "FAQ",
-        slug: "/faq",
-      },
+      // {
+      //   title: "Customer Support",
+      //   slug: "/customer-support",
+      // },
+      // {
+      //   title: "FAQ",
+      //   slug: "/faq",
+      // },
     ],
   },
 };

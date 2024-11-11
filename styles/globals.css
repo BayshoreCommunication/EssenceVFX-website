@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  height: 100vh;
+  margin: 0;
+  background: black; /* Default to black for mobile and tablet */
+}
+
+@media (min-width: 1024px) {
+  body {
+    background: linear-gradient(to right, #131313 50%, white 50%);
+  }
+}
+
 /*Custom Scrollbar */
 
 ::-webkit-scrollbar {
