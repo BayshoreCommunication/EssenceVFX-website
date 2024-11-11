@@ -11,8 +11,6 @@ interface ScrollMotionEffectProps {
 
 const ScrollMotionEffect: React.FC<ScrollMotionEffectProps> = ({
   children,
-  effect,
-  duration,
 }) => {
   useEffect(() => {
     console.log("Initializing AOS");
@@ -26,10 +24,11 @@ const ScrollMotionEffect: React.FC<ScrollMotionEffectProps> = ({
 
   return (
     <div
-      data-aos={effect}
-      data-aos-duration={duration}
-      data-aos-delay="0"
-      data-aos-once="true"
+      data-aos="fade-zoom-in"
+      data-aos-easing="ease-out"
+      data-aos-delay="100"
+      data-aos-offset="50"
+      data-aos-duration="800"
     >
       {children}
     </div>

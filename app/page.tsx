@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import ScrollMotionEffect from "@/components/motion/ScrollMotionEffect";
 import dynamic from "next/dynamic";
 
 export const metadata = {
@@ -19,7 +20,9 @@ export const metadata = {
 export default function Home() {
   return (
     <section className="">
-      <HeroSection />
+      <ScrollMotionEffect>
+        <HeroSection />
+      </ScrollMotionEffect>
     </section>
   );
 }
