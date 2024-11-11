@@ -32,7 +32,7 @@ const MainFooter = () => {
                 <h2 className="text-[20px] font-semibold text-white text-center md:text-left">
                   Useful Links
                 </h2>
-                <hr className="mt-2 mb-6 w-36 border-white" />
+                <hr className="mt-2 mb-6 w-32 border-white" />
                 <ul className="ml-0 text-white list-none text-[16px] font-light">
                   {siteConfig?.footer?.usefulLinks?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left" key={index}>
@@ -47,7 +47,7 @@ const MainFooter = () => {
                 <h2 className="text-[20px] font-semibold text-white text-center md:text-left">
                   Categories
                 </h2>
-                <hr className="w-32 mt-2 mb-6 border-white" />
+                <hr className="w-28 mt-2 mb-6 border-white" />
                 <ul className="ml-0 text-[16px] font-light text-white list-none">
                   {siteConfig?.footer?.categories?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left " key={index}>
@@ -62,7 +62,7 @@ const MainFooter = () => {
                 <h2 className="font-semibold text-white text-[20px] text-center md:text-left">
                   Get In Touch
                 </h2>
-                <hr className="w-36 mt-2 mb-6 border-white" />
+                <hr className="w-32 mt-2 mb-6 border-white" />
                 <ul className="ml-0 text-[16px] font-light text-white list-none">
                   {siteConfig?.footer?.getInTouch?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left" key={index}>
