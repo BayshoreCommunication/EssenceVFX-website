@@ -5,8 +5,6 @@ import "aos/dist/aos.css";
 
 interface ScrollMotionEffectProps {
   children: ReactNode;
-  effect: string;
-  duration: any;
 }
 
 const ScrollMotionEffect: React.FC<ScrollMotionEffectProps> = ({
