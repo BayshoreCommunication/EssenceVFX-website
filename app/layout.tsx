@@ -7,6 +7,8 @@ import MainHeader from "@/components/layout/MainHeader";
 import MainFooter from "@/components/layout/MainFooter";
 import localFont from "next/font/local";
 import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
+import Loading from "./loading";
+import RouteLoader from "@/components/shared/RouteLoader";
 
 const helvetica = localFont({
   src: "./fonts/Helvetica.ttf",
@@ -47,9 +49,12 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class" }}>
-          <MainHeader />
-          <div className="overflow-x-hidden">{children}</div>
-          <MainFooter />
+          <RouteLoader>
+            <MainHeader />
+            <div className="overflow-x-hidden">{children}</div>
+
+            <MainFooter />
+          </RouteLoader>
           <ScrollToTopButton />
         </Providers>
       </body>

@@ -79,11 +79,11 @@ const MainHeader = () => {
               <Link href={"/"}>
                 {/* <h2 className="text-4xl font-black text-primary">EssenceVFX</h2> */}
                 <Image
-                  src="/assets/site-logo/site-logo.png"
+                  src="/assets/site-logo/EssenceVFX Logo_02.png"
                   alt="EssenceVFX"
                   width={500}
                   height={500}
-                  className="cursor-pointer w-[180px] xl:w-[300px]  h-auto mt-2 mb-2"
+                  className="cursor-pointer w-[180px] xl:w-[150px]  h-auto mt-2 mb-2"
                 />
               </Link>
             </div>
