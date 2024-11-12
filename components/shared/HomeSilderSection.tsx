@@ -216,9 +216,9 @@ const HomeSilderSection = () => {
                         alt="Slider Video"
                       />
                       <p
-                        className={`text-sm font-light absolute top-[3.5%] left-[100%] text-left  bg-primary w-[35px] h-[70px] group-hover:w-[95px] transition-all duration-300 flex items-center rounded-r-md z-50  ${spinnaker.className}`}
+                        className={`text-sm font-bold absolute top-[3.5%] left-[100%] text-left  bg-primary w-[35px] h-[70px] group-hover:w-[95px] transition-all duration-300 flex items-center rounded-r-md z-50  ${spinnaker.className}`}
                       >
-                        <span className="pl-1.5 uppercase text-secondary">
+                        <span className="pl-1.5 uppercase text-secondary font-semibold">
                           {el?.categories}
                         </span>
                       </p>
