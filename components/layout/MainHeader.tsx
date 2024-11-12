@@ -71,7 +71,7 @@ const MainHeader = () => {
   return (
     <section className={`relative z-50 `}>
       <div
-        className={`w-full py-2 fixed top-0 transition-colors duration-300 ${navbarColor ? "!bg-white shadow-small duration-1000" : "bg-transparent"}`}
+        className={`w-full py-0 xl:py-2 fixed top-0 transition-colors duration-300 ${navbarColor ? "!bg-white shadow-small duration-1000" : "bg-transparent"}`}
       >
         <div className=" hidden lg:block">
           <div className="flex items-center container  justify-between">
@@ -79,7 +79,11 @@ const MainHeader = () => {
               <Link href={"/"}>
                 {/* <h2 className="text-4xl font-black text-primary">EssenceVFX</h2> */}
                 <Image
-                  src="/assets/site-logo/EssenceVFX Logo_02.png"
+                  src={
+                    navbarColor
+                      ? "/assets/site-logo/essenceVFX-logo-redblack.png"
+                      : "/assets/site-logo/essenceVFX-logo-redwhite.png"
+                  }
                   alt="EssenceVFX"
                   width={500}
                   height={500}
@@ -89,12 +93,14 @@ const MainHeader = () => {
             </div>
 
             <div className="">
-              <div className="flex items-center justify-stretch gap-x-2  xl:gap-x-14">
+              <div className="flex items-center justify-stretch gap-x-28  xl:gap-x-40">
                 {menuItems.map((el) => (
                   <Link
                     key={el.slug}
                     href={`${el.slug}`}
-                    className={`cursor-pointer text-sm lg:text-[14px] font-semibold hover:border-b-2 hover:border-primary transition-all duration-300 h-7  ${pathname === el.slug ? "border-b-2 border-primary border-spacing-y-2" : ""}  ${pathname === "/about" ? "!text-white " : "!text-black"}`}
+                    className={`cursor-pointer text-sm lg:text-[14px] font-semibold transition-all duration-300 h-7 
+                      ${pathname === el.slug ? "border-b-2 border-primary" : "hover:border-b-2 hover:border-primary"} 
+                      ${pathname === "/about" ? (navbarColor ? "text-black" : "text-white") : "text-black"}`}
                   >
                     {el.title}
                   </Link>
@@ -107,7 +113,7 @@ const MainHeader = () => {
           <Navbar
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
-            className={` bg-white -mt-4 py-4`}
+            className={` bg-white  py-4`}
           >
             <NavbarContent>
               <NavbarMenuToggle
@@ -116,9 +122,13 @@ const MainHeader = () => {
               />
               <NavbarBrand>
                 <Link href="/">
-                  <h2 className="text-3xl font-black text-primary">
-                    EssenceVFX
-                  </h2>
+                  <Image
+                    src={"/assets/site-logo/essenceVFX-logo-redblack.png"}
+                    alt="EssenceVFX"
+                    width={500}
+                    height={500}
+                    className="cursor-pointer w-[140px]  h-auto mt-2 mb-2"
+                  />
                 </Link>
               </NavbarBrand>
             </NavbarContent>

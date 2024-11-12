@@ -21,15 +21,15 @@ export const siteConfig = {
         title: "About",
         slug: "/about",
       },
-      {
-        title: "Blog",
-        slug: "/blog",
-      },
+      // {
+      //   title: "Blog",
+      //   slug: "/blog",
+      // },
 
-      {
-        title: "Team",
-        slug: "/team",
-      },
+      // {
+      //   title: "Team",
+      //   slug: "/team",
+      // },
     ],
     categories: [
       {

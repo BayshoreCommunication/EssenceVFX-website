@@ -14,12 +14,8 @@ export const sliderPortfolioData = [
     videoUrl: "/assets/video/starwars-thum.mp4",
     title: "Double Blade",
     subTitle: "Lightsaber vs Blaster Fight",
-    descriptionOne: ` Looking for your own battle-ready lightsaber? Be sure to
-                      check out @byolightsaber for the coolest lightsabers in
-                      the galaxy, perfect for all your epic duels! 🚀 This video
-                      reached over 73,000 viewers and counting, so join in on
-                      the fun!`,
-    descriptionTwo: ` `,
+    descriptionOne: `During Star Wars Week, we showcased an epic duel featuring a double-bladed lightsaber versus blasters! Thanks to Kiana Daigneault, David Hernandez, Bboy Swirv, Cosplay Powers, and This Guy's Audio for the thrilling visuals and sound. Our video hit 73,000+ views—check out @byolightsaber for your own galactic gear!
+`,
   },
 
   {
@@ -33,7 +29,7 @@ export const sliderPortfolioData = [
     videoThum: "/assets/home/marvel-thum.png",
     videoUrl: "/assets/video/marvel-thum.mp4",
     title: "Thorsday",
-    descriptionOne: ` I had the pleasure of collaborating with the talented Laney Feni on a dynamic VFX edit for Thor, which showcased our combined creative vision and expertise. The project reached over 109,000 people, bringing Thor's thunderous energy to life with stunning visuals and effects.
+    descriptionOne: `I had the pleasure of collaborating with the talented Laney Feni on a dynamic VFX edit for Thor, which showcased our combined creative vision and expertise. The project reached over 109,000 people, bringing Thor's thunderous energy to life with stunning visuals and effects..
                 Video Link: https://www.instagram.com/p/CgjkAw5Pe-q/`,
   },
 
@@ -48,7 +44,7 @@ export const sliderPortfolioData = [
     videoThum: "/assets/home/dc-thum.png",
     videoUrl: "/assets/video/dc-thum.mp4",
     title: "Blue Beetle",
-    descriptionOne: `Check out the incredible Blue Beetle VFX we created in just 24 hours for @sirjuliuscosplay! Imagine what we could do in a month—his Blue Beetle is seriously amazing! If you've seen the movie, let me know what you thought. And if you're in need of some top-tier VFX, hit us up! Be sure to follow our broadcast channel, where we host free VFX raffles throughout the month. Stay tuned for more!`,
+    descriptionOne: `Check out the incredible Blue Beetle VFX we created in just 24 hours for @sirjuliuscosplay! Imagine what we could do in a month—his Blue Beetle is seriously amazing! If you're in need of some top-tier VFX, hit us up! Stay tuned for more!`,
 
     descriptionTwo: `Blue Beetle 🪲 @sirjuliuscosplay VFX by @cosplaypowers —— Stats: 18,000+ reached`,
   },
@@ -78,7 +74,7 @@ export const sliderPortfolioData = [
     videoThum: "/assets/home/tmnt-thum.png",
     videoUrl: "/assets/video/tmnt-thum.mp4",
     title: "Michelangelo",
-    descriptionOne: `You might want to be careful when walking the streets of New York – you never know what could be lurking beneath, waving hello to you! 🤣 This fun moment featuring Michelangelo was captured during my collaboration with @ashleeentertainment, and it reached over 35,000 people`,
+    descriptionOne: `You might want to be careful when walking the streets of New York – you never know what could be lurking beneath, waving hello to you! 🤣 This fun moment featuring Michelangelo was captured during my collaboration with @ashleeentertainment, and it reached over 35,000 people.`,
   },
 
   {

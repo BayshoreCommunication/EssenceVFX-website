@@ -51,9 +51,7 @@ const MainFooter = () => {
                 <ul className="ml-0 text-[16px] font-light text-white list-none">
                   {siteConfig?.footer?.categories?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left " key={index}>
-                      <Link href={el.slug} className="hover:underline">
-                        {el.title}
-                      </Link>
+                      <div className="">{el.title}</div>
                     </li>
                   ))}
                 </ul>
@@ -78,7 +76,13 @@ const MainFooter = () => {
 
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center my-8">
             <Link href={"/"}>
-              <h2 className="text-4xl font-extrabold text-white">EssenceVFX</h2>
+              <Image
+                src={"/assets/site-logo/essenceVFX-Logo-White.png"}
+                alt="EssenceVFX"
+                width={500}
+                height={500}
+                className="cursor-pointer w-[150px]  h-auto mt-2 mb-2"
+              />
             </Link>
 
             <div className="text-white  flex justify-center md:justify-start gap-3 mt-4 md:mt-6 ">

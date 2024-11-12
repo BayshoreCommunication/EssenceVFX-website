@@ -12,7 +12,7 @@ import {
 import { motion } from "framer-motion";
 import { IoMdArrowDropright } from "react-icons/io";
 import { FaPlay } from "react-icons/fa";
-
+import { Spinnaker } from "next/font/google";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaQuoteRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -29,6 +29,11 @@ import Image from "next/image";
 import { sliderPortfolioData } from "@/config/data";
 import InstagramEmbedVideo from "./InstagramEmbedVideo";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
+
+const spinnaker = Spinnaker({
+  weight: "400",
+  subsets: ["latin"], // Choose the subset you need
+});
 
 const HomeSilderSection = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -108,7 +113,7 @@ const HomeSilderSection = () => {
                   initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="flex items-center text-white text-center list-none text-[12px] lg:text-[14px] xl:text-[16px] gap-2 xl:gap-4 font-light ml-0 pl-0"
+                  className={`flex items-center text-white text-center list-none text-[12px] lg:text-[14px] xl:text-[16px] gap-2 xl:gap-4 font-light ml-0 pl-0 ${spinnaker.className}`}
                 >
                   <li>
                     <p>{heroInfoData?.topInfo?.location}</p>
@@ -147,7 +152,7 @@ const HomeSilderSection = () => {
 
               <motion.p
                 variants={variants}
-                className="text-[12px] lg:text-[14px] xl:text-[16px] font-light leading-relaxed mt-5 text-white"
+                className={`text-[12px] lg:text-[14px] xl:text-[16px] font-light leading-relaxed mt-5 text-white ${spinnaker.className}`}
                 transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
               >
                 {heroInfoData?.descriptionOne}
@@ -170,8 +175,8 @@ const HomeSilderSection = () => {
                 >
                   <div className="bg-primary w-[75px] group-hover:w-[190px] h-[75px] rounded-full transition-all duration-200 relative z-10 group-hover:bg-hoverColor" />
                   <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-200 group-hover:text-hoverColor flex items-center">
-                    <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-white size-6" />
-                    Watch Video
+                    <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-white size-6 uppercase" />
+                    <span className="text-base">WATCH VIDEO</span>
                   </p>
                 </button>
               </motion.div>
@@ -210,7 +215,9 @@ const HomeSilderSection = () => {
                         src={el?.videoThum}
                         alt="Slider Video"
                       />
-                      <p className="text-sm font-light absolute top-[3.5%] left-[100%] text-left  bg-primary w-[35px] h-[70px] group-hover:w-[90px] transition-all duration-300 flex items-center rounded-r-md z-50">
+                      <p
+                        className={`text-sm font-light absolute top-[3.5%] left-[100%] text-left  bg-primary w-[35px] h-[70px] group-hover:w-[95px] transition-all duration-300 flex items-center rounded-r-md z-50  ${spinnaker.className}`}
+                      >
                         <span className="pl-1.5 uppercase text-secondary">
                           {el?.categories}
                         </span>

@@ -180,8 +180,8 @@ const HomeSilderSectionForMobile = () => {
                             <div className="bg-primary w-[75px] group-hover:w-[200px] h-[75px] rounded-full transition-all duration-300 relative z-10 group-hover:bg-hoverColor" />
 
                             <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-300 group-hover:text-hoverColor flex items-center">
-                              <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-300  text-white size-6" />
-                              Watch Video
+                              <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-300  text-white size-6 uppercase" />
+                              <span className="text-base">WATCH VIDEO</span>
                             </p>
                           </button>
                         </motion.div>

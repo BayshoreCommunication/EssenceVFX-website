@@ -11,7 +11,7 @@ const StatsSection: React.FC = () => {
           {data.map((el, index) => (
             <div className="">
               <div className="flex justify-center lg:justify-start">
-                <ImPower className="text-yellow-400 size-16 text-center" />
+                <ImPower className="text-primary size-16 text-center" />
               </div>
               <h2 className="mt-4 md:mt-6 text-[16px] md:text-[25px] font-semibold text-black leading-tight text-center lg:text-left">
                 Stats <span className="text-red-600 text-center">{el}</span>
