@@ -10,7 +10,7 @@ export const metadata = {
 
 const page = () => {
   return (
-    <div>
+    <div className="overflow-y-hidden">
       <ScrollMotionEffect>
         <AboutSection />
         <StatsSection />
