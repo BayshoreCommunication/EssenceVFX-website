@@ -33,7 +33,7 @@ const MainFooter = () => {
                   Useful Links
                 </h2>
                 <hr className="mt-2 mb-6 w-32 border-white" />
-                <ul className="ml-0 text-white list-none text-[16px] font-light">
+                <ul className="ml-0 text-white list-none text-[15px] font-normal">
                   {siteConfig?.footer?.usefulLinks?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left" key={index}>
                       <Link href={el.slug} className="hover:underline ">
@@ -48,7 +48,7 @@ const MainFooter = () => {
                   Categories
                 </h2>
                 <hr className="w-28 mt-2 mb-6 border-white" />
-                <ul className="ml-0 text-[16px] font-light text-white list-none">
+                <ul className="ml-0 text-[15px] font-normal text-white list-none">
                   {siteConfig?.footer?.categories?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left " key={index}>
                       <div className="">{el.title}</div>
@@ -61,7 +61,7 @@ const MainFooter = () => {
                   Get In Touch
                 </h2>
                 <hr className="w-32 mt-2 mb-6 border-white" />
-                <ul className="ml-0 text-[16px] font-light text-white list-none">
+                <ul className="ml-0 text-[15px] font-normal text-white list-none">
                   {siteConfig?.footer?.getInTouch?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left" key={index}>
                       <Link href={el.slug} className="hover:underline">
@@ -126,7 +126,7 @@ const MainFooter = () => {
 
           <hr className="my-6 border-white sm:mx-auto lg:my-8" />
           <div className="md:flex :items-center sm:justify-between ">
-            <div className="text-[16px] font-light text-center text-white">
+            <div className="text-[16px] font-normal text-center text-white">
               © 2024{" "}
               <a href="" className="hover:underline text-white">
                 EssenceVFX
@@ -134,12 +134,12 @@ const MainFooter = () => {
               . All Rights Reserved.
             </div>
 
-            <div className="text-[16px] font-light text-center text-white mt-4 md:mt-0">
+            <div className="text-[16px] font-normal text-center text-white mt-4 md:mt-0">
               Design & Developed by{" "}
               <a
                 href="https://www.bayshorecommunication.com/"
                 target="_blank"
-                className="font-light hover:underline text-white"
+                className="font-normal hover:underline text-white"
               >
                 BayShore Communication
               </a>

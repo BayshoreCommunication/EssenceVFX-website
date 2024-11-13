@@ -65,7 +65,20 @@ const HomeSilderSectionForMobile = () => {
   };
 
   return (
-    <div className="">
+    <div className="relative">
+      <button
+        ref={prevButtonRef}
+        className="absolute left-[2%] 2xl:left-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500  rounded-full shadow-md group z-50"
+      >
+        <IoIosArrowBack className="size-5 text-black group-hover:text-white" />
+      </button>
+
+      <button
+        className="absolute right-[2%] 2xl:right-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl  shadow-black border group z-50"
+        ref={nextButtonRef}
+      >
+        <IoIosArrowForward className="size-5 text-black group-hover:text-white" />
+      </button>
       <div className={`mt-6`}>
         <div className="lg:flex items-center">
           <Swiper
@@ -177,11 +190,11 @@ const HomeSilderSectionForMobile = () => {
                               onShowPopUp(el?.videoUrl, el?.videoThum);
                             }}
                           >
-                            <div className="bg-primary w-[75px] group-hover:w-[200px] h-[75px] rounded-full transition-all duration-300 relative z-10 group-hover:bg-hoverColor" />
+                            <div className="bg-primary w-[75px] group-hover:w-[180px] h-[75px] rounded-full transition-all duration-300 relative z-10 group-hover:bg-hoverColor" />
 
                             <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-300 group-hover:text-hoverColor flex items-center">
                               <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-300  text-white size-6 uppercase" />
-                              <span className="text-base">WATCH VIDEO</span>
+                              <span className="text-base">WATCH NOW</span>
                             </p>
                           </button>
                         </motion.div>

@@ -1,29 +1,16 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { Providers } from "./providers";
 import MainHeader from "@/components/layout/MainHeader";
 import MainFooter from "@/components/layout/MainFooter";
-import localFont from "next/font/local";
 import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 
-const helvetica = localFont({
-  src: "./fonts/Helvetica.ttf",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-
-const helveticaBold = localFont({
-  src: "./fonts/Helvetica-Bold.ttf",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-const helveticaLight = localFont({
-  src: "./fonts/helvetica-light.ttf",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+  display: "swap", // optional for better loading performance
 });
 
 export const metadata = {
@@ -38,14 +25,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body
-        className={clsx(
-          "antialiased",
-          helvetica.className,
-          helveticaBold.className,
-          helveticaLight.className
-        )}
-      >
+      <body className={clsx("antialiased", montserrat.className)}>
         <Providers themeProps={{ attribute: "class" }}>
           <MainHeader />
 
