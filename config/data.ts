@@ -5,7 +5,7 @@ export const sliderPortfolioData = [
   {
     topInfo: {
       location: "USA",
-      date: "May 1 2024",
+      date: "May 1, 2024",
       createBy: "bboyswirv & kianadaigneault",
       igUrl: "https://www.instagram.com/bboyswirv/",
     },
@@ -29,8 +29,7 @@ export const sliderPortfolioData = [
     videoThum: "/assets/home/marvel-thum.png",
     videoUrl: "/assets/video/marvel-thum.mp4",
     title: "Thorsday",
-    descriptionOne: `I had the pleasure of collaborating with the talented Laney Feni on a dynamic VFX edit for Thor, which showcased our combined creative vision and expertise. The project reached over 109,000 people, bringing Thor's thunderous energy to life with stunning visuals and effects..
-                Video Link: https://www.instagram.com/p/CgjkAw5Pe-q/`,
+    descriptionOne: `I had the pleasure of collaborating with the talented Laney Feni on a dynamic VFX edit for Thor, which showcased our combined creative vision and expertise. The project reached over 109,000 people, bringing Thor's thunderous energy to life with stunning visuals and effects.`,
   },
 
   {
