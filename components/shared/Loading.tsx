@@ -17,7 +17,7 @@ const Loading = () => {
   if (!showLoading) return null;
 
   return (
-    <div className="w-full h-[100vh] flex items-center justify-center bg-gray-100">
+    <div className="w-full h-[100vh] flex items-center justify-center bg-white">
       <Image
         src="/assets/site-logo/vfx-loading-animation.gif"
         alt="EssenceVFX"

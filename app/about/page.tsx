@@ -1,6 +1,6 @@
 import AboutSection from "@/components/about/AboutSection";
 import StatsSection from "@/components/about/StatsSection";
-import ScrollMotionEffect from "@/components/motion/ScrollMotionEffect";
+
 import React from "react";
 
 export const metadata = {
@@ -11,10 +11,8 @@ export const metadata = {
 const page = () => {
   return (
     <div className="overflow-y-hidden">
-      <ScrollMotionEffect>
-        <AboutSection />
-        <StatsSection />
-      </ScrollMotionEffect>
+      <AboutSection />
+      <StatsSection />
     </div>
   );
 };

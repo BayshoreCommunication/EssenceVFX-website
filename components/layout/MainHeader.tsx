@@ -75,7 +75,7 @@ const MainHeader = () => {
       >
         <div className=" hidden lg:block">
           <div className="flex items-center container  justify-between">
-            <div className=" flex items-center gap-x-10 2xl:gap-x-16">
+            <div className="w-full flex items-center gap-x-10 2xl:gap-x-20">
               <Link href={"/"}>
                 {/* <h2 className="text-4xl font-black text-primary">EssenceVFX</h2> */}
                 <Image
@@ -92,8 +92,8 @@ const MainHeader = () => {
               </Link>
             </div>
 
-            <div className="">
-              <div className="flex items-center justify-stretch gap-x-28  xl:gap-x-40">
+            <div className="w-full">
+              <div className="flex items-center justify-center gap-x-28  xl:gap-x-24">
                 {menuItems.map((el) => (
                   <Link
                     key={el.slug}

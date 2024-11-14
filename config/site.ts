@@ -33,18 +33,23 @@ export const siteConfig = {
     ],
     categories: [
       {
+        index: 0,
         title: "Starwars",
         slug: "/starwars",
       },
+
       {
+        index: 1,
         title: "Marvel",
         slug: "/marvel",
       },
       {
+        index: 3,
         title: "Avatar",
         slug: "/avatar",
       },
       {
+        index: 4,
         title: "TMNT",
         slug: "/tmnt",
       },

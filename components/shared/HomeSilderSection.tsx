@@ -28,24 +28,21 @@ import Image from "next/image";
 import { sliderPortfolioData } from "@/config/data";
 import InstagramEmbedVideo from "./InstagramEmbedVideo";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
+import { useAppContext } from "@/app/AppContext";
 
 const HomeSilderSection = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [sliderIndex, setSliderIndex] = useState(0);
+  const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-
-  const heroInfoData = sliderPortfolioData?.find(
-    (el, index) => index === sliderIndex
-  );
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
   const swiperRef = useRef<any>(null);
 
+  // Attach Swiper navigation on initialization
   useEffect(() => {
     if (swiperRef.current) {
-      // Attach the navigation buttons to Swiper when it’s initialized
       swiperRef.current.params.navigation.prevEl = prevButtonRef.current;
       swiperRef.current.params.navigation.nextEl = nextButtonRef.current;
       swiperRef.current.navigation.init();
@@ -53,11 +50,29 @@ const HomeSilderSection = () => {
     }
   }, []);
 
-  const onShowPopUp = (video: any, image: any) => {
+  // Sync Swiper with `silderIndexValue` from context smoothly
+  useEffect(() => {
+    if (
+      swiperRef.current &&
+      swiperRef.current.activeIndex !== silderIndexValue
+    ) {
+      swiperRef.current.slideTo(silderIndexValue);
+    }
+  }, [silderIndexValue]);
+
+  const onShowPopUp = (video, image) => {
     setVideoUrl(video);
     setImageUrl(image);
   };
-  // px-8 xl:px-10
+
+  const handleSlideChange = (swiper) => {
+    setSilderIndexValue(swiper.activeIndex);
+  };
+
+  const heroInfoData = sliderPortfolioData?.find(
+    (el, index) => index === silderIndexValue
+  );
+
   const variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -71,29 +86,45 @@ const HomeSilderSection = () => {
     },
   };
 
-  console.log("check value 75", sliderIndex);
-
   return (
     <div className="relative">
-      <button
-        ref={prevButtonRef}
-        className="absolute left-[2%] 2xl:left-[5%] top-[60%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500  rounded-full shadow-md group z-50"
-      >
-        <IoIosArrowBack className="size-9 text-black group-hover:text-white" />
-      </button>
+      <div className="absolute -z-10 xl:right-[0%]  2xl:right-[15%] top-[26%] opacity-80">
+        <Image
+          className="w-[200px] h-auto"
+          width={300}
+          height={300}
+          src={"/assets/home/white-bg-dot.png"}
+          alt="Slider Video"
+        />
+      </div>
 
-      <button
-        className="absolute right-[2%] 2xl:right-[5%] top-[60%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl  shadow-black border group z-50"
-        ref={nextButtonRef}
-      >
-        <IoIosArrowForward className="size-9 text-black group-hover:text-white" />
-      </button>
+      {silderIndexValue !== 0 && (
+        <div>
+          <button
+            ref={prevButtonRef}
+            onClick={() => setSilderIndexValue((prev) => prev - 1)} // Decrement index
+            className="absolute left-[2%] 2xl:left-[5%] top-[60%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-md group z-50"
+          >
+            <IoIosArrowBack className="size-9 text-black group-hover:text-white" />
+          </button>
+        </div>
+      )}
+
+      {silderIndexValue !== sliderPortfolioData.length - 1 && (
+        <button
+          ref={nextButtonRef}
+          onClick={() => setSilderIndexValue((prev) => prev + 1)} // Increment index
+          className="absolute right-[2%] 2xl:right-[5%] top-[60%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl shadow-black border group z-50"
+        >
+          <IoIosArrowForward className="size-9 text-black group-hover:text-white" />
+        </button>
+      )}
 
       <div className="container">
-        <div className="grid grid-cols-2 items-center justify-center gap-x-5  pt-24 mb-40 h-[600px] ">
+        <div className="grid grid-cols-2 items-center justify-center gap-x-0  pt-24 mb-40 h-[600px] ">
           <div className="max-w-[510px]">
             <motion.div
-              key={sliderIndex}
+              key={silderIndexValue}
               className=""
               initial="hidden"
               animate="visible"
@@ -171,11 +202,11 @@ const HomeSilderSection = () => {
                     );
                   }}
                 >
-                  <div className="bg-primary w-[75px] group-hover:w-[180px] h-[75px] rounded-full transition-all duration-200 relative z-10 group-hover:bg-hoverColor" />
-                  <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-200 group-hover:text-hoverColor flex items-center">
+                  <div className="bg-primary w-[70px] group-hover:w-[175px] h-[70px] rounded-full transition-all duration-200 relative z-10 group-hover:bg-hoverColor" />
+                  <div className="absolute pl-5 z-20 transition-all duration-200 group-hover:text-hoverColor flex items-center">
                     <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-white size-6 uppercase" />
-                    <span className="text-base font-normal">WATCH NOW</span>
-                  </p>
+                    <p className="text-sm font-[501]">WATCH NOW</p>
+                  </div>
                 </button>
               </motion.div>
             </motion.div>
@@ -186,19 +217,17 @@ const HomeSilderSection = () => {
               cssMode={true}
               mousewheel={true}
               keyboard={true}
-              // loop={true}
+              initialSlide={silderIndexValue}
               modules={[Navigation, Pagination, Mousewheel, Keyboard]}
               onBeforeInit={(swiper) => {
                 swiperRef.current = swiper;
               }}
-              onSlideChange={(swiper) => {
-                setSliderIndex(swiper.activeIndex);
-              }}
+              onSlideChange={handleSlideChange}
               className="mySwiper"
             >
               {sliderPortfolioData?.map((el, index) => (
                 <SwiperSlide key={index} className="">
-                  <div className="flex items-center justify-center bg-[url('/assets/home/background-dot-image.png')] bg-cover bg-right">
+                  <div className="flex items-center justify-center">
                     <div
                       className="relative w-[400px] h-[562px] cursor-pointer  group mt-8"
                       onClick={() => {

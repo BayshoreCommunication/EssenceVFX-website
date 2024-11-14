@@ -25,20 +25,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { sliderPortfolioData } from "@/config/data";
 import InstagramEmbedVideo from "./InstagramEmbedVideo";
+import { useAppContext } from "@/app/AppContext";
 
 const HomeSilderSectionForMobile = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+  const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
   const swiperRef = useRef<any>(null);
 
+  // Attach Swiper navigation on initialization
   useEffect(() => {
     if (swiperRef.current) {
-      // Attach the navigation buttons to Swiper when it’s initialized
       swiperRef.current.params.navigation.prevEl = prevButtonRef.current;
       swiperRef.current.params.navigation.nextEl = nextButtonRef.current;
       swiperRef.current.navigation.init();
@@ -46,39 +47,64 @@ const HomeSilderSectionForMobile = () => {
     }
   }, []);
 
-  const onShowPopUp = (video: any, image: any) => {
+  // Sync Swiper with `silderIndexValue` from context smoothly
+  useEffect(() => {
+    if (
+      swiperRef.current &&
+      swiperRef.current.activeIndex !== silderIndexValue
+    ) {
+      swiperRef.current.slideTo(silderIndexValue);
+    }
+  }, [silderIndexValue]);
+
+  const onShowPopUp = (video, image) => {
     setVideoUrl(video);
     setImageUrl(image);
   };
 
+  const handleSlideChange = (swiper) => {
+    setSilderIndexValue(swiper.activeIndex);
+  };
+
+  const heroInfoData = sliderPortfolioData?.find(
+    (el, index) => index === silderIndexValue
+  );
+
   const variants = {
-    hidden: { opacity: 0, y: 20 }, // Hidden state (optional y-axis movement)
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeInOut" },
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 35,
+      },
     },
-  };
-
-  const handleSlideChange = (swiper: any) => {
-    setCurrentIndex(swiper.activeIndex); // Update the current index
   };
 
   return (
     <div className="relative">
-      <button
-        ref={prevButtonRef}
-        className="absolute left-[2%] 2xl:left-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500  rounded-full shadow-md group z-50"
-      >
-        <IoIosArrowBack className="size-5 text-black group-hover:text-white" />
-      </button>
+      {silderIndexValue !== 0 && (
+        <button
+          onClick={() => setSilderIndexValue((prev) => prev - 1)}
+          ref={prevButtonRef}
+          className="absolute left-[2%] 2xl:left-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500  rounded-full shadow-md group z-50"
+        >
+          <IoIosArrowBack className="size-5 text-black group-hover:text-white" />
+        </button>
+      )}
 
-      <button
-        className="absolute right-[2%] 2xl:right-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl  shadow-black border group z-50"
-        ref={nextButtonRef}
-      >
-        <IoIosArrowForward className="size-5 text-black group-hover:text-white" />
-      </button>
+      {silderIndexValue !== sliderPortfolioData.length - 1 && (
+        <button
+          onClick={() => setSilderIndexValue((prev) => prev + 1)}
+          className="absolute right-[2%] 2xl:right-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl  shadow-black border group z-50"
+          ref={nextButtonRef}
+        >
+          <IoIosArrowForward className="size-5 text-black group-hover:text-white" />
+        </button>
+      )}
+
       <div className={`mt-6`}>
         <div className="lg:flex items-center">
           <Swiper
@@ -89,6 +115,7 @@ const HomeSilderSectionForMobile = () => {
             cssMode={true}
             mousewheel={true}
             keyboard={true}
+            initialSlide={silderIndexValue}
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
@@ -98,13 +125,7 @@ const HomeSilderSectionForMobile = () => {
           >
             {sliderPortfolioData?.map((el, index) => (
               <SwiperSlide key={index}>
-                <motion.div
-                  initial="hidden"
-                  animate={currentIndex === index ? "visible" : "hidden"}
-                  exit="hidden"
-                  variants={variants}
-                  className="container"
-                >
+                <motion.div className="container">
                   {/* Centered text */}
                   <div className="w-full mt-32">
                     <div
@@ -115,7 +136,7 @@ const HomeSilderSectionForMobile = () => {
                       }}
                     >
                       <Image
-                        className="w-full h-auto"
+                        className="w-full h-auto px-10"
                         width={500}
                         height={500}
                         src={el?.videoThum}
@@ -128,7 +149,9 @@ const HomeSilderSectionForMobile = () => {
                     <motion.div
                       key={index}
                       initial="hidden"
-                      animate={currentIndex === index ? "visible" : "hidden"}
+                      animate={
+                        silderIndexValue === index ? "visible" : "hidden"
+                      }
                       exit="hidden"
                       variants={{
                         visible: { transition: { staggerChildren: 0.2 } },

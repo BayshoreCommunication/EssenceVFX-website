@@ -6,15 +6,15 @@ import ContactForm from "./ContactForm";
 
 const ContactSection = () => {
   return (
-    <section className="">
+    <section className="bg-secondary lg:bg-transparent">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-between gap-x-8 pt-24 mb-40 h-[550px] ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-between gap-x-8 pt-24 pb-10 xl:mb-40 h-auto lg:h-[550px] ">
           <div className=" text-white pb-6 lg:mb-0 pt-12 lg:mt-0  w-full lg:max-w-[550px] ">
             <ContactForm />
           </div>
 
-          <div className="block lg:hidden">
-            <div className="mt-3 mb-8 flex justify-center items-center">
+          <div className="block lg:hidden  w-full ">
+            <div className="mt-3 flex justify-center items-center">
               <Image
                 className="w-[300px h-auto"
                 width={600}

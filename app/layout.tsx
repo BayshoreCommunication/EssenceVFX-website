@@ -6,6 +6,8 @@ import { Providers } from "./providers";
 import MainHeader from "@/components/layout/MainHeader";
 import MainFooter from "@/components/layout/MainFooter";
 import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
+import { AppProvider } from "./AppContext";
+import RouteLoader from "@/components/shared/RouteLoader";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -26,14 +28,18 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body className={clsx("antialiased", montserrat.className)}>
-        <Providers themeProps={{ attribute: "class" }}>
-          <MainHeader />
+        <RouteLoader>
+          <AppProvider>
+            <Providers themeProps={{ attribute: "class" }}>
+              <MainHeader />
 
-          <div className="overflow-x-hidden">{children}</div>
+              <div className="overflow-x-hidden">{children}</div>
 
-          <MainFooter />
-          <ScrollToTopButton />
-        </Providers>
+              <MainFooter />
+              <ScrollToTopButton />
+            </Providers>
+          </AppProvider>
+        </RouteLoader>
       </body>
     </html>
   );

@@ -10,7 +10,7 @@ const RouteLoader = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false); // Stop showing loader after 5 seconds
-    }, 4000); // Minimum 5 seconds loading time
+    }, 2000); // Minimum 5 seconds loading time
 
     // Trigger loading on route change
     setLoading(true);

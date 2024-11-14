@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { RiPhoneFill } from "react-icons/ri";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
@@ -20,8 +21,33 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import { siteConfig } from "@/config/site";
+import { useAppContext } from "@/app/AppContext";
 
 const MainFooter = () => {
+  const { silderIndexValue, setSilderIndexValue } = useAppContext();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = (title) => {
+    setSilderIndexValue(title);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <footer className="bg-primary">
@@ -51,7 +77,12 @@ const MainFooter = () => {
                 <ul className="ml-0 text-[15px] font-normal text-white list-none">
                   {siteConfig?.footer?.categories?.map((el, index) => (
                     <li className="mb-4 text-center md:text-left " key={index}>
-                      <div className="">{el.title}</div>
+                      <button
+                        onClick={() => scrollToTop(el?.index)}
+                        className=""
+                      >
+                        {el.title}
+                      </button>
                     </li>
                   ))}
                 </ul>
