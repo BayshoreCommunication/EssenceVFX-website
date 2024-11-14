@@ -13,6 +13,7 @@ import { FaInstagram } from "react-icons/fa";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { IoMdHome } from "react-icons/io";
 import { FaTiktok } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 import {
   FaFacebookF,
@@ -22,10 +23,13 @@ import {
 } from "react-icons/fa6";
 import { siteConfig } from "@/config/site";
 import { useAppContext } from "@/app/AppContext";
+import { useRouter } from "next/navigation";
 
 const MainFooter = () => {
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -41,11 +45,16 @@ const MainFooter = () => {
   }, []);
 
   const scrollToTop = (title: number) => {
-    setSilderIndexValue(title);
+    setSilderIndexValue(title); // Updated typo
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+
+    // Redirect to homepage if pathname matches certain routes
+    if (pathname === "/about" || pathname === "/contact") {
+      router.push("/");
+    }
   };
 
   return (
