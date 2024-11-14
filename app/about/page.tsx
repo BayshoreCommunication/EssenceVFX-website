@@ -4,8 +4,9 @@ import StatsSection from "@/components/about/StatsSection";
 import React from "react";
 
 export const metadata = {
-  title: "demo metadata",
-  description: "demo meta title",
+  title: "EssenceVFX",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi imperdiet, mauris vitae molestie gravida, libero lorem fermentum elit, eu placerat nunc elit id massa. Morbi interdum lectus ut mauris vehicula",
 };
 
 const page = () => {
