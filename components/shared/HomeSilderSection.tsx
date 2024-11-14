@@ -88,7 +88,7 @@ const HomeSilderSection = () => {
 
   return (
     <div className="relative">
-      <div className="absolute -z-10 xl:right-[0%]  2xl:right-[15%] top-[26%] opacity-80">
+      <div className="absolute -z-10 right-0] xl:right-[1%]  2xl:right-[15%] top-[26%] opacity-80">
         <Image
           className="w-[200px] h-auto"
           width={300}
