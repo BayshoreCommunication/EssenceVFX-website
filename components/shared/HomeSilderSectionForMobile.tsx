@@ -57,12 +57,12 @@ const HomeSilderSectionForMobile = () => {
     }
   }, [silderIndexValue]);
 
-  const onShowPopUp = (video, image) => {
+  const onShowPopUp = (video: any, image: any) => {
     setVideoUrl(video);
     setImageUrl(image);
   };
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setSilderIndexValue(swiper.activeIndex);
   };
 
@@ -87,7 +87,7 @@ const HomeSilderSectionForMobile = () => {
     <div className="relative">
       {silderIndexValue !== 0 && (
         <button
-          onClick={() => setSilderIndexValue((prev) => prev - 1)}
+          onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
           ref={prevButtonRef}
           className="absolute left-[2%] 2xl:left-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500  rounded-full shadow-md group z-50"
         >
@@ -97,7 +97,7 @@ const HomeSilderSectionForMobile = () => {
 
       {silderIndexValue !== sliderPortfolioData.length - 1 && (
         <button
-          onClick={() => setSilderIndexValue((prev) => prev + 1)}
+          onClick={() => setSilderIndexValue((prev: any) => prev + 1)}
           className="absolute right-[2%] 2xl:right-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl  shadow-black border group z-50"
           ref={nextButtonRef}
         >

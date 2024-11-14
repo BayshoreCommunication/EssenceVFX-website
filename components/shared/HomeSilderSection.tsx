@@ -60,12 +60,12 @@ const HomeSilderSection = () => {
     }
   }, [silderIndexValue]);
 
-  const onShowPopUp = (video, image) => {
+  const onShowPopUp = (video: any, image: any) => {
     setVideoUrl(video);
     setImageUrl(image);
   };
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setSilderIndexValue(swiper.activeIndex);
   };
 
@@ -102,7 +102,7 @@ const HomeSilderSection = () => {
         <div>
           <button
             ref={prevButtonRef}
-            onClick={() => setSilderIndexValue((prev) => prev - 1)} // Decrement index
+            onClick={() => setSilderIndexValue((prev: any) => prev - 1)} // Decrement index
             className="absolute left-[2%] 2xl:left-[5%] top-[60%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-md group z-50"
           >
             <IoIosArrowBack className="size-9 text-black group-hover:text-white" />
@@ -113,7 +113,7 @@ const HomeSilderSection = () => {
       {silderIndexValue !== sliderPortfolioData.length - 1 && (
         <button
           ref={nextButtonRef}
-          onClick={() => setSilderIndexValue((prev) => prev + 1)} // Increment index
+          onClick={() => setSilderIndexValue((prev: any) => prev + 1)} // Increment index
           className="absolute right-[2%] 2xl:right-[5%] top-[60%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl shadow-black border group z-50"
         >
           <IoIosArrowForward className="size-9 text-black group-hover:text-white" />

@@ -40,7 +40,7 @@ const MainFooter = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const scrollToTop = (title) => {
+  const scrollToTop = (title: number) => {
     setSilderIndexValue(title);
     window.scrollTo({
       top: 0,

@@ -2,8 +2,8 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 type AppState = {
-  silderIndexValue: number | null;
-  setSilderIndexValue: React.Dispatch<React.SetStateAction<number | null>>;
+  silderIndexValue: number;
+  setSilderIndexValue: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const AppContext = createContext<AppState | undefined>(undefined);
@@ -13,7 +13,7 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-  const [silderIndexValue, setSilderIndexValue] = useState<number | null>(0);
+  const [silderIndexValue, setSilderIndexValue] = useState<number>(0);
 
   return (
     <AppContext.Provider value={{ silderIndexValue, setSilderIndexValue }}>
