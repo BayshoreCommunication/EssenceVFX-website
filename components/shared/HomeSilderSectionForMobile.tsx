@@ -125,7 +125,7 @@ const HomeSilderSectionForMobile = () => {
           >
             {sliderPortfolioData?.map((el, index) => (
               <SwiperSlide key={index}>
-                <motion.div className="container">
+                <motion.div className="container  overflow-hidden">
                   {/* Centered text */}
                   <div className="w-full mt-32">
                     <div
@@ -207,7 +207,7 @@ const HomeSilderSectionForMobile = () => {
                       <div className=" flex justify-center items-center -ml-14">
                         <motion.div variants={variants} className="">
                           <button
-                            className="mt-11 mb-10 flex items-center cursor-pointer group mx-0 "
+                            className="mt-8 mb-12 flex items-center cursor-pointer group mx-0 "
                             onClick={() => {
                               onOpen();
                               onShowPopUp(el?.videoUrl, el?.videoThum);

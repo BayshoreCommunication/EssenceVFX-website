@@ -36,7 +36,7 @@ const StatsSection: React.FC = () => {
     <section className="bg-white">
       <ScrollMotionEffect>
         <div className="container py-10 md:py-20 ">
-          <div className="grid lg:grid-cols-4 grid-cols-1 items-start gap-8">
+          <div className="grid lg:grid-cols-4 grid-cols-1 items-start gap-8 lg:gap-14">
             {aboutContents?.map((el, index) => (
               <div className="">
                 <div className="flex justify-center lg:justify-start">
