@@ -88,7 +88,7 @@ const MainFooter = () => {
                     <li className="mb-4 text-center md:text-left " key={index}>
                       <button
                         onClick={() => scrollToTop(el?.index)}
-                        className=""
+                        className="hover:underline"
                       >
                         {el.title}
                       </button>

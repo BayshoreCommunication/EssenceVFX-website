@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
+import Link from "next/link";
 
 const AboutSection = () => {
   return (
-    <div className="relative w-full h-[1200px] md:h-[750px] flex items-center justify-center -mt-20 overflow-hidden">
+    <div className="relative w-full h-[1300px] md:h-[750px] flex items-center justify-center -mt-20 overflow-hidden">
       <Image
         className="absolute inset-0 object-cover bg-bottom w-full h-full bg-gray-700 overflow-hidden"
         width={1920}
@@ -13,7 +14,6 @@ const AboutSection = () => {
         alt="Bg Image "
       />
       <ScrollMotionEffect>
-        {" "}
         <div className="absolute inset-0 object-cover bg-bottom w-full h-full bg-black opacity-35" />
         <div className="container relative flex flex-col items-center justify-center w-full mt-36">
           <h2 className="mt-4 md:mt-6 text-[30px] md:text-[55px] font-semibold text-white text-center leading-tight ">
@@ -44,6 +44,14 @@ const AboutSection = () => {
             today, EssenceVFX remains committed to blending creativity,
             technology, and strategy to create lasting impressions.
           </p>
+          <div className="flex justify-center mt-10">
+            <Link
+              href={"/"}
+              className="text-sm font-[501] uppercase text-white bg-[#000000a8] rounded-full px-7 py-4 hover:bg-black hover:text-gray-200"
+            >
+              WATCH NOW
+            </Link>
+          </div>
         </div>
       </ScrollMotionEffect>
     </div>

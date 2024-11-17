@@ -164,16 +164,16 @@ const HomeSilderSectionForMobile = () => {
                         initial={{ opacity: 0, scale: 0.99 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, ease: "easeInOut" }}
-                        className="flex items-center text-white text-center justify-center list-none text-[12px] gap-2 font-light ml-0 pl-0 mb-6"
+                        className="flex items-center text-white text-center justify-center list-none text-[12px] gap-2 font-normal ml-0 pl-0 mb-6  uppercase"
                       >
                         <li>
                           <p>{el?.topInfo?.location}</p>
                         </li>
-                        <div className="h-5 border-l-2 border-white" />
+                        <div className="h-3 border-l-2 border-white" />
                         <li>
                           <p>{el?.topInfo?.date}</p>
                         </li>
-                        <div className="h-5 border-l-2 border-white" />
+                        <div className="h-3 border-l-2 border-white" />
                         <li>
                           <Link href={`${el?.topInfo?.igUrl}`} target="_blank">
                             <p>{el?.topInfo?.createBy}</p>
@@ -192,7 +192,7 @@ const HomeSilderSectionForMobile = () => {
                       {/* Descriptions */}
                       <motion.p
                         variants={variants}
-                        className="text-base font-light leading-tight mt-5"
+                        className="text-[14px] font-normal leading-tight mt-5"
                       >
                         {el?.descriptionOne}
                       </motion.p>
@@ -204,7 +204,7 @@ const HomeSilderSectionForMobile = () => {
                       </motion.p>
 
                       {/* Button and Video Section */}
-                      <div className="mx-0 flex justify-center items-center">
+                      <div className=" flex justify-center items-center -ml-14">
                         <motion.div variants={variants} className="">
                           <button
                             className="mt-11 mb-10 flex items-center cursor-pointer group mx-0 "
@@ -213,11 +213,13 @@ const HomeSilderSectionForMobile = () => {
                               onShowPopUp(el?.videoUrl, el?.videoThum);
                             }}
                           >
-                            <div className="bg-primary w-[75px] group-hover:w-[180px] h-[75px] rounded-full transition-all duration-300 relative z-10 group-hover:bg-hoverColor" />
+                            <div className="bg-primary w-[65px] group-hover:w-[180px] h-[65px] rounded-full transition-all duration-300 relative z-10 group-hover:bg-hoverColor" />
 
                             <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-300 group-hover:text-hoverColor flex items-center">
                               <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-300  text-white size-6 uppercase" />
-                              <span className="text-base">WATCH NOW</span>
+                              <span className="text-sm font-[501] -ml-6">
+                                WATCH NOW
+                              </span>
                             </p>
                           </button>
                         </motion.div>
