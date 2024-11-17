@@ -204,10 +204,10 @@ const HomeSilderSectionForMobile = () => {
                       </motion.p>
 
                       {/* Button and Video Section */}
-                      <div className=" flex justify-center items-center -ml-14">
+                      <div className=" flex justify-center items-center -ml-6">
                         <motion.div variants={variants} className="">
                           <button
-                            className="mt-8 mb-12 flex items-center cursor-pointer group mx-0 "
+                            className="mt-8 mb-12 flex items-center cursor-pointer group mx-0"
                             onClick={() => {
                               onOpen();
                               onShowPopUp(el?.videoUrl, el?.videoThum);
