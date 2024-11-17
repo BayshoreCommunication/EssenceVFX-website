@@ -14,7 +14,6 @@ const AboutSection = () => {
         alt="Bg Image "
       />
       <ScrollMotionEffect>
-        <div className="absolute inset-0 object-cover bg-bottom w-full h-full bg-black opacity-35" />
         <div className="container relative flex flex-col items-center justify-center w-full mt-36">
           <h2 className="mt-4 md:mt-6 text-[30px] md:text-[55px] font-semibold text-white text-center leading-tight ">
             About
