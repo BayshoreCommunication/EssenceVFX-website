@@ -45,14 +45,15 @@ const MainFooter = () => {
   }, []);
 
   const scrollToTop = (title: number) => {
-    setSilderIndexValue(title); // Updated typo
+    localStorage.removeItem("sliderIndexValue");
+    setSilderIndexValue(title);
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
 
-    // Redirect to homepage if pathname matches certain routes
     if (pathname === "/about" || pathname === "/contact") {
+      localStorage.setItem("sliderIndexValue", title.toString()); // Convert number to string
       router.push("/");
     }
   };

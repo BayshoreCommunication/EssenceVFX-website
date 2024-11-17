@@ -13,7 +13,10 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-  const [silderIndexValue, setSilderIndexValue] = useState<number>(0);
+  const [silderIndexValue, setSilderIndexValue] = useState<number>(() => {
+    const savedValue = Number(localStorage.getItem("sliderIndexValue"));
+    return savedValue !== null ? Number(savedValue) : 0;
+  });
 
   return (
     <AppContext.Provider value={{ silderIndexValue, setSilderIndexValue }}>

@@ -12,7 +12,7 @@ import RouteLoader from "@/components/shared/RouteLoader";
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700", "900"],
-  display: "swap", // optional for better loading performance
+  display: "swap",
 });
 
 export const metadata = {
