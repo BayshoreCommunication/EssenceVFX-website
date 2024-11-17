@@ -6,9 +6,18 @@ import ContactForm from "./ContactForm";
 
 const ContactSection = () => {
   return (
-    <section className="bg-secondary lg:bg-transparent">
+    <section className="bg-secondary lg:bg-transparent relative">
+      <div className="absolute -z-10 right-0] xl:right-[1%]  2xl:right-[15%] top-[26%] opacity-80">
+        <Image
+          className="w-[200px] h-auto"
+          width={300}
+          height={300}
+          src={"/assets/home/white-bg-dot.png"}
+          alt="Slider Video"
+        />
+      </div>
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-between gap-x-8 pt-24 pb-10 xl:mb-40 h-auto lg:h-[550px] ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-between gap-x-8 pt-24 pb-10 xl:mb-44 h-auto lg:h-[550px] ">
           <div className=" text-white pb-6 lg:mb-0 pt-12 lg:mt-0  w-full lg:max-w-[550px] ">
             <ContactForm />
           </div>
