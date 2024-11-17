@@ -217,7 +217,7 @@ const HomeSilderSectionForMobile = () => {
 
                             <p className="text-[20px] font-medium absolute pl-5 z-20 transition-all duration-300 group-hover:text-hoverColor flex items-center">
                               <IoMdArrowDropright className="opacity-0 group-hover:opacity-100 transition-opacity duration-300  text-white size-6 uppercase" />
-                              <span className="text-sm font-[501] -ml-6">
+                              <span className="text-sm font-[501] -ml-6 w-[120px]">
                                 WATCH NOW
                               </span>
                             </p>
