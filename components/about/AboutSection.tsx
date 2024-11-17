@@ -7,7 +7,7 @@ const AboutSection = () => {
   return (
     <div className="relative w-full h-[1200px] md:h-[750px] flex items-center justify-center -mt-20 overflow-hidden">
       <Image
-        className="absolute inset-0 object-cover bg-bottom w-full h-full bg-gray-700 overflow-hidden"
+        className="absolute inset-0 object-cover bg-bottom w-full h-full overflow-hidden"
         width={1920}
         height={700}
         src={"/assets/about/aboutheroimg.jpg"}
