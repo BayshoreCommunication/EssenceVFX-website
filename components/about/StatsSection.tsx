@@ -36,17 +36,17 @@ const StatsSection: React.FC = () => {
     <section className="bg-white">
       <ScrollMotionEffect>
         <div className="container py-10 md:py-20 ">
-          <div className="grid lg:grid-cols-4 grid-cols-1 items-start gap-8 lg:gap-14">
+          <div className="grid lg:grid-cols-4 grid-cols-1 items-start gap-8 lg:gap-20">
             {aboutContents?.map((el, index) => (
               <div className="">
                 <div className="flex justify-center lg:justify-start">
-                  <ImPower className="text-primary size-16 text-center" />
+                  <ImPower className="text-primary size-10 text-center" />
                 </div>
-                <h2 className="mt-4 md:mt-6 text-[16px] md:text-[25px] font-semibold text-black leading-tight text-center lg:text-left">
+                <h2 className="mt-4 md:mt-6 text-[16px] lg:text-[22px] font-semibold text-black leading-tight text-center lg:text-left">
                   {el?.title} |
                   <span className="text-red-600 text-center"> {el?.value}</span>
                 </h2>
-                <p className="text-black font-normal  text-base mt-4 text-center lg:text-left">
+                <p className="text-black font-normal  text-sm mt-4 text-center lg:text-left">
                   {el?.content}
                 </p>
               </div>
