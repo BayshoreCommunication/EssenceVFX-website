@@ -52,7 +52,11 @@ const MainFooter = () => {
       behavior: "smooth",
     });
 
-    if (pathname === "/about" || pathname === "/contact") {
+    if (
+      pathname === "/about" ||
+      pathname === "/contact" ||
+      pathname === "/gallery"
+    ) {
       localStorage.setItem("sliderIndexValue", title.toString()); // Convert number to string
       router.push("/");
     }

@@ -46,7 +46,7 @@ const MainHeader = () => {
     () => [
       { title: "HOME", slug: "/" },
       { title: "ABOUT", slug: "/about" },
-      // { title: "STATS", slug: "/services" },
+      { title: "GALLERY", slug: "/gallery" },
       { title: "CONTACT US", slug: "/contact" },
     ],
     []
@@ -80,7 +80,7 @@ const MainHeader = () => {
                 {/* <h2 className="text-4xl font-black text-primary">EssenceVFX</h2> */}
                 <Image
                   src={
-                    navbarColor
+                    navbarColor || pathname === "/gallery"
                       ? "/assets/site-logo/essenceVFX-logo-redblack.png"
                       : "/assets/site-logo/essenceVFX-logo-redwhite.png"
                   }
@@ -93,7 +93,7 @@ const MainHeader = () => {
             </div>
 
             <div className="w-full">
-              <div className="flex items-center justify-center gap-x-28  xl:gap-x-24">
+              <div className="flex items-center justify-center gap-x-10  xl:gap-x-12">
                 {menuItems.map((el) => (
                   <Link
                     key={el.slug}
