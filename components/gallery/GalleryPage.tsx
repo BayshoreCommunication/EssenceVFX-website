@@ -31,7 +31,7 @@ import "swiper/css/pagination";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import Image from "next/image";
-import { sliderPortfolioData } from "@/config/data";
+import { gallerySilderData } from "@/config/data";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 import { useAppContext } from "@/app/AppContext";
 
@@ -74,7 +74,7 @@ const GalleryPage = () => {
     setSilderIndexValue(swiper.activeIndex);
   };
 
-  const heroInfoData = sliderPortfolioData?.find(
+  const heroInfoData = gallerySilderData?.find(
     (el, index) => index === silderIndexValue
   );
 
@@ -91,7 +91,7 @@ const GalleryPage = () => {
               <div>
                 <button
                   ref={prevButtonRef}
-                  onClick={() => setSilderIndexValue((prev: any) => prev - 1)} // absolute left-[1%] lg:left-[8%] xl:left-[14%] 2xl:left-[17%] top-[60%]
+                  onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
                   className=" text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-md group z-50"
                 >
                   <IoIosArrowBack className="size-5 lg:size-9 text-black group-hover:text-white" />
@@ -105,9 +105,12 @@ const GalleryPage = () => {
                 keyboard={true}
                 loop={true}
                 autoplay={{
-                  delay: 2500,
+                  delay: 3000, // Adjust the delay for smoothness
+                  disableOnInteraction: false, // Continue autoplay after interaction
                 }}
+                speed={800} // Set transition speed
                 initialSlide={silderIndexValue}
+                effect="slide" // Smooth slide effect
                 modules={[
                   Autoplay,
                   Navigation,
@@ -119,7 +122,6 @@ const GalleryPage = () => {
                   swiperRef.current = swiper;
                 }}
                 onSlideChange={handleSlideChange}
-                className="mySwiper"
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
@@ -135,14 +137,14 @@ const GalleryPage = () => {
                   },
                 }}
               >
-                {sliderPortfolioData?.map((el, index) => (
+                {gallerySilderData?.map((el, index) => (
                   <SwiperSlide key={index} className="">
                     <div className="cursor-pointer">
                       <Image
-                        className="w-full h-auto"
+                        className="w-[422px] h-[500px] transition-all duration-700 ease-in-out"
                         width={500}
                         height={500}
-                        src={el?.videoThum}
+                        src={el?.url}
                         alt="Slider Video"
                       />
                     </div>
@@ -153,7 +155,7 @@ const GalleryPage = () => {
             <div className="w-[0%] relative z-50 right-10 lg:right-7">
               <button
                 ref={nextButtonRef}
-                onClick={() => setSilderIndexValue((prev: any) => prev + 1)} //absolute right-[1%] lg:right-[8%]  xl:right-[12%]  2xl:right-[17%] top-[60%]
+                onClick={() => setSilderIndexValue((prev: any) => prev + 1)}
                 className=" text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full  shadow-black border group z-50"
               >
                 <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-white" />
