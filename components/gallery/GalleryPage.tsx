@@ -130,7 +130,7 @@ const GalleryPage = () => {
                         width={500}
                         height={500}
                         src={el?.url}
-                        alt={el?.url}
+                        alt={"Gallery Images"}
                       />
                     </div>
                   </SwiperSlide>
