@@ -1,39 +1,24 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
-import { motion } from "framer-motion";
-import { IoMdArrowDropright } from "react-icons/io";
-import { FaPlay } from "react-icons/fa";
+import { useDisclosure } from "@nextui-org/react";
+import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FaQuoteRight } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa6";
-import { FaArrowRight } from "react-icons/fa6";
 
 import {
+  Autoplay,
+  Keyboard,
+  Mousewheel,
   Navigation,
   Pagination,
-  Mousewheel,
-  Keyboard,
-  Autoplay,
 } from "swiper/modules";
 
+import { useAppContext } from "@/app/AppContext";
+import { gallerySilderData } from "@/config/data";
+import Image from "next/image";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import Link from "next/link";
-import Image from "next/image";
-import { gallerySilderData } from "@/config/data";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
-import { useAppContext } from "@/app/AppContext";
 
 const GalleryPage = () => {
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
@@ -145,7 +130,7 @@ const GalleryPage = () => {
                         width={500}
                         height={500}
                         src={el?.url}
-                        alt="Slider Video"
+                        alt={el?.url}
                       />
                     </div>
                   </SwiperSlide>
