@@ -130,7 +130,9 @@ const GalleryPage = () => {
                         width={500}
                         height={500}
                         src={el?.url}
-                        alt={"Gallery Image"}
+                        alt={`Gallery Image ${index + 1}`}
+                        priority={index === 0}
+                        blurDataURL={el?.url}
                       />
                     </div>
                   </SwiperSlide>
