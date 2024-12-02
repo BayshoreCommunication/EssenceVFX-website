@@ -89,13 +89,14 @@ const GalleryPage = () => {
                 mousewheel={true}
                 keyboard={true}
                 loop={true}
+                loopFillGroupWithBlank={true}
                 autoplay={{
-                  delay: 3000, // Adjust the delay for smoothness
-                  disableOnInteraction: false, // Continue autoplay after interaction
+                  delay: 3000,
+                  disableOnInteraction: false,
                 }}
-                speed={800} // Set transition speed
+                speed={800}
                 initialSlide={silderIndexValue}
-                effect="slide" // Smooth slide effect
+                effect="slide"
                 modules={[
                   Autoplay,
                   Navigation,
@@ -107,23 +108,29 @@ const GalleryPage = () => {
                   swiperRef.current = swiper;
                 }}
                 onSlideChange={handleSlideChange}
+                onResize={(swiper) => {
+                  swiper.update();
+                }}
+                onBreakpoint={(swiper) => {
+                  swiper.update();
+                }}
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                   },
                   768: {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
+                    slidesPerView: 2,
+                    spaceBetween: 20,
                   },
                   1024: {
                     slidesPerView: 3,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
                   },
                 }}
               >
                 {gallerySilderData?.map((el, index) => (
-                  <SwiperSlide key={index} className="">
+                  <SwiperSlide key={index}>
                     <div className="cursor-pointer">
                       <Image
                         className="w-[422px] h-[500px] transition-all duration-700 ease-in-out"
