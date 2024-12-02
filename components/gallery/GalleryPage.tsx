@@ -74,13 +74,15 @@ const GalleryPage = () => {
           <div className="flex items-center justify-between">
             <div className="w-[0%] relative z-50 left-1 lg:-left-7">
               <div>
-                <button
-                  ref={prevButtonRef}
-                  onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
-                  className=" text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-md group z-50"
-                >
-                  <IoIosArrowBack className="size-5 lg:size-9 text-black group-hover:text-white" />
-                </button>
+                {silderIndexValue !== 0 && (
+                  <button
+                    ref={prevButtonRef}
+                    onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
+                    className=" text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-md group z-50"
+                  >
+                    <IoIosArrowBack className="size-5 lg:size-9 text-black group-hover:text-white" />
+                  </button>
+                )}
               </div>
             </div>
             <div className="w-[90%] lg:w-[100%]">
@@ -88,15 +90,14 @@ const GalleryPage = () => {
                 cssMode={true}
                 mousewheel={true}
                 keyboard={true}
-                loop={true}
-                loopFillGroupWithBlank={true}
+                // loop={true}
                 autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
+                  delay: 3000, // Adjust the delay for smoothness
+                  disableOnInteraction: false, // Continue autoplay after interaction
                 }}
-                speed={800}
+                speed={800} // Set transition speed
                 initialSlide={silderIndexValue}
-                effect="slide"
+                effect="slide" // Smooth slide effect
                 modules={[
                   Autoplay,
                   Navigation,
@@ -108,38 +109,30 @@ const GalleryPage = () => {
                   swiperRef.current = swiper;
                 }}
                 onSlideChange={handleSlideChange}
-                onResize={(swiper) => {
-                  swiper.update();
-                }}
-                onBreakpoint={(swiper) => {
-                  swiper.update();
-                }}
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
-                    spaceBetween: 10,
+                    spaceBetween: 20,
                   },
                   768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
+                    slidesPerView: 1,
+                    spaceBetween: 30,
                   },
                   1024: {
                     slidesPerView: 3,
-                    spaceBetween: 30,
+                    spaceBetween: 40,
                   },
                 }}
               >
                 {gallerySilderData?.map((el, index) => (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide key={index} className="">
                     <div className="cursor-pointer">
                       <Image
                         className="w-[422px] h-[500px] transition-all duration-700 ease-in-out"
                         width={500}
                         height={500}
                         src={el?.url}
-                        alt={`Gallery Image ${index + 1}`}
-                        priority={index === 0}
-                        blurDataURL={el?.url}
+                        alt={"Gallery Image"}
                       />
                     </div>
                   </SwiperSlide>
@@ -147,13 +140,15 @@ const GalleryPage = () => {
               </Swiper>
             </div>
             <div className="w-[0%] relative z-50 right-10 lg:right-7">
-              <button
-                ref={nextButtonRef}
-                onClick={() => setSilderIndexValue((prev: any) => prev + 1)}
-                className=" text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full  shadow-black border group z-50"
-              >
-                <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-white" />
-              </button>
+              {silderIndexValue !== gallerySilderData.length - 1 && (
+                <button
+                  ref={nextButtonRef}
+                  onClick={() => setSilderIndexValue((prev: any) => prev + 1)}
+                  className=" text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full  shadow-black border group z-50"
+                >
+                  <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-white" />
+                </button>
+              )}
             </div>
           </div>
         </div>
