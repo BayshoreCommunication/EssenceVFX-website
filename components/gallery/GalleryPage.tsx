@@ -129,10 +129,11 @@ const GalleryPage = () => {
                     <div className="cursor-pointer">
                       <Image
                         className="w-[422px] h-[500px] transition-all duration-700 ease-in-out"
-                        width={500}
-                        height={500}
+                        width={1000}
+                        height={1000}
                         src={el?.url}
                         alt={"Gallery Image"}
+                        quality={100}
                       />
                     </div>
                   </SwiperSlide>
