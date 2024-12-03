@@ -132,7 +132,7 @@ const GalleryPage = () => {
                         width={1000}
                         height={1000}
                         src={el?.url}
-                        alt={"Gallery Image"}
+                        alt={el?.url}
                         quality={100}
                       />
                     </div>
