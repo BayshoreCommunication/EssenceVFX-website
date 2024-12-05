@@ -64,7 +64,7 @@ const GalleryPage = () => {
   );
 
   return (
-    <div className="relative bg-white pt-28 lg:pt-36 pb-8 lg:pb-24">
+    <div className="relative bg-white pt-28 lg:pt-36 pb-8 lg:pb-36">
       <ScrollMotionEffect>
         <h2 className=" text-[30px] md:text-[55px] font-semibold text-black text-center leading-tight mb-6  lg:mb-12">
           Gallery
