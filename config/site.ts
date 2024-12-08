@@ -61,7 +61,7 @@ export const siteConfig = {
       },
       // {
       //   title: "Customer Support",
-      //   slug: "/customer-support",
+      //   slug: "/customer-support d",
       // },
       // {
       //   title: "FAQ",
