@@ -114,7 +114,7 @@ export const gallerySilderData = [
   { url: "/assets/gallery-img/vixen-1.jpg" },
   { url: "/assets/gallery-img/vixen-2.jpg" },
   // { url: "/assets/gallery-img/vixen-3.jpg" },
-  { url: "/assets/gallery-img/flash.jpg" },
+  // { url: "/assets/gallery-img/flash.jpg" },
   { url: "/assets/gallery-img/scarlet-witch.jpg" },
   { url: "/assets/gallery-img/scarlet-witch-2.jpg" },
   { url: "/assets/gallery-img/scarlet-witch-&-polaris.jpg" },
