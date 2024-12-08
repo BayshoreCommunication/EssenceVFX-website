@@ -30,7 +30,6 @@ const GalleryPage = () => {
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
   const swiperRef = useRef<any>(null);
 
-  // Attach Swiper navigation on initialization
   useEffect(() => {
     if (swiperRef.current) {
       swiperRef.current.params.navigation.prevEl = prevButtonRef.current;
