@@ -102,7 +102,7 @@ export const gallerySilderData = [
   { url: "/assets/gallery-img/phoenix.jpg" },
   { url: "/assets/gallery-img/rick-and-storm.jpg" },
   { url: "/assets/gallery-img/scarlet-witch-&-polaris.jpg" },
-  // { url: "/assets/gallery-img/scarlet-witch.jpg" },
+  { url: "/assets/gallery-img/scarlet-witch.jpg" },
   { url: "/assets/gallery-img/scarlet-witch-2.jpg" },
   { url: "/assets/gallery-img/sonic.jpg" },
   { url: "/assets/gallery-img/spiderman.jpg" },
