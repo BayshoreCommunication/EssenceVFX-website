@@ -60,8 +60,8 @@ export const siteConfig = {
         slug: "/contact",
       },
       // {
-      //   title: "Customer Support",
-      //   slug: "/customer-support",
+      //   title: "Customer Supports",
+      //   slug: "/customer-supports",
       // },
       // {
       //   title: "FAQ",
