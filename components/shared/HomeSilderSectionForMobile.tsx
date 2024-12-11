@@ -1,31 +1,25 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
 import {
   Modal,
-  ModalContent,
-  ModalHeader,
   ModalBody,
-  ModalFooter,
-  Button,
+  ModalContent,
   useDisclosure,
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FaQuoteRight } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa6";
-import { FaArrowRight } from "react-icons/fa6";
+import { useEffect, useRef, useState } from "react";
 import { IoMdArrowDropright } from "react-icons/io";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+import Image from "next/image";
+import Link from "next/link";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import Link from "next/link";
-import Image from "next/image";
-import { sliderPortfolioData } from "@/config/data";
-import InstagramEmbedVideo from "./InstagramEmbedVideo";
+
 import { useAppContext } from "@/app/AppContext";
+import { sliderPortfolioData } from "@/config/data";
 
 const HomeSilderSectionForMobile = () => {
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
@@ -87,9 +81,9 @@ const HomeSilderSectionForMobile = () => {
     <div className="relative">
       {silderIndexValue !== 0 && (
         <button
-          onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
           ref={prevButtonRef}
           className="absolute left-[2%] 2xl:left-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500  rounded-full shadow-md group z-50"
+          onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
         >
           <IoIosArrowBack className="size-5 text-black group-hover:text-white" />
         </button>
@@ -97,9 +91,9 @@ const HomeSilderSectionForMobile = () => {
 
       {silderIndexValue !== sliderPortfolioData.length - 1 && (
         <button
-          onClick={() => setSilderIndexValue((prev: any) => prev + 1)}
-          className="absolute right-[2%] 2xl:right-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl  shadow-black border group z-50"
           ref={nextButtonRef}
+          className="absolute right-[2%] 2xl:right-[5%] top-[30%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl  shadow-black border group z-50"
+          onClick={() => setSilderIndexValue((prev: any) => prev + 1)}
         >
           <IoIosArrowForward className="size-5 text-black group-hover:text-white" />
         </button>
@@ -108,20 +102,20 @@ const HomeSilderSectionForMobile = () => {
       <div className={`mt-6`}>
         <div className="lg:flex items-center">
           <Swiper
+            className="mySwiper"
+            cssMode={true}
+            initialSlide={silderIndexValue}
+            keyboard={true}
+            modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+            mousewheel={true}
             pagination={{
               clickable: true,
               type: "bullets",
             }}
-            cssMode={true}
-            mousewheel={true}
-            keyboard={true}
-            initialSlide={silderIndexValue}
-            modules={[Navigation, Pagination, Mousewheel, Keyboard]}
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
             onSlideChange={handleSlideChange}
-            className="mySwiper"
           >
             {sliderPortfolioData?.map((el, index) => (
               <SwiperSlide key={index}>
@@ -136,11 +130,11 @@ const HomeSilderSectionForMobile = () => {
                       }}
                     >
                       <Image
+                        alt="Slider Video"
                         className="w-full h-auto px-10"
-                        width={500}
                         height={500}
                         src={el?.videoThum}
-                        alt="Slider Video"
+                        width={500}
                       />
                     </div>
                   </div>
@@ -148,23 +142,23 @@ const HomeSilderSectionForMobile = () => {
                   <div className="text-white text-center">
                     <motion.div
                       key={index}
-                      initial="hidden"
                       animate={
                         silderIndexValue === index ? "visible" : "hidden"
                       }
+                      className="flex flex-col items-center py-4 mt-10 justify-center"
                       exit="hidden"
+                      initial="hidden"
                       variants={{
                         visible: { transition: { staggerChildren: 0.2 } },
                         hidden: { transition: { staggerChildren: 0.1 } },
                       }}
-                      className="flex flex-col items-center py-4 mt-10 justify-center"
                     >
                       {/* Top Info */}
                       <motion.ul
-                        initial={{ opacity: 0, scale: 0.99 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, ease: "easeInOut" }}
                         className="flex items-center text-white text-center justify-center list-none text-[12px] gap-2 font-normal ml-0 pl-0 mb-6  uppercase"
+                        initial={{ opacity: 0, scale: 0.99 }}
+                        transition={{ duration: 0.6, ease: "easeInOut" }}
                       >
                         <li>
                           <p>{el?.topInfo?.location}</p>
@@ -183,29 +177,29 @@ const HomeSilderSectionForMobile = () => {
 
                       {/* Title */}
                       <motion.h1
-                        variants={variants}
                         className="text-4xl font-extrabold leading-tight pb-3"
+                        variants={variants}
                       >
                         {el?.title}
                       </motion.h1>
 
                       {/* Descriptions */}
                       <motion.p
-                        variants={variants}
                         className="text-[14px] font-normal leading-tight mt-5"
+                        variants={variants}
                       >
                         {el?.descriptionOne}
                       </motion.p>
                       <motion.p
-                        variants={variants}
                         className="text-base  font-light leading-tight mt-5"
+                        variants={variants}
                       >
                         {el?.descriptionTwo}
                       </motion.p>
 
                       {/* Button and Video Section */}
                       <div className=" flex justify-center items-center -ml-6">
-                        <motion.div variants={variants} className="">
+                        <motion.div className="" variants={variants}>
                           <button
                             className="mt-8 mb-12 flex items-center cursor-pointer group mx-0"
                             onClick={() => {
@@ -232,7 +226,7 @@ const HomeSilderSectionForMobile = () => {
           </Swiper>
         </div>
       </div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="sm">
+      <Modal isOpen={isOpen} size="sm" onOpenChange={onOpenChange}>
         <ModalContent className="w-[600px]  h-auto">
           {(onClose) => (
             <ModalBody>
@@ -240,15 +234,15 @@ const HomeSilderSectionForMobile = () => {
                 {/* <InstagramEmbedVideo /> */}
                 <video
                   autoPlay
-                  src={videoUrl}
-                  muted
-                  preload="metadata"
-                  className="mx-auto"
-                  width={200}
-                  height={600}
-                  playsInline
                   controls
+                  muted
+                  playsInline
+                  className="mx-auto"
+                  height={600}
                   poster={imageUrl}
+                  preload="metadata"
+                  src={videoUrl}
+                  width={200}
                 />
               </div>
             </ModalBody>
