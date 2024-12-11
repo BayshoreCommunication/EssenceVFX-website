@@ -27,8 +27,8 @@ export const siteConfig = {
       // },
 
       // {
-      //   title: "Team",
-      //   slug: "/team",
+      //   title: "Teams",
+      //   slug: "/teams",
       // },
     ],
     categories: [
