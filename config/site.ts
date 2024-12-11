@@ -59,14 +59,6 @@ export const siteConfig = {
         title: "Contact Us",
         slug: "/contact",
       },
-      // {
-      //   title: "Customer Supports",
-      //   slug: "/customer-supports",
-      // },
-      // {
-      //   title: "FAQ",
-      //   slug: "/faq",
-      // },
     ],
   },
 };
