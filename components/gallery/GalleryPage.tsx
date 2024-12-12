@@ -127,7 +127,7 @@ const GalleryPage = () => {
                   <SwiperSlide key={index} className="">
                     <div className="cursor-pointer">
                       <Image
-                        className="w-[422px] h-[500px] transition-all duration-700 ease-in-out"
+                        className="w-[422px] h-[485px] transition-all duration-700 ease-in-out"
                         width={1000}
                         height={1000}
                         src={el?.url}
