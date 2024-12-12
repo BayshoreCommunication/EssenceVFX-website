@@ -160,7 +160,7 @@ const GalleryPage = () => {
               </Swiper>
             </div>
             <div className="w-[0%] relative z-50 right-10 lg:right-7">
-              {silderIndexValue !== memoizedGalleryData.length - 3 && (
+              {silderIndexValue !== memoizedGalleryData.length - 1 && (
                 <button
                   ref={nextButtonRef}
                   onClick={() =>
