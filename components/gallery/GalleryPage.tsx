@@ -161,8 +161,23 @@ const GalleryPage = () => {
                 ))}
               </Swiper>
             </div>
-            <div className="w-[0%] relative z-50 right-10 lg:right-7">
+
+            <div className="w-[0%] relative z-50 right-10 lg:right-7 hidden lg:block">
               {silderIndexValue !== 26 && (
+                <button
+                  ref={nextButtonRef}
+                  onClick={() =>
+                    setSilderIndexValue((prev: number) => prev + 1)
+                  }
+                  className="text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-black border group z-50"
+                >
+                  <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-white" />
+                </button>
+              )}
+            </div>
+
+            <div className="w-[0%] relative z-50 right-10 lg:right-7 block lg:hidden">
+              {silderIndexValue !== 28 && (
                 <button
                   ref={nextButtonRef}
                   onClick={() =>
