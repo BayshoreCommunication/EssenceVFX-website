@@ -59,7 +59,7 @@ const GalleryPage = () => {
   }, []);
 
   const handleSlideChange = useCallback(
-    (swiper: any) => {
+    (swiper: number) => {
       setSilderIndexValue(swiper.activeIndex);
     },
     [setSilderIndexValue]
@@ -135,7 +135,7 @@ const GalleryPage = () => {
                   },
                 }}
               >
-                {memoizedGalleryData.map((el, index) => (
+                {memoizedGalleryData.map((el: any, index: number) => (
                   <SwiperSlide key={el.url || index}>
                     <div
                       className="cursor-pointer"
@@ -160,7 +160,7 @@ const GalleryPage = () => {
               </Swiper>
             </div>
             <div className="w-[0%] relative z-50 right-10 lg:right-7">
-              {silderIndexValue !== memoizedGalleryData.length - 1 && (
+              {silderIndexValue !== 28 && (
                 <button
                   ref={nextButtonRef}
                   onClick={() =>
