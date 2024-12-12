@@ -77,8 +77,6 @@ const GalleryPage = () => {
     }
   }, [silderIndexValue]);
 
-  console.log("check vlaue ", silderIndexValue);
-
   return (
     <div className="relative bg-white pt-28 lg:pt-16 pb-8 lg:pb-20">
       <ScrollMotionEffect>
@@ -103,6 +101,7 @@ const GalleryPage = () => {
             </div>
             <div className="w-[90%] lg:w-[100%]">
               <Swiper
+                allowTouchMove={false}
                 cssMode={true}
                 autoplay={{
                   delay: 3000,
