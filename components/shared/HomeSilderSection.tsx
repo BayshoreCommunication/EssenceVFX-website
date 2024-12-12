@@ -1,34 +1,27 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
 import {
   Modal,
-  ModalContent,
-  ModalHeader,
   ModalBody,
-  ModalFooter,
-  Button,
+  ModalContent,
   useDisclosure,
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { IoMdArrowDropright } from "react-icons/io";
-import { FaPlay } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FaQuoteRight } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa6";
-import { FaArrowRight } from "react-icons/fa6";
-
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
-
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoMdArrowDropright,
+} from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import Link from "next/link";
-import Image from "next/image";
-import { sliderPortfolioData } from "@/config/data";
-import InstagramEmbedVideo from "./InstagramEmbedVideo";
-import ScrollMotionEffect from "../motion/ScrollMotionEffect";
+import { Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import { useAppContext } from "@/app/AppContext";
+import { sliderPortfolioData } from "@/config/data";
 
 const HomeSilderSection = () => {
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
@@ -90,11 +83,11 @@ const HomeSilderSection = () => {
     <div className="relative">
       <div className="absolute -z-10 right-0] xl:right-[1%]  2xl:right-[15%] top-[26%] opacity-80">
         <Image
+          alt="Slider Video"
           className="w-[200px] h-auto"
-          width={300}
           height={300}
           src={"/assets/home/white-bg-dot.png"}
-          alt="Slider Video"
+          width={300}
         />
       </div>
 
@@ -102,8 +95,8 @@ const HomeSilderSection = () => {
         <div>
           <button
             ref={prevButtonRef}
-            onClick={() => setSilderIndexValue((prev: any) => prev - 1)} // Decrement index
             className="absolute left-[2%] 2xl:left-[5%] top-[60%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-md group z-50"
+            onClick={() => setSilderIndexValue((prev: any) => prev - 1)} // Decrement index
           >
             <IoIosArrowBack className="size-9 text-black group-hover:text-white" />
           </button>
@@ -113,8 +106,8 @@ const HomeSilderSection = () => {
       {silderIndexValue !== sliderPortfolioData.length - 1 && (
         <button
           ref={nextButtonRef}
-          onClick={() => setSilderIndexValue((prev: any) => prev + 1)} // Increment index
           className="absolute right-[2%] 2xl:right-[5%] top-[60%] text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-2xl shadow-black border group z-50"
+          onClick={() => setSilderIndexValue((prev: any) => prev + 1)} // Increment index
         >
           <IoIosArrowForward className="size-9 text-black group-hover:text-white" />
         </button>
@@ -125,31 +118,31 @@ const HomeSilderSection = () => {
           <div className="max-w-[510px]">
             <motion.div
               key={silderIndexValue}
-              className=""
-              initial="hidden"
               animate="visible"
+              className=""
               exit={{ opacity: 0, transition: { duration: 0.7 } }}
+              initial="hidden"
               variants={{
                 visible: { transition: { staggerChildren: 0.15 } },
               }}
             >
               <div className="flex items-center py-6">
                 <motion.ul
-                  initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
                   className={`flex items-center text-white text-center list-none text-[12px] lg:text-[14px] xl:text-[15px] gap-2 xl:gap-4 font-normal ml-0 pl-0`}
+                  initial={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
                   <li>
                     <p className="uppercase">
                       {heroInfoData?.topInfo?.location}
                     </p>
                   </li>
-                  <div className="h-4 border-l-2 border-white"></div>
+                  <div className="h-4 border-l-2 border-white" />
                   <li>
                     <p className="uppercase">{heroInfoData?.topInfo?.date}</p>
                   </li>
-                  <div className="h-4 border-l-2 border-white"></div>
+                  <div className="h-4 border-l-2 border-white" />
                   <li className="hover:underline">
                     <Link
                       href={`${heroInfoData?.topInfo?.igUrl}`}
@@ -164,33 +157,33 @@ const HomeSilderSection = () => {
               </div>
 
               <motion.h1
-                variants={variants}
                 className="text-xl lg:text-5xl xl:text-7xl font-bold leading-tight pb-2 text-white"
                 transition={{ duration: 0.5, ease: "easeInOut" }}
+                variants={variants}
               >
                 {heroInfoData?.title}
               </motion.h1>
 
               <motion.h1
-                variants={variants}
                 className="text-lg lg:text-xl xl:text-3xl font-medium leading-tight pb-3 text-white"
                 transition={{ duration: 0.5, ease: "easeInOut" }}
+                variants={variants}
               >
                 {heroInfoData?.subTitle}
               </motion.h1>
 
               <motion.p
-                variants={variants}
                 className={`text-[12px] lg:text-[14px] xl:text-[15px] font-normal leading-relaxed mt-5 text-white`}
                 transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
+                variants={variants}
               >
                 {heroInfoData?.descriptionOne}
               </motion.p>
 
               <motion.div
-                variants={variants}
                 className="flex items-center justify-center"
                 transition={{ duration: 0.5, ease: "easeInOut", delay: 0.15 }}
+                variants={variants}
               >
                 <button
                   className="mt-11 mb-10 flex items-center cursor-pointer w-[350px] group text-white"
@@ -214,21 +207,21 @@ const HomeSilderSection = () => {
 
           <div className="w-full">
             <Swiper
+              className="mySwiper"
               cssMode={true}
-              mousewheel={true}
-              keyboard={true}
               initialSlide={silderIndexValue}
+              keyboard={true}
               modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+              mousewheel={true}
               onBeforeInit={(swiper) => {
                 swiperRef.current = swiper;
               }}
               onSlideChange={handleSlideChange}
-              className="mySwiper"
             >
               {sliderPortfolioData?.map((el, index) => (
                 <SwiperSlide key={index} className="">
                   <div className="flex items-center justify-center">
-                    <div
+                    <di
                       className="relative w-[400px] h-[562px] cursor-pointer  group mt-8"
                       onClick={() => {
                         onOpen();
@@ -236,11 +229,11 @@ const HomeSilderSection = () => {
                       }}
                     >
                       <Image
+                        alt="Slider Video"
                         className="w-full h-auto shadow-5xl z-40 relative drop-shadow-2xl"
-                        width={500}
                         height={500}
                         src={el?.videoThum}
-                        alt="Slider Video"
+                        width={500}
                       />
                       <p
                         className={`text-sm font-bold absolute top-[3.5%] left-[100%] text-left bg-primary w-[35px] h-[70px] group-hover:w-[72px] transition-all duration-300 flex items-center rounded-r-md z-50`}
@@ -251,13 +244,13 @@ const HomeSilderSection = () => {
                       </p>
 
                       <Image
+                        alt="Slider Video"
                         className=" z-10  absolute top-[7%] left-[-6%] group-hover:top-[-5%] group-hover:left-[5%] transition-all duration-300"
-                        width={500}
                         height={300}
                         src={"/assets/home/image-hover-border-new.png"}
-                        alt="Slider Video"
+                        width={500}
                       />
-                    </div>
+                    </di>
                   </div>
                 </SwiperSlide>
               ))}
@@ -266,22 +259,22 @@ const HomeSilderSection = () => {
         </div>
       </div>
 
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="sm">
+      <Modal isOpen={isOpen} size="sm" onOpenChange={onOpenChange}>
         <ModalContent className="w-[600px]  h-auto">
           {(onClose) => (
             <ModalBody>
               <div className="pt-4 pb-2">
                 <video
                   autoPlay
-                  src={videoUrl}
-                  muted
-                  preload="metadata"
-                  className="mx-auto"
-                  width={200}
-                  height={600}
-                  playsInline
                   controls
+                  muted
+                  playsInline
+                  className="mx-auto"
+                  height={600}
                   poster={imageUrl}
+                  preload="metadata"
+                  src={videoUrl}
+                  width={200}
                 />
               </div>
             </ModalBody>

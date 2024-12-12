@@ -1,29 +1,13 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import { RiPhoneFill } from "react-icons/ri";
-import { MdMarkEmailUnread } from "react-icons/md";
-import { IoLocationSharp } from "react-icons/io5";
-import { ImFacebook2 } from "react-icons/im";
-import { BsLinkedin } from "react-icons/bs";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { PiPhoneCallFill } from "react-icons/pi";
-import { IoMdHome } from "react-icons/io";
-import { FaTiktok } from "react-icons/fa";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaYoutube } from "react-icons/fa6";
 
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa6";
-import { siteConfig } from "@/config/site";
 import { useAppContext } from "@/app/AppContext";
-import { useRouter } from "next/navigation";
+import { siteConfig } from "@/config/site";
 
 const MainFooter = () => {
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
@@ -41,6 +25,7 @@ const MainFooter = () => {
     };
 
     window.addEventListener("scroll", toggleVisibility);
+
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
@@ -75,8 +60,8 @@ const MainFooter = () => {
                 <hr className="mt-2 mb-6 w-32 border-white" />
                 <ul className="ml-0 text-white list-none text-[15px] font-normal">
                   {siteConfig?.footer?.usefulLinks?.map((el, index) => (
-                    <li className="mb-4 text-center md:text-left" key={index}>
-                      <Link href={el.slug} className="hover:underline ">
+                    <li key={index} className="mb-4 text-center md:text-left">
+                      <Link className="hover:underline " href={el.slug}>
                         {el.title}
                       </Link>
                     </li>
@@ -90,10 +75,10 @@ const MainFooter = () => {
                 <hr className="w-28 mt-2 mb-6 border-white" />
                 <ul className="ml-0 text-[15px] font-normal text-white list-none">
                   {siteConfig?.footer?.categories?.map((el, index) => (
-                    <li className="mb-4 text-center md:text-left " key={index}>
+                    <li key={index} className="mb-4 text-center md:text-left ">
                       <button
-                        onClick={() => scrollToTop(el?.index)}
                         className="hover:underline"
+                        onClick={() => scrollToTop(el?.index)}
                       >
                         {el.title}
                       </button>
@@ -108,8 +93,8 @@ const MainFooter = () => {
                 <hr className="w-32 mt-2 mb-6 border-white" />
                 <ul className="ml-0 text-[15px] font-normal text-white list-none">
                   {siteConfig?.footer?.getInTouch?.map((el, index) => (
-                    <li className="mb-4 text-center md:text-left" key={index}>
-                      <Link href={el.slug} className="hover:underline">
+                    <li key={index} className="mb-4 text-center md:text-left">
+                      <Link className="hover:underline" href={el.slug}>
                         {el.title}
                       </Link>
                     </li>
@@ -122,19 +107,19 @@ const MainFooter = () => {
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center my-8">
             <Link href={"/"}>
               <Image
-                src={"/assets/site-logo/essenceVFX-Logo-White.png"}
                 alt="EssenceVFX"
-                width={500}
-                height={500}
                 className="cursor-pointer w-[150px]  h-auto mt-2 mb-2"
+                height={500}
+                src={"/assets/site-logo/essenceVFX-Logo-White.png"}
+                width={500}
               />
             </Link>
 
             <div className="text-white  flex justify-center md:justify-start gap-3 mt-4 md:mt-6 ">
               <Link
+                className="inline-block p-2 rounded  duration-300"
                 href="https://www.facebook.com/cosplaypowers"
                 target="_blank"
-                className="inline-block p-2 rounded  duration-300"
               >
                 <FaFacebookF className="size-5 hover:text-black" />
               </Link>
@@ -146,23 +131,23 @@ const MainFooter = () => {
                 <FaLinkedinIn className="size-5 hover:text-black" />
               </Link> */}
               <Link
+                className="inline-block p-2 rounded  duration-300"
                 href="https://www.tiktok.com/@webslinger"
                 target="_blank"
-                className="inline-block p-2 rounded  duration-300"
               >
                 <FaTiktok className="size-5 hover:text-black" />
               </Link>
               <Link
+                className="inline-block p-2 rounded  duration-300"
                 href="https://www.instagram.com/cosplaypowers/"
                 target="_blank"
-                className="inline-block p-2 rounded  duration-300"
               >
                 <FaInstagram className="size-5 hover:text-black" />
               </Link>
               <Link
+                className="inline-block p-2 rounded duration-300"
                 href="https://www.youtube.com/@webslingers"
                 target="_blank"
-                className="inline-block p-2 rounded duration-300"
               >
                 <FaYoutube className="size-5 hover:text-black" />
               </Link>
@@ -173,21 +158,22 @@ const MainFooter = () => {
           <div className="md:flex :items-center sm:justify-between ">
             <div className="text-[16px] font-normal text-center text-white">
               © 2024{" "}
-              <a href="" className="hover:underline text-white">
+              <Link className="hover:underline text-white" href="">
                 EssenceVFX
-              </a>
+              </Link>
               . All Rights Reserved.
             </div>
 
             <div className="text-[16px] font-normal text-center text-white mt-4 md:mt-0">
               Design & Developed by{" "}
-              <a
-                href="https://www.bayshorecommunication.com/"
-                target="_blank"
+              <Link
                 className="font-normal hover:underline text-white"
+                href="https://www.bayshorecommunication.com/"
+                rel="noreferrer"
+                target="_blank"
               >
                 BayShore Communication
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { ImPower } from "react-icons/im";
+
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const StatsSection: React.FC = () => {
@@ -37,8 +38,8 @@ const StatsSection: React.FC = () => {
       <ScrollMotionEffect>
         <div className="container py-10 md:py-20 ">
           <div className="grid lg:grid-cols-4 grid-cols-1 items-start gap-8 lg:gap-20">
-            {aboutContents?.map((el, index) => (
-              <div className="">
+            {aboutContents?.map((el: any, index: number) => (
+              <div key={index} className="">
                 <div className="flex justify-center lg:justify-start">
                   <ImPower className="text-primary size-10 text-center" />
                 </div>

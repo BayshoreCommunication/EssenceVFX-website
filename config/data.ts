@@ -101,7 +101,7 @@ export const gallerySilderData = [
   { url: "/assets/gallery-img/magneto-scarlet-witch-and-cyclops.jpg" },
   { url: "/assets/gallery-img/phoenix.jpg" },
   { url: "/assets/gallery-img/rick-and-storm.jpg" },
-  // { url: "/assets/gallery-img/scarlet-witch-&-polaris.jpg" },
+  { url: "/assets/gallery-img/generative-fill-3.jpg" },
   { url: "/assets/gallery-img/scarlet-witch.jpg" },
   { url: "/assets/gallery-img/scarlet-witch-2.jpg" },
   { url: "/assets/gallery-img/sonic.jpg" },

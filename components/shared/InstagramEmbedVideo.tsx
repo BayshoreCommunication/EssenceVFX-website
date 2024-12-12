@@ -1,22 +1,19 @@
-"use client";
-import React, { useEffect } from "react";
-import { InstagramEmbed } from "react-social-media-embed";
+// "use client";
 
-const InstagramEmbedVideo = () => {
-  return (
-    <div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <InstagramEmbed
-          url="https://www.instagram.com/reel/DCCeKW6IA-3/?igsh=NHljaHlkMnFiZHI3"
-          width={328}
-        />
-      </div>
-    </div>
-    
-  );
-};
+// const InstagramEmbedVideo = () => {
+//   return (
+//     <div>
+//       <div style={{ display: "flex", justifyContent: "center" }}>
+//         <InstagramEmbed
+//           url="https://www.instagram.com/reel/DCCeKW6IA-3/?igsh=NHljaHlkMnFiZHI3"
+//           width={328}
+//         />
+//       </div>
+//     </div>
+//   );
+// };
 
-export default InstagramEmbedVideo;
+// export default InstagramEmbedVideo;
 
 // "use client";
 

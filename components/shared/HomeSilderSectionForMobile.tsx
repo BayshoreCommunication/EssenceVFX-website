@@ -6,17 +6,19 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { IoMdArrowDropright } from "react-icons/io";
-import { Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
 import Image from "next/image";
 import Link from "next/link";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useEffect, useRef, useState } from "react";
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoMdArrowDropright,
+} from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { useAppContext } from "@/app/AppContext";
 import { sliderPortfolioData } from "@/config/data";
@@ -122,7 +124,7 @@ const HomeSilderSectionForMobile = () => {
                 <motion.div className="container  overflow-hidden">
                   {/* Centered text */}
                   <div className="w-full mt-32">
-                    <div
+                    <button
                       className="cursor-pointer"
                       onClick={() => {
                         onOpen();
@@ -136,7 +138,7 @@ const HomeSilderSectionForMobile = () => {
                         src={el?.videoThum}
                         width={500}
                       />
-                    </div>
+                    </button>
                   </div>
 
                   <div className="text-white text-center">
