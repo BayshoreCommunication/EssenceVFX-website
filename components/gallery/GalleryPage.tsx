@@ -1,11 +1,9 @@
 "use client";
-import { useDisclosure } from "@nextui-org/react";
-import { useEffect, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-
 import { useAppContext } from "@/app/AppContext";
 import { gallerySilderData } from "@/config/data";
+import { useDisclosure } from "@nextui-org/react";
 import Image from "next/image";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Autoplay,
   Keyboard,
@@ -13,6 +11,7 @@ import {
   Navigation,
   Pagination,
 } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
@@ -21,6 +20,11 @@ import "swiper/css/pagination";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const GalleryPage = () => {
+  const memoizedGalleryData = useMemo(
+    () => gallerySilderData,
+    [gallerySilderData]
+  );
+
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -39,7 +43,7 @@ const GalleryPage = () => {
     }
   }, []);
 
-  // Sync Swiper with `silderIndexValue` from context smoothly
+  // Sync Swiper with `silderIndexValue` smoothly
   useEffect(() => {
     if (
       swiperRef.current &&
@@ -49,18 +53,29 @@ const GalleryPage = () => {
     }
   }, [silderIndexValue]);
 
-  const onShowPopUp = (video: any, image: any) => {
+  const onShowPopUp = useCallback((video: any, image: any) => {
     setVideoUrl(video);
     setImageUrl(image);
-  };
+  }, []);
 
-  const handleSlideChange = (swiper: any) => {
-    setSilderIndexValue(swiper.activeIndex);
-  };
-
-  const heroInfoData = gallerySilderData?.find(
-    (el, index) => index === silderIndexValue
+  const handleSlideChange = useCallback(
+    (swiper: any) => {
+      setSilderIndexValue(swiper.activeIndex);
+    },
+    [setSilderIndexValue]
   );
+
+  const handlePrevSlide = useCallback(() => {
+    if (silderIndexValue > 0) {
+      setSilderIndexValue((prev: number) => prev - 1);
+    }
+  }, [silderIndexValue]);
+
+  const handleNextSlide = useCallback(() => {
+    if (silderIndexValue < memoizedGalleryData.length - 1) {
+      setSilderIndexValue((prev: number) => prev + 1);
+    }
+  }, [silderIndexValue]);
 
   return (
     <div className="relative bg-white pt-28 lg:pt-16 pb-8 lg:pb-20">
@@ -87,16 +102,13 @@ const GalleryPage = () => {
             <div className="w-[90%] lg:w-[100%]">
               <Swiper
                 cssMode={true}
-                mousewheel={true}
-                keyboard={true}
-                // loop={true}
                 autoplay={{
-                  delay: 3000, // Adjust the delay for smoothness
-                  disableOnInteraction: false, // Continue autoplay after interaction
+                  delay: 3000,
+                  disableOnInteraction: false,
                 }}
-                speed={800} // Set transition speed
+                speed={800}
                 initialSlide={silderIndexValue}
-                effect="slide" // Smooth slide effect
+                effect="slide"
                 modules={[
                   Autoplay,
                   Navigation,
@@ -123,15 +135,23 @@ const GalleryPage = () => {
                   },
                 }}
               >
-                {gallerySilderData?.map((el, index) => (
-                  <SwiperSlide key={index} className="">
-                    <div className="cursor-pointer">
+                {memoizedGalleryData.map((el, index) => (
+                  <SwiperSlide key={el.url || index}>
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => {
+                        // Resume autoplay when clicking on an image
+                        if (swiperRef.current) {
+                          swiperRef.current.swiper.autoplay.start();
+                        }
+                      }}
+                    >
                       <Image
                         className="w-[422px] h-[485px] transition-all duration-700 ease-in-out"
                         width={1000}
                         height={1000}
-                        src={el?.url}
-                        alt={el?.url}
+                        src={el.url}
+                        alt={`Gallery Image ${index + 1}`}
                         quality={100}
                       />
                     </div>
@@ -140,11 +160,13 @@ const GalleryPage = () => {
               </Swiper>
             </div>
             <div className="w-[0%] relative z-50 right-10 lg:right-7">
-              {silderIndexValue !== gallerySilderData.length - 1 && (
+              {silderIndexValue !== memoizedGalleryData.length - 3 && (
                 <button
                   ref={nextButtonRef}
-                  onClick={() => setSilderIndexValue((prev: any) => prev + 1)}
-                  className=" text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full  shadow-black border group z-50"
+                  onClick={() =>
+                    setSilderIndexValue((prev: number) => prev + 1)
+                  }
+                  className="text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-black border group z-50"
                 >
                   <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-white" />
                 </button>
