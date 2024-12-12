@@ -15,6 +15,9 @@ module.exports = {
         black: "#000000",
         white: "#FFFFFF",
       },
+      maxWidth: {
+        "2xl": "1280px",
+      },
     },
     container: {
       center: true,
@@ -26,24 +29,7 @@ module.exports = {
         "2xl": "10rem",
       },
     },
-    maxWidth: {
-      "2xl": "1280px",
-    },
-    // container: {
-    //   center: true,
-    //   padding: {
-    //     DEFAULT: "1rem",
-    //     sm: "2rem",
-    //     lg: "4rem",
-    //     xl: "5rem",
-    //     "2xl": "1rem",
-    //   },
-    // },
-    // maxWidth: {
-    //   "2xl": "1536px", // The default value for 2xl in Tailwind CSS
-    // },
   },
-
   darkMode: "class",
   plugins: [nextui()],
 };
