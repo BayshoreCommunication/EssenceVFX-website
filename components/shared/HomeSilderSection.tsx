@@ -221,7 +221,7 @@ const HomeSilderSection = () => {
               {sliderPortfolioData?.map((el, index) => (
                 <SwiperSlide key={index} className="">
                   <div className="flex items-center justify-center">
-                    <di
+                    <button
                       className="relative w-[400px] h-[562px] cursor-pointer  group mt-8"
                       onClick={() => {
                         onOpen();
@@ -250,7 +250,7 @@ const HomeSilderSection = () => {
                         src={"/assets/home/image-hover-border-new.png"}
                         width={500}
                       />
-                    </di>
+                    </button>
                   </div>
                 </SwiperSlide>
               ))}
