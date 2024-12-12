@@ -3,7 +3,7 @@ import { useAppContext } from "@/app/AppContext";
 import { gallerySilderData } from "@/config/data";
 import { useDisclosure } from "@nextui-org/react";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Autoplay,
   Keyboard,
@@ -20,6 +20,8 @@ import "swiper/css/pagination";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const GalleryPage = () => {
+  const memoizedGalleryData = useMemo(() => gallerySilderData, []);
+
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -55,14 +57,14 @@ const GalleryPage = () => {
 
   const handleSlideChange = useCallback(
     (swiper: any) => {
-      if (swiper.activeIndex >= gallerySilderData.length) {
+      if (swiper.activeIndex >= memoizedGalleryData.length) {
         swiper.slideTo(0); // Reset to the first slide
         setSilderIndexValue(0);
       } else {
         setSilderIndexValue(swiper.activeIndex);
       }
     },
-    [gallerySilderData.length, setSilderIndexValue]
+    [memoizedGalleryData.length, setSilderIndexValue]
   );
 
   const handlePrevSlide = useCallback(() => {
@@ -80,7 +82,7 @@ const GalleryPage = () => {
     } else {
       setSilderIndexValue((prev: number) => prev + 1);
     }
-  }, [silderIndexValue, gallerySilderData.length]);
+  }, [silderIndexValue, memoizedGalleryData.length]);
 
   return (
     <div className="relative bg-white pt-28 lg:pt-16 pb-8 lg:pb-20">
@@ -141,7 +143,7 @@ const GalleryPage = () => {
                   },
                 }}
               >
-                {gallerySilderData.map((el, index) => (
+                {memoizedGalleryData.map((el, index) => (
                   <SwiperSlide key={el.url || index}>
                     <div
                       className="cursor-pointer"
