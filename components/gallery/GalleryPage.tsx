@@ -77,6 +77,8 @@ const GalleryPage = () => {
     }
   }, [silderIndexValue]);
 
+  console.log("check vlaue ", silderIndexValue);
+
   return (
     <div className="relative bg-white pt-28 lg:pt-16 pb-8 lg:pb-20">
       <ScrollMotionEffect>
@@ -160,7 +162,7 @@ const GalleryPage = () => {
               </Swiper>
             </div>
             <div className="w-[0%] relative z-50 right-10 lg:right-7">
-              {silderIndexValue !== 28 && (
+              {silderIndexValue !== 26 && (
                 <button
                   ref={nextButtonRef}
                   onClick={() =>
