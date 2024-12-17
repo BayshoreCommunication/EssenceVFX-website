@@ -93,18 +93,14 @@ const GalleryPage = () => {
 
         <div className="container">
           <div className="flex items-center justify-between">
-            <div className="w-[0%] relative z-50 left-1 lg:-left-7">
-              <div>
-                {silderIndexValue !== 0 && (
-                  <button
-                    ref={prevButtonRef}
-                    onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
-                    className=" text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-md group z-50"
-                  >
-                    <IoIosArrowBack className="size-5 lg:size-9 text-black group-hover:text-white" />
-                  </button>
-                )}
-              </div>
+            <div className="w-[0%] relative z-50 left-5 lg:-left-24 ">
+              <button
+                ref={prevButtonRef}
+                onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
+                className=" text-black  p-2 bg-white lg:bg-transparent hover:text-red-500  group z-50 w-[50px] flex items-center justify-start lg:w-[55px] border-none"
+              >
+                <IoIosArrowBack className="size-5 lg:size-9 text-black group-hover:text-red-500" />
+              </button>
             </div>
             <div className="w-[90%] lg:w-[100%]">
               <Swiper
@@ -168,29 +164,15 @@ const GalleryPage = () => {
               </Swiper>
             </div>
 
-            <div className="w-[0%] relative z-50 right-10 lg:right-7">
+            <div className="w-[0%] relative z-50 right-[17.5%] lg:-right-9 ">
               <button
                 ref={nextButtonRef}
                 onClick={() => setSilderIndexValue((prev: number) => prev + 1)}
-                className="text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-black border group z-50"
+                className="text-black  p-2 bg-white lg:bg-transparent  group w-[50px] flex items-center justify-end lg:w-[55px]"
               >
-                <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-white" />
+                <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-red-500 " />
               </button>
             </div>
-
-            {/* <div className="w-[0%] relative z-50 right-10 lg:right-7 block lg:hidden">
-              {silderIndexValue !== 28 && (
-                <button
-                  ref={nextButtonRef}
-                  onClick={() =>
-                    setSilderIndexValue((prev: number) => prev + 1)
-                  }
-                  className="text-black hover:text-gray-900 p-2 bg-white hover:bg-gray-500 rounded-full shadow-black border group z-50"
-                >
-                  <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-white" />
-                </button>
-              )}
-            </div> */}
           </div>
         </div>
       </ScrollMotionEffect>
