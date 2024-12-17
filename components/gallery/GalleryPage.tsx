@@ -93,11 +93,11 @@ const GalleryPage = () => {
 
         <div className="container">
           <div className="flex items-center justify-between">
-            <div className="w-[0%] relative z-50 left-[5%] lg:-left-24 ">
+            <div className="w-[0%] relative z-50 left-[0%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
                 onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
-                className="p-2 bg-white lg:bg-transparent z-50 w-[50px] flex items-center justify-start lg:w-[55px] border-none"
+                className="p-2 bg-white lg:bg-transparent z-50 w-[75px] flex items-center justify-center lg:w-[55px] shadow-lg h-[40px] lg:h-[55px] lg:shadow-none"
               >
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
@@ -168,7 +168,7 @@ const GalleryPage = () => {
               <button
                 ref={nextButtonRef}
                 onClick={() => setSilderIndexValue((prev: number) => prev + 1)}
-                className="  p-2 bg-white lg:bg-transparent w-[50px] flex items-center justify-end lg:w-[55px]"
+                className="  p-2 bg-white lg:bg-transparent w-[70px] flex items-center justify-center lg:w-[55px] shadow-lg lg:shadow-none h-[40px] lg:h-[55px]"
               >
                 <IoIosArrowForward className="size-5 lg:size-9 text-black hover:text-red-500 " />
               </button>
