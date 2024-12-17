@@ -93,13 +93,13 @@ const GalleryPage = () => {
 
         <div className="container">
           <div className="flex items-center justify-between">
-            <div className="w-[0%] relative z-50 left-5 lg:-left-24 ">
+            <div className="w-[0%] relative z-50 left-[5%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
                 onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
-                className=" text-black  p-2 bg-white lg:bg-transparent hover:text-red-500  group z-50 w-[50px] flex items-center justify-start lg:w-[55px] border-none"
+                className="p-2 bg-white lg:bg-transparent z-50 w-[50px] flex items-center justify-start lg:w-[55px] border-none"
               >
-                <IoIosArrowBack className="size-5 lg:size-9 text-black group-hover:text-red-500" />
+                <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
             </div>
             <div className="w-[90%] lg:w-[100%]">
@@ -168,9 +168,9 @@ const GalleryPage = () => {
               <button
                 ref={nextButtonRef}
                 onClick={() => setSilderIndexValue((prev: number) => prev + 1)}
-                className="text-black  p-2 bg-white lg:bg-transparent  group w-[50px] flex items-center justify-end lg:w-[55px]"
+                className="  p-2 bg-white lg:bg-transparent w-[50px] flex items-center justify-end lg:w-[55px]"
               >
-                <IoIosArrowForward className="size-5 lg:size-9 text-black group-hover:text-red-500 " />
+                <IoIosArrowForward className="size-5 lg:size-9 text-black hover:text-red-500 " />
               </button>
             </div>
           </div>
