@@ -21,9 +21,10 @@ import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const GalleryPage = () => {
   const memoizedGalleryData = gallerySilderData;
-
-  const [silderIndexValue, setSilderIndexValue] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // const memoizedGalleryData = useMemo(() => gallerySilderData, []);
+
+  const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -39,14 +40,15 @@ const GalleryPage = () => {
       swiperRef.current.navigation.init();
       swiperRef.current.navigation.update();
     }
-  }, [swiperRef.current]);
+  }, [currentImageIndex]);
 
+  // Sync Swiper with `silderIndexValue` smoothly
   useEffect(() => {
     if (
       swiperRef.current &&
       swiperRef.current.activeIndex !== silderIndexValue
     ) {
-      swiperRef.current.slideTo(currentImageIndex);
+      swiperRef.current.slideTo(silderIndexValue);
     }
   }, [silderIndexValue]);
 
@@ -55,9 +57,37 @@ const GalleryPage = () => {
     setImageUrl(image);
   }, []);
 
+  // const handleSlideChange = useCallback(
+  //   (swiper: any) => {
+  //     if (swiper.activeIndex >= memoizedGalleryData.length) {
+  //       swiper.slideTo(0); // Reset to the first slide
+  //       setSilderIndexValue(0);
+  //     } else {
+  //       setSilderIndexValue(swiper.activeIndex);
+  //     }
+  //   },
+  //   [memoizedGalleryData.length, setSilderIndexValue]
+  // );
+
+  // const handlePrevSlide = useCallback(() => {
+  //   if (silderIndexValue > 0) {
+  //     setSilderIndexValue((prev: number) => prev - 1);
+  //   }
+  // }, [silderIndexValue]);
+
+  // const handleNextSlide = useCallback(() => {
+  //   if (silderIndexValue >= gallerySilderData.length - 1) {
+  //     setSilderIndexValue(0); // Reset to the first index
+  //     if (swiperRef.current) {
+  //       swiperRef.current.slideTo(0);
+  //     }
+  //   } else {
+  //     setSilderIndexValue((prev: number) => prev + 1);
+  //   }
+  // }, [silderIndexValue, memoizedGalleryData.length]);
   const handleSlideChange = (swiper: any) => {
-    // console.log(swiper.activeIndex);
     setCurrentImageIndex(swiper.activeIndex);
+
     if (swiper.activeIndex >= memoizedGalleryData.length) {
       swiper.slideTo(0); // Reset to the first slide
       setSilderIndexValue(0);
@@ -65,9 +95,10 @@ const GalleryPage = () => {
       setSilderIndexValue(swiper.activeIndex);
     }
   };
+
   const handlePrevSlide = () => {
     if (silderIndexValue > 0) {
-      setSilderIndexValue(silderIndexValue - 1);
+      setSilderIndexValue((prev: number) => prev - 1);
     }
   };
 
@@ -78,7 +109,7 @@ const GalleryPage = () => {
         swiperRef.current.slideTo(0);
       }
     } else {
-      setSilderIndexValue(silderIndexValue + 1);
+      setSilderIndexValue((prev: number) => prev + 1);
     }
   };
 
@@ -94,11 +125,7 @@ const GalleryPage = () => {
             <div className="w-[0%] relative z-50 left-[0%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
-                onClick={(e) => {
-                  // e.preventDefault();
-
-                  handlePrevSlide();
-                }}
+                onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
                 className="p-2 bg-white lg:bg-transparent z-50 w-[75px] flex items-center justify-center lg:w-[55px] shadow-lg h-[40px] lg:h-[55px] lg:shadow-none"
               >
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
@@ -111,10 +138,10 @@ const GalleryPage = () => {
                 loop={true} // Enables loop mode
                 autoplay={{
                   delay: 3000,
-                  disableOnInteraction: true,
+                  disableOnInteraction: false,
                 }}
-                speed={500}
-                initialSlide={currentImageIndex}
+                speed={800}
+                initialSlide={silderIndexValue}
                 modules={[
                   Autoplay,
                   Navigation,
@@ -142,12 +169,11 @@ const GalleryPage = () => {
                 }}
               >
                 {memoizedGalleryData.map((el, index) => (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide key={el.url || index}>
                     <div
                       className="cursor-pointer "
-                      onClick={(e) => {
+                      onClick={() => {
                         // Resume autoplay when clicking on an image
-                        // e.preventDefault();
                         if (swiperRef.current) {
                           swiperRef.current.swiper.autoplay.start();
                         }
@@ -172,11 +198,7 @@ const GalleryPage = () => {
             <div className="w-[0%] relative z-50 right-[17.5%] lg:-right-9 ">
               <button
                 ref={nextButtonRef}
-                onClick={(e) => {
-                  // e.preventDefault();
-
-                  handleNextSlide();
-                }}
+                onClick={() => setSilderIndexValue((prev: number) => prev + 1)}
                 className="  p-2 bg-white lg:bg-transparent w-[70px] flex items-center justify-center lg:w-[55px] shadow-lg lg:shadow-none h-[40px] lg:h-[55px]"
               >
                 <IoIosArrowForward className="size-5 lg:size-9 text-black hover:text-red-500 " />
