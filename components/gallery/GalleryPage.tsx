@@ -20,7 +20,8 @@ import "swiper/css/pagination";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const GalleryPage = () => {
-  const memoizedGalleryData = useMemo(() => gallerySilderData, []);
+  const memoizedGalleryData = gallerySilderData;
+  // const memoizedGalleryData = useMemo(() => gallerySilderData, []);
 
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
@@ -55,25 +56,50 @@ const GalleryPage = () => {
     setImageUrl(image);
   }, []);
 
-  const handleSlideChange = useCallback(
-    (swiper: any) => {
-      if (swiper.activeIndex >= memoizedGalleryData.length) {
-        swiper.slideTo(0); // Reset to the first slide
-        setSilderIndexValue(0);
-      } else {
-        setSilderIndexValue(swiper.activeIndex);
-      }
-    },
-    [memoizedGalleryData.length, setSilderIndexValue]
-  );
+  // const handleSlideChange = useCallback(
+  //   (swiper: any) => {
+  //     if (swiper.activeIndex >= memoizedGalleryData.length) {
+  //       swiper.slideTo(0); // Reset to the first slide
+  //       setSilderIndexValue(0);
+  //     } else {
+  //       setSilderIndexValue(swiper.activeIndex);
+  //     }
+  //   },
+  //   [memoizedGalleryData.length, setSilderIndexValue]
+  // );
 
-  const handlePrevSlide = useCallback(() => {
+  // const handlePrevSlide = useCallback(() => {
+  //   if (silderIndexValue > 0) {
+  //     setSilderIndexValue((prev: number) => prev - 1);
+  //   }
+  // }, [silderIndexValue]);
+
+  // const handleNextSlide = useCallback(() => {
+  //   if (silderIndexValue >= gallerySilderData.length - 1) {
+  //     setSilderIndexValue(0); // Reset to the first index
+  //     if (swiperRef.current) {
+  //       swiperRef.current.slideTo(0);
+  //     }
+  //   } else {
+  //     setSilderIndexValue((prev: number) => prev + 1);
+  //   }
+  // }, [silderIndexValue, memoizedGalleryData.length]);
+  const handleSlideChange = (swiper: any) => {
+    if (swiper.activeIndex >= memoizedGalleryData.length) {
+      swiper.slideTo(0); // Reset to the first slide
+      setSilderIndexValue(0);
+    } else {
+      setSilderIndexValue(swiper.activeIndex);
+    }
+  };
+
+  const handlePrevSlide = () => {
     if (silderIndexValue > 0) {
       setSilderIndexValue((prev: number) => prev - 1);
     }
-  }, [silderIndexValue]);
+  };
 
-  const handleNextSlide = useCallback(() => {
+  const handleNextSlide = () => {
     if (silderIndexValue >= gallerySilderData.length - 1) {
       setSilderIndexValue(0); // Reset to the first index
       if (swiperRef.current) {
@@ -82,7 +108,7 @@ const GalleryPage = () => {
     } else {
       setSilderIndexValue((prev: number) => prev + 1);
     }
-  }, [silderIndexValue, memoizedGalleryData.length]);
+  };
 
   return (
     <div className="relative bg-white pt-28 lg:pt-16 pb-8 lg:pb-20">
@@ -151,8 +177,8 @@ const GalleryPage = () => {
                       }}
                     >
                       <Image
-                        className="w-[422px] h-[485px] transition-all duration-700 ease-in-out"
-                        // className="w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
+                        // className="w-[422px] h-[485px] transition-all duration-700 ease-in-out"
+                        className="w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
                         width={1000}
                         height={1000}
                         src={el.url}

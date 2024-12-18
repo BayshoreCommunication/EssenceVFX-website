@@ -9,6 +9,7 @@ export default function Loading() {
         width={500}
         height={500}
         className="cursor-pointer w-[300px] h-auto mt-2 mb-2"
+        unoptimized
       />
     </div>
   );
