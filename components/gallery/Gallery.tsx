@@ -113,7 +113,7 @@ const GalleryPage = () => {
                   delay: 3000,
                   disableOnInteraction: true,
                 }}
-                speed={500}
+                speed={800}
                 initialSlide={currentImageIndex}
                 modules={[
                   Autoplay,
