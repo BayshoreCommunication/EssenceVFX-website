@@ -151,7 +151,7 @@ const GalleryPage = () => {
                       }}
                     >
                       <Image
-                        className="w-[422px] h-[445px] md:h-[485px] transition-all duration-700 ease-in-out"
+                        className="w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
                         width={1000}
                         height={1000}
                         src={el.url}
