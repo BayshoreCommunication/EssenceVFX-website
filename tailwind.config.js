@@ -19,6 +19,7 @@ const config = {
         "2xl": "1280px",
       },
     },
+
     container: {
       center: true,
       padding: {
