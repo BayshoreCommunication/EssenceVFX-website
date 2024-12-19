@@ -245,7 +245,7 @@ const HomeSilderSection = () => {
 
                       <Image
                         alt="Slider Video"
-                        className=" z-10  absolute top-[7%] left-[-6%] group-hover:top-[-5%] group-hover:left-[5%] transition-all duration-300"
+                        className=" z-10 border-x-[1px] absolute top-[7%] left-[-6%] group-hover:top-[-5%] group-hover:left-[5%] transition-all duration-300"
                         height={300}
                         src={"/assets/home/image-hover-border-new.png"}
                         width={500}
