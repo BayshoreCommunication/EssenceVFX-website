@@ -20,9 +20,9 @@ import "swiper/css/pagination";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const GalleryPage = () => {
-  const memoizedGalleryData = gallerySilderData;
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  // const memoizedGalleryData = useMemo(() => gallerySilderData, []);
+  // const memoizedGalleryData = gallerySilderData;
+  // const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const memoizedGalleryData = useMemo(() => gallerySilderData, []);
 
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
@@ -131,7 +131,7 @@ const GalleryPage = () => {
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
             </div>
-            <div className="relative w-[90%] lg:w-[100%]">
+            <div className=" w-[90%] lg:w-[100%]">
               <Swiper
                 spaceBetween={60}
                 centeredSlides={true}
