@@ -133,6 +133,8 @@ const GalleryPage = () => {
             </div>
             <div className="w-[90%] px-5 lg:w-[100%]">
               <Swiper
+                spaceBetween={0}
+                centeredSlides={true}
                 allowTouchMove={false}
                 cssMode={true}
                 loop={true} // Enables loop mode
@@ -170,27 +172,23 @@ const GalleryPage = () => {
               >
                 {memoizedGalleryData.map((el, index) => (
                   <SwiperSlide key={el.url || index}>
-                    <div
-                      className="cursor-pointer"
+                    <Image
+                      // className="w- h-full
+                      //  transition-all duration-700 ease-in-out"
+                      className="cursor-pointer w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
+                      width={1000}
+                      height={1000}
+                      src={el.url}
+                      alt={`Gallery Image ${index + 1}`}
+                      priority
+                      quality={100}
                       onClick={() => {
                         // Resume autoplay when clicking on an image
                         if (swiperRef.current) {
                           swiperRef.current.swiper.autoplay.start();
                         }
                       }}
-                    >
-                      <Image
-                        // className="w- h-full
-                        //  transition-all duration-700 ease-in-out"
-                        className="w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
-                        width={1000}
-                        height={1000}
-                        src={el.url}
-                        alt={`Gallery Image ${index + 1}`}
-                        priority
-                        quality={100}
-                      />
-                    </div>
+                    />
                   </SwiperSlide>
                 ))}
               </Swiper>
