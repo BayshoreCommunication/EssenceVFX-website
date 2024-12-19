@@ -131,7 +131,7 @@ const GalleryPage = () => {
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
             </div>
-            <div className="w-[90%] lg:w-[100%]">
+            <div className="relative w-[90%] lg:w-[100%]">
               <Swiper
                 spaceBetween={60}
                 centeredSlides={true}
