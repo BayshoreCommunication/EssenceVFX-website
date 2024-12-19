@@ -80,7 +80,7 @@ const HomeSilderSectionForMobile = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative bg-[#131313]">
       {silderIndexValue !== 0 && (
         <button
           ref={prevButtonRef}
@@ -101,10 +101,10 @@ const HomeSilderSectionForMobile = () => {
         </button>
       )}
 
-      <div className={`mt-6`}>
-        <div className="lg:flex items-center">
+      <div className={`mt-6 bg-[#131313]`}>
+        <div className="lg:flex items-center bg-[#131313]">
           <Swiper
-            className="mySwiper"
+            className="mySwiper bg-[#131313]"
             cssMode={true}
             initialSlide={silderIndexValue}
             keyboard={true}
@@ -121,7 +121,7 @@ const HomeSilderSectionForMobile = () => {
           >
             {sliderPortfolioData?.map((el, index) => (
               <SwiperSlide key={index}>
-                <motion.div className="container  overflow-hidden">
+                <motion.div className="container bg-[#131313] text-white  overflow-hidden">
                   {/* Centered text */}
                   <div className="w-full mt-32">
                     <button
@@ -141,7 +141,7 @@ const HomeSilderSectionForMobile = () => {
                     </button>
                   </div>
 
-                  <div className="text-black text-center">
+                  <div className=" text-center">
                     <motion.div
                       key={index}
                       animate={
@@ -158,7 +158,7 @@ const HomeSilderSectionForMobile = () => {
                       {/* Top Info */}
                       <motion.ul
                         animate={{ opacity: 1, scale: 1 }}
-                        className="flex items-center text-black text-center justify-center list-none text-[12px] gap-2 font-normal ml-0 pl-0 mb-6  uppercase"
+                        className="flex items-center  text-center justify-center list-none text-[12px] gap-2 font-normal ml-0 pl-0 mb-6  uppercase"
                         initial={{ opacity: 0, scale: 0.99 }}
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                       >

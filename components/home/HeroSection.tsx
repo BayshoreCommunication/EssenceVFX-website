@@ -15,7 +15,7 @@ const HeroSection = () => {
         </div>
 
         {/* for mobile (small screens) */}
-        <div className="block lg:hidden bg-secondary">
+        <div className="block lg:hidden bg-[#131313]">
           <HomeSilderSectionForMobile />
         </div>
       </div>
