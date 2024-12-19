@@ -141,7 +141,7 @@ const HomeSilderSectionForMobile = () => {
                     </button>
                   </div>
 
-                  <div className="text-white text-center">
+                  <div className="text-black text-center">
                     <motion.div
                       key={index}
                       animate={
