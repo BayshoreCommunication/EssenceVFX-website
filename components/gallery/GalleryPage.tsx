@@ -160,7 +160,7 @@ const GalleryPage = () => {
                   },
                   768: {
                     slidesPerView: 1,
-                    spaceBetween: 30,
+                    spaceBetween: 20,
                   },
                   1024: {
                     slidesPerView: 3,
@@ -171,7 +171,7 @@ const GalleryPage = () => {
                 {memoizedGalleryData.map((el, index) => (
                   <SwiperSlide key={el.url || index}>
                     <div
-                      className="cursor-pointer w-[222px] h-[435px] md:h-[485px] m-auto"
+                      className="cursor-pointer w-[422px] h-[435px] md:h-[485px]"
                       onClick={() => {
                         // Resume autoplay when clicking on an image
                         if (swiperRef.current) {
