@@ -54,7 +54,7 @@ const GalleryPage = () => {
       setTimeout(() => {
         clickHandler.click();
         setTimer(timer + 1);
-      }, 2000);
+      }, 3000);
     }
   }, [currentImageIndex, timer]);
 
