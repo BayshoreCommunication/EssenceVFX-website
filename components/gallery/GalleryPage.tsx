@@ -156,11 +156,11 @@ const GalleryPage = () => {
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                   },
                   768: {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                   },
                   1024: {
                     slidesPerView: 3,
