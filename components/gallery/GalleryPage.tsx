@@ -121,7 +121,7 @@ const GalleryPage = () => {
         </h2>
 
         <div className="container">
-          <div className="flex items-center px-5">
+          <div className="flex items-center justify-center">
             <div className="w-[0%] relative z-50 left-[0%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
@@ -131,9 +131,9 @@ const GalleryPage = () => {
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
             </div>
-            <div className="w-[90%] px-5 lg:w-[100%]">
+            <div className="w-[90%] lg:w-[100%]">
               <Swiper
-                spaceBetween={0}
+                spaceBetween={40}
                 centeredSlides={true}
                 allowTouchMove={false}
                 cssMode={true}
@@ -158,11 +158,11 @@ const GalleryPage = () => {
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
-                    spaceBetween: 0,
+                    spaceBetween: 30,
                   },
                   768: {
                     slidesPerView: 1,
-                    spaceBetween: 0,
+                    spaceBetween: 30,
                   },
                   1024: {
                     slidesPerView: 3,
