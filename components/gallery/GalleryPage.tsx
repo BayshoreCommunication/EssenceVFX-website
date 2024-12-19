@@ -133,7 +133,7 @@ const GalleryPage = () => {
             </div>
             <div className="w-[90%] lg:w-[100%]">
               <Swiper
-                spaceBetween={40}
+                spaceBetween={60}
                 centeredSlides={true}
                 allowTouchMove={false}
                 cssMode={true}
@@ -158,11 +158,11 @@ const GalleryPage = () => {
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
-                    spaceBetween: 30,
+                    spaceBetween: 60,
                   },
                   768: {
                     slidesPerView: 1,
-                    spaceBetween: 30,
+                    spaceBetween: 60,
                   },
                   1024: {
                     slidesPerView: 3,
