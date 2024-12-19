@@ -131,7 +131,7 @@ const GalleryPage = () => {
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
             </div>
-            <div className="w-[90%] lg:w-[100%]">
+            <div className="w-[80%] lg:w-[100%]">
               <Swiper
                 allowTouchMove={false}
                 cssMode={true}
@@ -156,11 +156,11 @@ const GalleryPage = () => {
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
-                    spaceBetween: 5,
+                    spaceBetween: 0,
                   },
                   768: {
                     slidesPerView: 1,
-                    spaceBetween: 5,
+                    spaceBetween: 0,
                   },
                   1024: {
                     slidesPerView: 3,
@@ -182,7 +182,7 @@ const GalleryPage = () => {
                       <Image
                         // className="w- h-full
                         //  transition-all duration-700 ease-in-out"
-                        className="w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
+                        className="w-[322px] h-[335px] md:h-[385px] transition-all duration-700 ease-in-out"
                         width={1000}
                         height={1000}
                         src={el.url}
