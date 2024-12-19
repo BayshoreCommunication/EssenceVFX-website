@@ -175,7 +175,7 @@ const GalleryPage = () => {
                     <Image
                       // className="w- h-full
                       //  transition-all duration-700 ease-in-out"
-                      className="cursor-pointer w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
+                      className="cursor-pointer w-[422px] h-[435px] md:h-[485px]"
                       width={1000}
                       height={1000}
                       src={el.url}
