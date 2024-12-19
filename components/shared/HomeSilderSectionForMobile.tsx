@@ -229,7 +229,7 @@ const HomeSilderSectionForMobile = () => {
         </div>
       </div>
       <Modal isOpen={isOpen} size="sm" onOpenChange={onOpenChange}>
-        <ModalContent className="w-[600px]  max-h-[395px]">
+        <ModalContent className="w-[600px]  h-[395px]">
           {/* <ModalContent className="w-[600px]  h-auto"> */}
           {(onClose) => (
             <ModalBody>
