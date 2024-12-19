@@ -171,7 +171,7 @@ const GalleryPage = () => {
                 {memoizedGalleryData.map((el, index) => (
                   <SwiperSlide key={el.url || index}>
                     <div
-                      className="cursor-pointer"
+                      className="cursor-pointer w-[90%]"
                       onClick={() => {
                         // Resume autoplay when clicking on an image
                         if (swiperRef.current) {
@@ -179,17 +179,19 @@ const GalleryPage = () => {
                         }
                       }}
                     >
-                      <Image
-                        // className="w- h-full
-                        //  transition-all duration-700 ease-in-out"
-                        className="w-fit transition-all duration-700 ease-in-out"
-                        width={1000}
-                        height={1000}
-                        src={el.url}
-                        alt={`Gallery Image ${index + 1}`}
-                        priority
-                        quality={100}
-                      />
+                      <div className="w-[70%]">
+                        <Image
+                          // className="w- h-full
+                          //  transition-all duration-700 ease-in-out"
+                          className="w-fit transition-all duration-700 ease-in-out"
+                          width={1000}
+                          height={1000}
+                          src={el.url}
+                          alt={`Gallery Image ${index + 1}`}
+                          priority
+                          quality={100}
+                        />
+                      </div>
                     </div>
                   </SwiperSlide>
                 ))}
