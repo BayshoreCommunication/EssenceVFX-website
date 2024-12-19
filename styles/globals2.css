@@ -42,7 +42,7 @@ body {
 .nav-item {
   position: relative;
   display: inline-block;
-  /* color: #131313; */
+  color: #131313;
   font-weight: 600;
   font-size: 1.125rem; /* text-lg */
   cursor: pointer;
@@ -92,3 +92,26 @@ body {
 }
 
 /* Home Button */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
