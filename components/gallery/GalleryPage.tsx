@@ -20,8 +20,6 @@ import "swiper/css/pagination";
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 const GalleryPage = () => {
-  // const memoizedGalleryData = gallerySilderData;
-  // const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const memoizedGalleryData = useMemo(() => gallerySilderData, []);
 
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
@@ -40,7 +38,7 @@ const GalleryPage = () => {
       swiperRef.current.navigation.init();
       swiperRef.current.navigation.update();
     }
-  }, [currentImageIndex]);
+  }, []);
 
   // Sync Swiper with `silderIndexValue` smoothly
   useEffect(() => {
@@ -85,33 +83,6 @@ const GalleryPage = () => {
       setSilderIndexValue((prev: number) => prev + 1);
     }
   }, [silderIndexValue, memoizedGalleryData.length]);
-  // const handleSlideChange = (swiper: any) => {
-  //   setCurrentImageIndex(swiper.activeIndex);
-
-  //   if (swiper.activeIndex >= memoizedGalleryData.length) {
-  //     swiper.slideTo(0); // Reset to the first slide
-  //     setSilderIndexValue(0);
-  //   } else {
-  //     setSilderIndexValue(swiper.activeIndex);
-  //   }
-  // };
-
-  // const handlePrevSlide = () => {
-  //   if (silderIndexValue > 0) {
-  //     setSilderIndexValue((prev: number) => prev - 1);
-  //   }
-  // };
-
-  // const handleNextSlide = () => {
-  //   if (silderIndexValue >= gallerySilderData.length - 1) {
-  //     setSilderIndexValue(0); // Reset to the first index
-  //     if (swiperRef.current) {
-  //       swiperRef.current.slideTo(0);
-  //     }
-  //   } else {
-  //     setSilderIndexValue((prev: number) => prev + 1);
-  //   }
-  // };
 
   return (
     <div className="relative bg-white pt-28 lg:pt-16 pb-8 lg:pb-20">
@@ -121,7 +92,7 @@ const GalleryPage = () => {
         </h2>
 
         <div className="container">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-between">
             <div className="w-[0%] relative z-50 left-[0%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
@@ -131,10 +102,8 @@ const GalleryPage = () => {
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
             </div>
-            <div className=" w-[90%] lg:w-[100%]">
+            <div className="w-[90%] lg:w-[100%]">
               <Swiper
-                spaceBetween={60}
-                centeredSlides={true}
                 allowTouchMove={false}
                 cssMode={true}
                 loop={true} // Enables loop mode
@@ -158,12 +127,11 @@ const GalleryPage = () => {
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
-                    spaceBetween: 60,
+                    spaceBetween: 20,
                   },
-
                   768: {
                     slidesPerView: 1,
-                    spaceBetween: 60,
+                    spaceBetween: 30,
                   },
                   1024: {
                     slidesPerView: 3,
@@ -173,22 +141,24 @@ const GalleryPage = () => {
               >
                 {memoizedGalleryData.map((el, index) => (
                   <SwiperSlide key={el.url || index}>
-                    <Image
-                      // className="w- h-full
-                      //  transition-all duration-700 ease-in-out"
+                    <div
                       className="cursor-pointer"
-                      fill
-                      src={el.url}
-                      alt={`Gallery Image ${index + 1}`}
-                      priority
-                      quality={100}
                       onClick={() => {
                         // Resume autoplay when clicking on an image
                         if (swiperRef.current) {
                           swiperRef.current.swiper.autoplay.start();
                         }
                       }}
-                    />
+                    >
+                      <Image
+                        className="w-[422px] h-[485px] transition-all duration-700 ease-in-out"
+                        width={1000}
+                        height={1000}
+                        src={el.url}
+                        alt={`Gallery Image ${index + 1}`}
+                        quality={100}
+                      />
+                    </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
