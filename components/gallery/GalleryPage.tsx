@@ -49,7 +49,14 @@ const GalleryPage = () => {
       swiperRef.current.navigation.init();
       swiperRef.current.navigation.update();
     }
-  }, [currentImageIndex]);
+    const clickHandler = document.querySelector(".clickable") as HTMLElement;
+    if (clickHandler) {
+      setTimeout(() => {
+        clickHandler.click();
+        setTimer(timer + 1);
+      }, 2000);
+    }
+  }, [currentImageIndex, timer]);
 
   // Sync Swiper with `silderIndexValue` smoothly
   useEffect(() => {
@@ -121,15 +128,6 @@ const GalleryPage = () => {
       setSilderIndexValue((prev: number) => prev + 1);
     }
   };
-  useEffect(() => {
-    const clickHandler = document.querySelector(".clickable") as HTMLElement;
-    if (clickHandler) {
-      setTimeout(() => {
-        clickHandler.click();
-        setTimer(timer + 1);
-      }, 2000);
-    }
-  }, [timer]);
 
   return (
     <div className="relative bg-white pt-28 lg:pt-16 pb-8 lg:pb-20">
