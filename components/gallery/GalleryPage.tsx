@@ -121,7 +121,7 @@ const GalleryPage = () => {
         </h2>
 
         <div className="container">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             <div className="w-[0%] relative z-50 left-[0%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
@@ -131,7 +131,7 @@ const GalleryPage = () => {
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
             </div>
-            <div className="w-[80%] lg:w-[100%]">
+            <div className="w-[100%] lg:w-[100%]">
               <Swiper
                 allowTouchMove={false}
                 cssMode={true}
