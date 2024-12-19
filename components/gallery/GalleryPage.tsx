@@ -121,7 +121,7 @@ const GalleryPage = () => {
         </h2>
 
         <div className="container">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center px-5">
             <div className="w-[0%] relative z-50 left-[0%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
@@ -131,7 +131,7 @@ const GalleryPage = () => {
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
             </div>
-            <div className="w-[100%] lg:w-[100%]">
+            <div className="w-[90%] px-5 lg:w-[100%]">
               <Swiper
                 allowTouchMove={false}
                 cssMode={true}
@@ -171,7 +171,7 @@ const GalleryPage = () => {
                 {memoizedGalleryData.map((el, index) => (
                   <SwiperSlide key={el.url || index}>
                     <div
-                      className="cursor-pointer w-[90%]"
+                      className="cursor-pointer"
                       onClick={() => {
                         // Resume autoplay when clicking on an image
                         if (swiperRef.current) {
@@ -179,19 +179,17 @@ const GalleryPage = () => {
                         }
                       }}
                     >
-                      <div className="w-[70%]">
-                        <Image
-                          // className="w- h-full
-                          //  transition-all duration-700 ease-in-out"
-                          className="w-fit transition-all duration-700 ease-in-out"
-                          width={1000}
-                          height={1000}
-                          src={el.url}
-                          alt={`Gallery Image ${index + 1}`}
-                          priority
-                          quality={100}
-                        />
-                      </div>
+                      <Image
+                        // className="w- h-full
+                        //  transition-all duration-700 ease-in-out"
+                        className="w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
+                        width={1000}
+                        height={1000}
+                        src={el.url}
+                        alt={`Gallery Image ${index + 1}`}
+                        priority
+                        quality={100}
+                      />
                     </div>
                   </SwiperSlide>
                 ))}
