@@ -158,7 +158,7 @@ const HomeSilderSectionForMobile = () => {
                       {/* Top Info */}
                       <motion.ul
                         animate={{ opacity: 1, scale: 1 }}
-                        className="flex items-center text-white text-center justify-center list-none text-[12px] gap-2 font-normal ml-0 pl-0 mb-6  uppercase"
+                        className="flex items-center text-black text-center justify-center list-none text-[12px] gap-2 font-normal ml-0 pl-0 mb-6  uppercase"
                         initial={{ opacity: 0, scale: 0.99 }}
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                       >
