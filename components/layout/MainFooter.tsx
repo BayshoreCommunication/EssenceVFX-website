@@ -157,7 +157,7 @@ const MainFooter = () => {
           <hr className="my-6 border-white sm:mx-auto lg:my-8" />
           <div className="md:flex :items-center sm:justify-between ">
             <div className="text-[16px] font-normal text-center text-white">
-              © 2024{" "}
+              <span>© {new Date().getFullYear()}</span>{" "}
               <Link className="hover:underline text-white" href="">
                 EssenceVFX
               </Link>
