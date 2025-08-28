@@ -1,5 +1,6 @@
 "use client";
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import { getNumberFromStorage } from "@/utils/storage";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 
 type AppState = {
   silderIndexValue: number;
@@ -14,8 +15,7 @@ type AppProviderProps = {
 
 export const AppProvider = ({ children }: AppProviderProps) => {
   const [silderIndexValue, setSilderIndexValue] = useState<number>(() => {
-    const savedValue = Number(localStorage.getItem("sliderIndexValue"));
-    return savedValue !== null ? Number(savedValue) : 0;
+    return getNumberFromStorage("sliderIndexValue", 0);
   });
 
   return (

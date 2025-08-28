@@ -1,13 +1,13 @@
+import MainFooter from "@/components/layout/MainFooter";
+import MainHeader from "@/components/layout/MainHeader";
+import LocalStorageCleanup from "@/components/shared/LocalStorageCleanup";
+import RouteLoader from "@/components/shared/RouteLoader";
+import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import { Montserrat } from "next/font/google";
-import { Providers } from "./providers";
-import MainHeader from "@/components/layout/MainHeader";
-import MainFooter from "@/components/layout/MainFooter";
-import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 import { AppProvider } from "./AppContext";
-import RouteLoader from "@/components/shared/RouteLoader";
+import { Providers } from "./providers";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,7 +30,15 @@ export default function RootLayout({
       <body className={clsx("antialiased", montserrat.className)}>
         <RouteLoader>
           <AppProvider>
-            <Providers themeProps={{ attribute: "class" }}>
+            <Providers
+              themeProps={{
+                attribute: "class",
+                defaultTheme: "light",
+                enableSystem: false,
+                disableTransitionOnChange: true,
+              }}
+            >
+              <LocalStorageCleanup />
               <MainHeader />
 
               <div className="overflow-x-hidden">{children}</div>
