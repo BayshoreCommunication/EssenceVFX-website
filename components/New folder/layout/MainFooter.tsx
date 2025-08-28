@@ -8,7 +8,6 @@ import { FaFacebookF, FaYoutube } from "react-icons/fa6";
 
 import { useAppContext } from "@/app/AppContext";
 import { siteConfig } from "@/config/site";
-import { safeLocalStorage, setNumberToStorage } from "@/utils/storage";
 
 const MainFooter = () => {
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
@@ -31,7 +30,7 @@ const MainFooter = () => {
   }, []);
 
   const scrollToTop = (title: number) => {
-    safeLocalStorage.removeItem("sliderIndexValue");
+    localStorage.removeItem("sliderIndexValue");
     setSilderIndexValue(title);
     window.scrollTo({
       top: 0,
@@ -43,7 +42,7 @@ const MainFooter = () => {
       pathname === "/contact" ||
       pathname === "/gallery"
     ) {
-      setNumberToStorage("sliderIndexValue", title);
+      localStorage.setItem("sliderIndexValue", title.toString()); // Convert number to string
       router.push("/");
     }
   };
@@ -158,7 +157,7 @@ const MainFooter = () => {
           <hr className="my-6 border-white sm:mx-auto lg:my-8" />
           <div className="md:flex :items-center sm:justify-between ">
             <div className="text-[16px] font-normal text-center text-white">
-              <span>© {new Date().getFullYear()}</span>{" "}
+              © 2024{" "}
               <Link className="hover:underline text-white" href="">
                 EssenceVFX
               </Link>
