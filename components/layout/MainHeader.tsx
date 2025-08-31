@@ -1,20 +1,8 @@
 "use client";
-import React, { useState, useEffect, useCallback, useMemo } from "react";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-} from "@nextui-org/react";
-import { IoCall } from "react-icons/io5";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BsTelephoneForwardFill } from "react-icons/bs";
-import { IoLocationSharp } from "react-icons/io5";
-import { HiOutlineMail } from "react-icons/hi";
-import Image from "next/image";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 const debounce = <T extends (...args: any[]) => void>(
   func: T,
@@ -65,8 +53,6 @@ const MainHeader = () => {
     };
   }, [handleScroll]);
 
-  // className={`pb-0 pt-2 md:pb-3 md:pt-4 fixed top-0 transition-colors duration-300 ${navbarColor ? "!bg-white shadow-small duration-1000" : "bg-transparent"}`}
-
   return (
     <section className={`relative z-50 `}>
       <div
@@ -76,7 +62,6 @@ const MainHeader = () => {
           <div className="flex items-center container  justify-between">
             <div className="w-full flex items-center gap-x-10 2xl:gap-x-20">
               <Link href={"/"}>
-                {/* <h2 className="text-4xl font-black text-primary">EssenceVFX</h2> */}
                 <Image
                   src={
                     navbarColor || pathname === "/gallery"
@@ -103,49 +88,78 @@ const MainHeader = () => {
                   >
                     {el.title}
                   </Link>
-                ))}{" "}
+                ))}
               </div>
             </div>
           </div>
         </div>
-        <div className="lg:hidden ">
-          <Navbar
-            isMenuOpen={isMenuOpen}
-            onMenuOpenChange={setIsMenuOpen}
-            className={` bg-white  py-4`}
-          >
-            <NavbarContent>
-              <NavbarMenuToggle
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                className="lg:hidden text-black"
-              />
-              <NavbarBrand>
-                <Link href="/">
-                  <Image
-                    src={"/assets/site-logo/essenceVFX-logo-redblack.png"}
-                    alt="EssenceVFX"
-                    width={500}
-                    height={500}
-                    className="cursor-pointer w-[140px]  h-auto mt-2 mb-2"
-                  />
-                </Link>
-              </NavbarBrand>
-            </NavbarContent>
 
-            <NavbarMenu className="overflow-hidden  mt-6">
-              {menuItems.map((el, index) => (
-                <NavbarMenuItem key={el.slug} className="flex flex-row mt-2">
-                  <Link
-                    className={`w-full  text-black text-center !text-xl font-medium py-1 ${pathname === el.slug ? "!text-primary" : ""} ${index === 0 ? "mt-6" : ""}`}
-                    href={el.slug}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {el.title}
-                  </Link>
-                </NavbarMenuItem>
-              ))}
-            </NavbarMenu>
-          </Navbar>
+        {/* Mobile Menu */}
+        <div className="lg:hidden">
+          <div className={`bg-white py-4 px-4`}>
+            <div className="flex items-center justify-between">
+              {/* Mobile Menu Toggle */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden text-black p-2"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  {isMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+
+              {/* Mobile Logo */}
+              <Link href="/">
+                <Image
+                  src={"/assets/site-logo/essenceVFX-logo-redblack.png"}
+                  alt="EssenceVFX"
+                  width={500}
+                  height={500}
+                  className="cursor-pointer w-[140px] h-auto mt-2 mb-2"
+                />
+              </Link>
+
+              {/* Spacer to center logo */}
+              <div className="w-10"></div>
+            </div>
+
+            {/* Mobile Menu Items */}
+            {isMenuOpen && (
+              <div className="mt-6 pb-4">
+                {menuItems.map((el, index) => (
+                  <div key={el.slug} className="flex flex-row mt-2">
+                    <Link
+                      className={`w-full text-black text-center !text-xl font-medium py-1 ${pathname === el.slug ? "!text-primary" : ""} ${index === 0 ? "mt-6" : ""}`}
+                      href={el.slug}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {el.title}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

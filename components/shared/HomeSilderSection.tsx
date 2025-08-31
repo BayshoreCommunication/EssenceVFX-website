@@ -1,10 +1,4 @@
 "use client";
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  useDisclosure,
-} from "@nextui-org/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,7 +21,10 @@ const HomeSilderSection = () => {
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onOpen = () => setIsOpen(true);
+  const onOpenChange = (open: boolean) => setIsOpen(open);
 
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -259,28 +256,36 @@ const HomeSilderSection = () => {
         </div>
       </div>
 
-      <Modal isOpen={isOpen} size="sm" onOpenChange={onOpenChange}>
-        <ModalContent className="w-[600px]  h-auto">
-          {(onClose) => (
-            <ModalBody>
-              <div className="pt-4 pb-2">
-                <video
-                  autoPlay
-                  controls
-                  muted
-                  playsInline
-                  className="mx-auto"
-                  height={600}
-                  poster={imageUrl}
-                  preload="metadata"
-                  src={videoUrl}
-                  width={200}
-                />
-              </div>
-            </ModalBody>
-          )}
-        </ModalContent>
-      </Modal>
+      {isOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
+          onClick={() => onOpenChange(false)}
+        >
+          <div
+            className="w-[600px] h-auto bg-white rounded-lg shadow-xl p-4 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => onOpenChange(false)}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl font-bold"
+            >
+              ×
+            </button>
+            <video
+              autoPlay
+              controls
+              muted
+              playsInline
+              className="mx-auto"
+              height={600}
+              poster={imageUrl}
+              preload="metadata"
+              src={videoUrl}
+              width={200}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,9 +1,8 @@
 "use client";
 import { useAppContext } from "@/app/AppContext";
 import { gallerySilderData } from "@/config/data";
-import { useDisclosure } from "@nextui-org/react";
 import Image from "next/image";
-import { use, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Autoplay,
   Keyboard,
@@ -25,7 +24,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
 
 const GalleryPage = () => {
   const memoizedGalleryData = gallerySilderData;
@@ -36,7 +34,10 @@ const GalleryPage = () => {
   const { silderIndexValue, setSilderIndexValue } = useAppContext();
   const [videoUrl, setVideoUrl] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onOpen = () => setIsOpen(true);
+  const onOpenChange = (open: boolean) => setIsOpen(open);
 
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);

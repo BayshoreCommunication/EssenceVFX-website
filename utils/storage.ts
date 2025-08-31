@@ -15,14 +15,25 @@ export const safeLocalStorage = {
         if (
           parsed &&
           typeof parsed === "object" &&
-          (parsed.theme || parsed.username || parsed.logo)
+          (parsed.theme || parsed.username || parsed.logo || parsed.state?.theme)
         ) {
           // This is theme data, don't return it as a string
           console.warn(`Theme data found in localStorage for key: ${key}`);
           return null;
         }
       } catch {
-        // Not JSON, safe to return
+        // Not JSON, check if it contains theme-related strings
+        if (
+          value.includes('"theme"') ||
+          value.includes('"username"') ||
+          value.includes('"logo"') ||
+          value.includes('"state"') ||
+          value.includes('Team Sabbir Nasir') ||
+          value.includes('FA7E70')
+        ) {
+          console.warn(`Corrupted theme string found in localStorage for key: ${key}`);
+          return null;
+        }
       }
 
       return value;
@@ -38,6 +49,19 @@ export const safeLocalStorage = {
       if (value.startsWith("{") && value.includes('"theme"')) {
         console.warn(
           `Attempting to store theme JSON data as string for key: ${key}`
+        );
+        return;
+      }
+
+      // Check for the specific problematic JSON structure
+      if (
+        value.includes('"state"') &&
+        value.includes('"theme"') &&
+        value.includes('"username"') &&
+        value.includes('"logo"')
+      ) {
+        console.warn(
+          `Attempting to store corrupted theme JSON data for key: ${key}`
         );
         return;
       }
@@ -75,7 +99,7 @@ export const getNumberFromStorage = (
   const value = safeLocalStorage.getItem(key);
   if (value === null) return defaultValue;
 
-  const parsed = Number(value);
+  const parsed = parseInt(value, 10);
   return isNaN(parsed) ? defaultValue : parsed;
 };
 

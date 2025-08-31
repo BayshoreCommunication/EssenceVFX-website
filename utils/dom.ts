@@ -15,12 +15,33 @@ export const safeAddClass = (element: Element, className: string): void => {
         return;
       }
 
+      // Check for the specific problematic JSON structure
+      if (
+        className.includes('"state"') &&
+        className.includes('"theme"') &&
+        className.includes('"username"') &&
+        className.includes('"logo"')
+      ) {
+        console.warn("Attempting to add corrupted theme JSON as CSS class:", className);
+        return;
+      }
+
       // Check if it contains HTML space characters (which are invalid in tokens)
       if (className.includes(" ")) {
         console.warn(
           "Attempting to add class with HTML space characters:",
           className
         );
+        return;
+      }
+
+      // Check if it contains specific problematic strings
+      if (
+        className.includes('Team Sabbir Nasir') ||
+        className.includes('FA7E70') ||
+        className.includes('res.cloudinary.com')
+      ) {
+        console.warn("Attempting to add theme data as CSS class:", className);
         return;
       }
 
@@ -65,6 +86,17 @@ export const safeToggleClass = (
         return;
       }
 
+      // Check for the specific problematic JSON structure
+      if (
+        className.includes('"state"') &&
+        className.includes('"theme"') &&
+        className.includes('"username"') &&
+        className.includes('"logo"')
+      ) {
+        console.warn("Attempting to toggle corrupted theme JSON as CSS class:", className);
+        return;
+      }
+
       element.classList.toggle(className, force);
     }
   } catch (error) {
@@ -81,6 +113,17 @@ export const safeSetClassName = (element: Element, className: string): void => {
       // Check if it looks like JSON
       if (className.startsWith("{") && className.includes('"theme"')) {
         console.warn("Attempting to set JSON data as className:", className);
+        return;
+      }
+
+      // Check for the specific problematic JSON structure
+      if (
+        className.includes('"state"') &&
+        className.includes('"theme"') &&
+        className.includes('"username"') &&
+        className.includes('"logo"')
+      ) {
+        console.warn("Attempting to set corrupted theme JSON as className:", className);
         return;
       }
 
