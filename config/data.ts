@@ -411,7 +411,6 @@ export const gallerySilderData = [
   { url: "/assets/gallery-img/vixen-1.jpg" },
   { url: "/assets/gallery-img/vixen-2.jpg" },
   { url: "/assets/gallery-img/wolverine-and-emma-frost.jpg" },
-
   { url: "/assets/gallery-img/emma-frost.png" },
   { url: "/assets/gallery-img/jean-grey.png" },
   { url: "/assets/gallery-img/mr-fantastic-marvel-rivals.png" },
