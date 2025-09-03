@@ -1,6 +1,4 @@
 "use client";
-import { useAppContext } from "@/app/AppContext";
-import { gallerySilderData } from "@/config/data";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -11,8 +9,11 @@ import {
   Pagination,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
+import { gallerySilderData } from "@/config/data";
+import { useAppContext } from "@/app/AppContext";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -51,6 +52,7 @@ const GalleryPage = () => {
       swiperRef.current.navigation.update();
     }
     const clickHandler = document.querySelector(".clickable") as HTMLElement;
+
     if (clickHandler) {
       setTimeout(() => {
         clickHandler.click();
@@ -142,8 +144,8 @@ const GalleryPage = () => {
             <div className="w-[0%] relative z-50 left-[0%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
-                onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
                 className="p-2 bg-white lg:bg-transparent z-50 w-[75px] flex items-center justify-center lg:w-[55px] shadow-lg h-[40px] lg:h-[55px] lg:shadow-none"
+                onClick={() => setSilderIndexValue((prev: any) => prev - 1)}
               >
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
@@ -151,25 +153,10 @@ const GalleryPage = () => {
             <div className="w-[90%] lg:w-[100%]">
               <Swiper
                 allowTouchMove={false}
-                cssMode={true}
-                loop={true} // Enables loop mode
                 autoplay={{
                   delay: 3000,
                   disableOnInteraction: false,
                 }}
-                speed={800}
-                initialSlide={silderIndexValue}
-                modules={[
-                  Autoplay,
-                  Navigation,
-                  Pagination,
-                  Mousewheel,
-                  Keyboard,
-                ]}
-                onBeforeInit={(swiper) => {
-                  swiperRef.current = swiper;
-                }}
-                onSlideChange={handleSlideChange}
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
@@ -184,28 +171,52 @@ const GalleryPage = () => {
                     spaceBetween: 40,
                   },
                 }}
+                cssMode={true}
+                initialSlide={silderIndexValue}
+                loop={true} // Enables loop mode
+                modules={[
+                  Autoplay,
+                  Navigation,
+                  Pagination,
+                  Mousewheel,
+                  Keyboard,
+                ]}
+                speed={800}
+                onBeforeInit={(swiper) => {
+                  swiperRef.current = swiper;
+                }}
+                onSlideChange={handleSlideChange}
               >
                 {memoizedGalleryData.map((el, index) => (
                   <SwiperSlide key={el.url || index}>
                     <div
+                      aria-label={`Resume autoplay for image ${index + 1}`}
                       className="cursor-pointer"
+                      role="button"
+                      tabIndex={0}
                       onClick={() => {
-                        // Resume autoplay when clicking on an image
                         if (swiperRef.current) {
                           swiperRef.current.swiper.autoplay.start();
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          if (swiperRef.current) {
+                            swiperRef.current.swiper.autoplay.start();
+                          }
                         }
                       }}
                     >
                       <Image
                         // className="w- h-full
                         //  transition-all duration-700 ease-in-out"
-                        className=" w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
-                        width={1000}
-                        height={1000}
-                        src={el.url}
-                        alt={`Gallery Image ${index + 1}`}
                         priority
+                        alt={`Gallery Image ${index + 1}`}
+                        className=" w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
+                        height={1000}
                         quality={100}
+                        src={el.url}
+                        width={1000}
                       />
                     </div>
                   </SwiperSlide>
@@ -216,8 +227,8 @@ const GalleryPage = () => {
             <div className="w-[0%] relative z-50 right-[17.5%] lg:-right-9 ">
               <button
                 ref={nextButtonRef}
-                onClick={() => setSilderIndexValue((prev: number) => prev + 1)}
                 className="  p-2 bg-white lg:bg-transparent w-[70px] flex items-center justify-center lg:w-[55px] shadow-lg lg:shadow-none h-[40px] lg:h-[55px]"
+                onClick={() => setSilderIndexValue((prev: number) => prev + 1)}
               >
                 <IoIosArrowForward className="size-5 lg:size-9 text-black hover:text-red-500 " />
               </button>
@@ -225,18 +236,18 @@ const GalleryPage = () => {
           </div>
         </div>
       </ScrollMotionEffect>
-      <Carousel opts={{ loop: true }} className="w-[84%] m-auto md:hidden">
+      <Carousel className="w-[84%] m-auto md:hidden" opts={{ loop: true }}>
         <CarouselContent>
           {memoizedGalleryData.map((el, index) => (
             <CarouselItem key={index}>
               <Image
-                className=""
-                width={1000}
-                height={1000}
-                src={el.url}
-                alt={`Gallery Image ${index + 1}`}
                 priority
+                alt={`Gallery Image ${index + 1}`}
+                className=""
+                height={1000}
                 quality={100}
+                src={el.url}
+                width={1000}
               />
             </CarouselItem>
           ))}

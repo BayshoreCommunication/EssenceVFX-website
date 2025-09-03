@@ -13,6 +13,7 @@ export default function NotFound() {
         if (prevCounter <= 1) {
           clearInterval(interval);
         }
+
         return prevCounter - 1;
       });
     }, 1000);

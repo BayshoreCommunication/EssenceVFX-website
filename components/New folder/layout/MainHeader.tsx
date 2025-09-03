@@ -8,17 +8,13 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import { IoCall } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BsTelephoneForwardFill } from "react-icons/bs";
-import { IoLocationSharp } from "react-icons/io5";
-import { HiOutlineMail } from "react-icons/hi";
 import Image from "next/image";
 
 const debounce = <T extends (...args: any[]) => void>(
   func: T,
-  wait: number
+  wait: number,
 ) => {
   let timeout: NodeJS.Timeout | undefined;
 
@@ -48,18 +44,19 @@ const MainHeader = () => {
       { title: "GALLERY", slug: "/gallery" },
       { title: "CONTACT US", slug: "/contact" },
     ],
-    []
+    [],
   );
 
   const handleScroll = useCallback(
     debounce(() => {
       setNavbarColor(window.scrollY >= 100);
     }, 100),
-    []
+    [],
   );
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -78,15 +75,15 @@ const MainHeader = () => {
               <Link href={"/"}>
                 {/* <h2 className="text-4xl font-black text-primary">EssenceVFX</h2> */}
                 <Image
+                  alt="EssenceVFX"
+                  className="cursor-pointer w-[180px] xl:w-[150px]  h-auto mt-2 mb-2"
+                  height={500}
                   src={
                     navbarColor || pathname === "/gallery"
                       ? "/assets/site-logo/essenceVFX-logo-redblack.png"
                       : "/assets/site-logo/essenceVFX-logo-redwhite.png"
                   }
-                  alt="EssenceVFX"
                   width={500}
-                  height={500}
-                  className="cursor-pointer w-[180px] xl:w-[150px]  h-auto mt-2 mb-2"
                 />
               </Link>
             </div>
@@ -96,10 +93,10 @@ const MainHeader = () => {
                 {menuItems.map((el) => (
                   <Link
                     key={el.slug}
-                    href={`${el.slug}`}
                     className={`cursor-pointer text-sm lg:text-[14px] font-semibold transition-all duration-300 h-7 
                       ${pathname === el.slug ? "border-b-2 border-primary" : "hover:border-b-2 hover:border-primary"} 
                       ${pathname === "/about" ? (navbarColor ? "text-black" : "text-white") : "text-black"}`}
+                    href={`${el.slug}`}
                   >
                     {el.title}
                   </Link>
@@ -110,9 +107,9 @@ const MainHeader = () => {
         </div>
         <div className="lg:hidden ">
           <Navbar
+            className={` bg-white  py-4`}
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
-            className={` bg-white  py-4`}
           >
             <NavbarContent>
               <NavbarMenuToggle
@@ -122,11 +119,11 @@ const MainHeader = () => {
               <NavbarBrand>
                 <Link href="/">
                   <Image
-                    src={"/assets/site-logo/essenceVFX-logo-redblack.png"}
                     alt="EssenceVFX"
-                    width={500}
-                    height={500}
                     className="cursor-pointer w-[140px]  h-auto mt-2 mb-2"
+                    height={500}
+                    src={"/assets/site-logo/essenceVFX-logo-redblack.png"}
+                    width={500}
                   />
                 </Link>
               </NavbarBrand>

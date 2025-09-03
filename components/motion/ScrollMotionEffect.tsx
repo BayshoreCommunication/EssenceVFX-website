@@ -24,10 +24,10 @@ const ScrollMotionEffect: React.FC<ScrollMotionEffectProps> = ({
     <div
       className=""
       data-aos="fade-zoom-in"
-      data-aos-easing="ease-out"
       data-aos-delay="100"
-      data-aos-offset="50"
       data-aos-duration="800"
+      data-aos-easing="ease-out"
+      data-aos-offset="50"
     >
       {children}
     </div>

@@ -1,9 +1,8 @@
 "use client";
-import { useAppContext } from "@/app/AppContext";
-import { gallerySilderData } from "@/config/data";
+
 import { useDisclosure } from "@nextui-org/react";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Autoplay,
   Keyboard,
@@ -12,8 +11,10 @@ import {
   Pagination,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
+import { gallerySilderData } from "@/config/data";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -94,12 +95,12 @@ const GalleryPage = () => {
             <div className="w-[0%] relative z-50 left-[0%] lg:-left-24 ">
               <button
                 ref={prevButtonRef}
+                className="p-2 bg-white lg:bg-transparent z-50 w-[75px] flex items-center justify-center lg:w-[55px] shadow-lg h-[40px] lg:h-[55px] lg:shadow-none"
                 onClick={(e) => {
                   // e.preventDefault();
 
                   handlePrevSlide();
                 }}
-                className="p-2 bg-white lg:bg-transparent z-50 w-[75px] flex items-center justify-center lg:w-[55px] shadow-lg h-[40px] lg:h-[55px] lg:shadow-none"
               >
                 <IoIosArrowBack className="size-5 lg:size-9 text-black hover:text-red-500" />
               </button>
@@ -107,25 +108,10 @@ const GalleryPage = () => {
             <div className="w-[90%] lg:w-[100%]">
               <Swiper
                 allowTouchMove={false}
-                cssMode={true}
-                loop={true} // Enables loop mode
                 autoplay={{
                   delay: 3000,
                   disableOnInteraction: true,
                 }}
-                speed={800}
-                initialSlide={currentImageIndex}
-                modules={[
-                  Autoplay,
-                  Navigation,
-                  Pagination,
-                  Mousewheel,
-                  Keyboard,
-                ]}
-                onBeforeInit={(swiper) => {
-                  swiperRef.current = swiper;
-                }}
-                onSlideChange={handleSlideChange}
                 breakpoints={{
                   0: {
                     slidesPerView: 1,
@@ -140,28 +126,51 @@ const GalleryPage = () => {
                     spaceBetween: 40,
                   },
                 }}
+                cssMode={true}
+                initialSlide={currentImageIndex}
+                loop={true} // Enables loop mode
+                modules={[
+                  Autoplay,
+                  Navigation,
+                  Pagination,
+                  Mousewheel,
+                  Keyboard,
+                ]}
+                speed={800}
+                onBeforeInit={(swiper) => {
+                  swiperRef.current = swiper;
+                }}
+                onSlideChange={handleSlideChange}
               >
                 {memoizedGalleryData.map((el, index) => (
                   <SwiperSlide key={index}>
                     <div
+                      aria-label={`Resume autoplay for image ${index + 1}`}
                       className="cursor-pointer "
-                      onClick={(e) => {
-                        // Resume autoplay when clicking on an image
-                        // e.preventDefault();
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => {
                         if (swiperRef.current) {
                           swiperRef.current.swiper.autoplay.start();
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          if (swiperRef.current) {
+                            swiperRef.current.swiper.autoplay.start();
+                          }
                         }
                       }}
                     >
                       <Image
                         // className="w-[422px] h-[485px] transition-all duration-700 ease-in-out"
-                        className="w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
-                        width={1000}
-                        height={1000}
-                        src={el.url}
-                        alt={`Gallery Image ${index + 1}`}
                         priority
+                        alt={`Gallery Image ${index + 1}`}
+                        className="w-[422px] h-[435px] md:h-[485px] transition-all duration-700 ease-in-out"
+                        height={1000}
                         quality={100}
+                        src={el.url}
+                        width={1000}
                       />
                     </div>
                   </SwiperSlide>
@@ -172,12 +181,12 @@ const GalleryPage = () => {
             <div className="w-[0%] relative z-50 right-[17.5%] lg:-right-9 ">
               <button
                 ref={nextButtonRef}
+                className="  p-2 bg-white lg:bg-transparent w-[70px] flex items-center justify-center lg:w-[55px] shadow-lg lg:shadow-none h-[40px] lg:h-[55px]"
                 onClick={(e) => {
                   // e.preventDefault();
 
                   handleNextSlide();
                 }}
-                className="  p-2 bg-white lg:bg-transparent w-[70px] flex items-center justify-center lg:w-[55px] shadow-lg lg:shadow-none h-[40px] lg:h-[55px]"
               >
                 <IoIosArrowForward className="size-5 lg:size-9 text-black hover:text-red-500 " />
               </button>

@@ -1,7 +1,6 @@
 import React from "react";
-import HomeSilderSection from "../shared/HomeSilderSection";
 import Image from "next/image";
-import Link from "next/link";
+
 import ContactForm from "./ContactForm";
 
 const ContactSection = () => {
@@ -9,11 +8,11 @@ const ContactSection = () => {
     <section className="bg-secondary lg:bg-transparent relative">
       <div className="absolute -z-10 right-0] xl:right-[1%]  2xl:right-[15%] top-[26%] opacity-80">
         <Image
+          alt="Slider Video"
           className="w-[200px] h-auto"
-          width={300}
           height={300}
           src={"/assets/home/white-bg-dot.png"}
-          alt="Slider Video"
+          width={300}
         />
       </div>
       <div className="container">
@@ -25,11 +24,11 @@ const ContactSection = () => {
           <div className="block lg:hidden  w-full ">
             <div className="mt-3 flex justify-center items-center">
               <Image
+                alt="Slider Video"
                 className="w-[300px h-auto"
-                width={600}
                 height={500}
                 src={"/assets/home/contact.png"}
-                alt="Slider Video"
+                width={600}
               />
             </div>
           </div>
@@ -38,20 +37,20 @@ const ContactSection = () => {
             <div className="w-full flex items-center justify-center">
               <div className="relative w-[400px] h-[590px] cursor-pointer  group mt-8">
                 <Image
+                  alt="Slider Video"
                   className="w-full h-auto shadow-5xl z-40 relative drop-shadow-[0_25px_35px_rgba(0,0,0,0.20)]"
-                  width={500}
                   height={500}
                   src={"/assets/home/contact.png"}
-                  alt="Slider Video"
+                  width={500}
                 />
-                <p className="text-xl font-normal absolute top-[3.5%] left-[100%] text-left  bg-primary w-[25px] h-[70px] group-hover:w-[72px] transition-all duration-300 flex items-center rounded-r-md z-50"></p>
+                <p className="text-xl font-normal absolute top-[3.5%] left-[100%] text-left  bg-primary w-[25px] h-[70px] group-hover:w-[72px] transition-all duration-300 flex items-center rounded-r-md z-50" />
 
                 <Image
+                  alt="Slider Video"
                   className=" z-10  absolute top-[7%] left-[-6%] group-hover:top-[-5%] group-hover:left-[5%] transition-all duration-300"
-                  width={500}
                   height={300}
                   src={"/assets/home/image-hover-border-new.png"}
-                  alt="Slider Video"
+                  width={500}
                 />
               </div>
             </div>

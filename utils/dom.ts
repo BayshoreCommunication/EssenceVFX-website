@@ -12,6 +12,7 @@ export const safeAddClass = (element: Element, className: string): void => {
       // Check if it looks like JSON
       if (className.startsWith("{") && className.includes('"theme"')) {
         console.warn("Attempting to add JSON data as CSS class:", className);
+
         return;
       }
 
@@ -22,7 +23,11 @@ export const safeAddClass = (element: Element, className: string): void => {
         className.includes('"username"') &&
         className.includes('"logo"')
       ) {
-        console.warn("Attempting to add corrupted theme JSON as CSS class:", className);
+        console.warn(
+          "Attempting to add corrupted theme JSON as CSS class:",
+          className,
+        );
+
         return;
       }
 
@@ -30,18 +35,20 @@ export const safeAddClass = (element: Element, className: string): void => {
       if (className.includes(" ")) {
         console.warn(
           "Attempting to add class with HTML space characters:",
-          className
+          className,
         );
+
         return;
       }
 
       // Check if it contains specific problematic strings
       if (
-        className.includes('Team Sabbir Nasir') ||
-        className.includes('FA7E70') ||
-        className.includes('res.cloudinary.com')
+        className.includes("Team Sabbir Nasir") ||
+        className.includes("FA7E70") ||
+        className.includes("res.cloudinary.com")
       ) {
         console.warn("Attempting to add theme data as CSS class:", className);
+
         return;
       }
 
@@ -76,13 +83,14 @@ export const safeRemoveClass = (element: Element, className: string): void => {
 export const safeToggleClass = (
   element: Element,
   className: string,
-  force?: boolean
+  force?: boolean,
 ): void => {
   try {
     if (className && typeof className === "string") {
       // Check if it looks like JSON
       if (className.startsWith("{") && className.includes('"theme"')) {
         console.warn("Attempting to toggle JSON data as CSS class:", className);
+
         return;
       }
 
@@ -93,7 +101,11 @@ export const safeToggleClass = (
         className.includes('"username"') &&
         className.includes('"logo"')
       ) {
-        console.warn("Attempting to toggle corrupted theme JSON as CSS class:", className);
+        console.warn(
+          "Attempting to toggle corrupted theme JSON as CSS class:",
+          className,
+        );
+
         return;
       }
 
@@ -113,6 +125,7 @@ export const safeSetClassName = (element: Element, className: string): void => {
       // Check if it looks like JSON
       if (className.startsWith("{") && className.includes('"theme"')) {
         console.warn("Attempting to set JSON data as className:", className);
+
         return;
       }
 
@@ -123,7 +136,11 @@ export const safeSetClassName = (element: Element, className: string): void => {
         className.includes('"username"') &&
         className.includes('"logo"')
       ) {
-        console.warn("Attempting to set corrupted theme JSON as className:", className);
+        console.warn(
+          "Attempting to set corrupted theme JSON as className:",
+          className,
+        );
+
         return;
       }
 

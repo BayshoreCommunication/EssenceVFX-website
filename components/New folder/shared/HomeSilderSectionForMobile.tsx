@@ -63,7 +63,7 @@ const HomeSilderSectionForMobile = () => {
   };
 
   const heroInfoData = sliderPortfolioData?.find(
-    (el, index) => index === silderIndexValue
+    (el, index) => index === silderIndexValue,
   );
 
   const variants = {

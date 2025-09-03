@@ -6,7 +6,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 const debounce = <T extends (...args: any[]) => void>(
   func: T,
-  wait: number
+  wait: number,
 ) => {
   let timeout: NodeJS.Timeout | undefined;
 
@@ -36,18 +36,19 @@ const MainHeader = () => {
       { title: "GALLERY", slug: "/gallery" },
       { title: "CONTACT US", slug: "/contact" },
     ],
-    []
+    [],
   );
 
   const handleScroll = useCallback(
     debounce(() => {
       setNavbarColor(window.scrollY >= 100);
     }, 100),
-    []
+    [],
   );
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -63,15 +64,15 @@ const MainHeader = () => {
             <div className="w-full flex items-center gap-x-10 2xl:gap-x-20">
               <Link href={"/"}>
                 <Image
+                  alt="EssenceVFX"
+                  className="cursor-pointer w-[180px] xl:w-[150px]  h-auto mt-2 mb-2"
+                  height={500}
                   src={
                     navbarColor || pathname === "/gallery"
                       ? "/assets/site-logo/essenceVFX-logo-redblack.png"
                       : "/assets/site-logo/essenceVFX-logo-redwhite.png"
                   }
-                  alt="EssenceVFX"
                   width={500}
-                  height={500}
-                  className="cursor-pointer w-[180px] xl:w-[150px]  h-auto mt-2 mb-2"
                 />
               </Link>
             </div>
@@ -81,10 +82,10 @@ const MainHeader = () => {
                 {menuItems.map((el) => (
                   <Link
                     key={el.slug}
-                    href={`${el.slug}`}
                     className={`cursor-pointer text-sm lg:text-[14px] font-semibold transition-all duration-300 h-7 
                       ${pathname === el.slug ? "border-b-2 border-primary" : "hover:border-b-2 hover:border-primary"} 
                       ${pathname === "/about" ? (navbarColor ? "text-black" : "text-white") : "text-black"}`}
+                    href={`${el.slug}`}
                   >
                     {el.title}
                   </Link>
@@ -100,9 +101,9 @@ const MainHeader = () => {
             <div className="flex items-center justify-between">
               {/* Mobile Menu Toggle */}
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden text-black p-2"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                className="lg:hidden text-black p-2"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <svg
                   className="w-6 h-6"
@@ -112,17 +113,17 @@ const MainHeader = () => {
                 >
                   {isMenuOpen ? (
                     <path
+                      d="M6 18L18 6M6 6l12 12"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
                     />
                   ) : (
                     <path
+                      d="M4 6h16M4 12h16M4 18h16"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
                     />
                   )}
                 </svg>
@@ -131,16 +132,16 @@ const MainHeader = () => {
               {/* Mobile Logo */}
               <Link href="/">
                 <Image
-                  src={"/assets/site-logo/essenceVFX-logo-redblack.png"}
                   alt="EssenceVFX"
-                  width={500}
-                  height={500}
                   className="cursor-pointer w-[140px] h-auto mt-2 mb-2"
+                  height={500}
+                  src={"/assets/site-logo/essenceVFX-logo-redblack.png"}
+                  width={500}
                 />
               </Link>
 
               {/* Spacer to center logo */}
-              <div className="w-10"></div>
+              <div className="w-10" />
             </div>
 
             {/* Mobile Menu Items */}

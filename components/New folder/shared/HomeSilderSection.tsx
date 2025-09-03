@@ -63,7 +63,7 @@ const HomeSilderSection = () => {
   };
 
   const heroInfoData = sliderPortfolioData?.find(
-    (el, index) => index === silderIndexValue
+    (el, index) => index === silderIndexValue,
   );
 
   const variants = {
@@ -191,7 +191,7 @@ const HomeSilderSection = () => {
                     onOpen();
                     onShowPopUp(
                       heroInfoData?.videoUrl,
-                      heroInfoData?.videoThum
+                      heroInfoData?.videoThum,
                     );
                   }}
                 >
@@ -222,10 +222,19 @@ const HomeSilderSection = () => {
                 <SwiperSlide key={index} className="">
                   <div className="flex items-center justify-center">
                     <div
+                      aria-label={`Open ${el?.title ?? "video"}`}
                       className="relative w-[400px] h-[562px] cursor-pointer  group mt-8"
+                      role="button"
+                      tabIndex={0}
                       onClick={() => {
                         onOpen();
                         onShowPopUp(el?.videoUrl, el?.videoThum);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          onOpen();
+                          onShowPopUp(el?.videoUrl, el?.videoThum);
+                        }
                       }}
                     >
                       <Image

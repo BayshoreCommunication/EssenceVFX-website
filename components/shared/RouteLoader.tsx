@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+
 import Loading from "./Loading";
 
 const RouteLoader = ({ children }: { children: React.ReactNode }) => {

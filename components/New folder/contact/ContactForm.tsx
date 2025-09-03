@@ -1,10 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Button } from "@nextui-org/react";
+import React, { useState } from "react";
 import { send } from "emailjs-com";
 import Swal from "sweetalert2";
-import { MdArrowOutward } from "react-icons/md";
 
 // Define types for form fields and errors
 type EmailFormType = {
@@ -30,6 +28,7 @@ const ContactForm: React.FC = () => {
   const validate = (values: EmailFormType): FormErrorsType => {
     const errors: FormErrorsType = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
     if (!values.name) {
       errors.name = "Name is required!";
     }
@@ -44,6 +43,7 @@ const ContactForm: React.FC = () => {
     if (!values.message) {
       errors.message = "Message is required!";
     }
+
     return errors;
   };
 
@@ -52,6 +52,7 @@ const ContactForm: React.FC = () => {
     setLoading(true);
 
     const errors = validate(emailForm);
+
     setFormErrors(errors);
 
     if (Object.keys(errors).length === 0) {
@@ -59,7 +60,7 @@ const ContactForm: React.FC = () => {
         "service_rumqikr",
         "template_dse9v8i",
         emailForm,
-        "YJi0fWczqElZyheiJ"
+        "YJi0fWczqElZyheiJ",
       )
         .then((response) => {
           setLoading(false);
@@ -106,11 +107,11 @@ const ContactForm: React.FC = () => {
           {/* First Name */}
 
           <input
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
-            placeholder="Your Name"
             required
-            type="text"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
             name="name"
+            placeholder="Your Name"
+            type="text"
             value={emailForm.name}
             onChange={(event) => {
               setEmailForm({
@@ -125,11 +126,11 @@ const ContactForm: React.FC = () => {
 
         <div className="w-full mb-5">
           <input
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
-            placeholder="Your Email"
             required
-            type="email"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
             name="email"
+            placeholder="Your Email"
+            type="email"
             value={emailForm.email}
             onChange={(event) => {
               setEmailForm({
@@ -145,11 +146,11 @@ const ContactForm: React.FC = () => {
           {/* Phone Number */}
           <div className=" w-full">
             <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
-              placeholder="Phone Number"
               required
-              type="text"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
               name="phone"
+              placeholder="Phone Number"
+              type="text"
               value={emailForm.phone}
               onChange={(event) => {
                 setEmailForm({
@@ -165,12 +166,12 @@ const ContactForm: React.FC = () => {
         {/* Text Area */}
         <div className="mb-5">
           <textarea
-            rows={4}
-            id="message"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
-            placeholder="Please describe what happened"
             required
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-md focus:ring-black focus:border-black block w-full p-2.5 py-2.5 placeholder:text-base pl-5"
+            id="message"
             name="message"
+            placeholder="Please describe what happened"
+            rows={4}
             value={emailForm.message}
             onChange={(event) => {
               setEmailForm({
@@ -184,15 +185,15 @@ const ContactForm: React.FC = () => {
 
         {loading ? (
           <button
-            type="submit"
             className="text-white bg-secondary   font-medium  text-base w-full rounded  cursor-pointer px-5 py-2 xl:py-4 text-center flex items-center justify-center gap-x-2 "
+            type="submit"
           >
             <div role="status">
               <svg
                 aria-hidden="true"
                 className="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-white"
-                viewBox="0 0 100 101"
                 fill="none"
+                viewBox="0 0 100 101"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path

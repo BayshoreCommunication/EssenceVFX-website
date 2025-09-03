@@ -1,6 +1,7 @@
 "use client";
-import { getNumberFromStorage } from "@/utils/storage";
 import React, { createContext, ReactNode, useContext, useState } from "react";
+
+import { getNumberFromStorage } from "@/utils/storage";
 
 type AppState = {
   silderIndexValue: number;
@@ -27,8 +28,10 @@ export const AppProvider = ({ children }: AppProviderProps) => {
 
 export const useAppContext = () => {
   const context = useContext(AppContext);
+
   if (context === undefined) {
     throw new Error("useAppContext must be used within an AppProvider");
   }
+
   return context;
 };

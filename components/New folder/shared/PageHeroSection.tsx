@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+
 import ScrollMotionEffect from "../motion/ScrollMotionEffect";
 
 interface PageHeroSectionProps {
@@ -20,11 +20,11 @@ const PageHeroSection: React.FC<PageHeroSectionProps> = ({
   return (
     <div className="relative w-full h-[320px] md:h-[380px]">
       <Image
-        className="absolute inset-0 object-cover bg-bottom w-full h-full"
-        src="/assets/about/heropagebg.jpg"
-        alt="Page Hero Image"
-        layout="fill"
         priority
+        alt="Page Hero Image"
+        className="absolute inset-0 object-cover bg-bottom w-full h-full"
+        layout="fill"
+        src="/assets/about/heropagebg.jpg"
       />
 
       <div className="relative flex flex-col items-center justify-center w-full h-full">

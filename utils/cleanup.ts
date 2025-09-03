@@ -22,10 +22,12 @@ export const cleanupLocalStorage = (): void => {
     keysToCheck.forEach((key) => {
       try {
         const value = localStorage.getItem(key);
+
         if (value) {
           // Check if it's a JSON object with theme-related properties
           try {
             const parsed = JSON.parse(value);
+
             if (parsed && typeof parsed === "object") {
               // Check for various theme-related properties
               if (
@@ -38,7 +40,7 @@ export const cleanupLocalStorage = (): void => {
                 parsed.state?.logo
               ) {
                 console.warn(
-                  `Removing corrupted theme data from localStorage key: ${key}`
+                  `Removing corrupted theme data from localStorage key: ${key}`,
                 );
                 localStorage.removeItem(key);
                 corruptedDataFound = true;
@@ -52,11 +54,11 @@ export const cleanupLocalStorage = (): void => {
               value.includes('"logo"') ||
               value.includes('"state"') ||
               value.includes('"version"') ||
-              value.includes('Team Sabbir Nasir') ||
-              value.includes('FA7E70')
+              value.includes("Team Sabbir Nasir") ||
+              value.includes("FA7E70")
             ) {
               console.warn(
-                `Removing corrupted theme string from localStorage key: ${key}`
+                `Removing corrupted theme string from localStorage key: ${key}`,
               );
               localStorage.removeItem(key);
               corruptedDataFound = true;
@@ -72,8 +74,10 @@ export const cleanupLocalStorage = (): void => {
     try {
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
+
         if (key) {
           const value = localStorage.getItem(key);
+
           if (value) {
             // Check if the value contains the problematic JSON structure
             if (
@@ -83,7 +87,7 @@ export const cleanupLocalStorage = (): void => {
               value.includes('"logo"')
             ) {
               console.warn(
-                `Removing corrupted theme data from localStorage key: ${key}`
+                `Removing corrupted theme data from localStorage key: ${key}`,
               );
               localStorage.removeItem(key);
               corruptedDataFound = true;
@@ -97,7 +101,9 @@ export const cleanupLocalStorage = (): void => {
 
     // If corrupted data was found, consider clearing all localStorage as a last resort
     if (corruptedDataFound) {
-      console.warn("Corrupted theme data detected. Consider clearing all localStorage if issues persist.");
+      console.warn(
+        "Corrupted theme data detected. Consider clearing all localStorage if issues persist.",
+      );
       // Uncomment the line below if you want to clear all localStorage when corrupted data is found
       // localStorage.clear();
     }

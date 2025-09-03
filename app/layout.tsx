@@ -3,9 +3,11 @@ import MainHeader from "@/components/layout/MainHeader";
 import LocalStorageCleanup from "@/components/shared/LocalStorageCleanup";
 import RouteLoader from "@/components/shared/RouteLoader";
 import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
+
 import "@/styles/globals.css";
 import clsx from "clsx";
 import { Montserrat } from "next/font/google";
+
 import { AppProvider } from "./AppContext";
 import { Providers } from "./providers";
 

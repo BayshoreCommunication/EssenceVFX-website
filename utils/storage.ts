@@ -7,18 +7,24 @@ export const safeLocalStorage = {
   getItem: (key: string): string | null => {
     try {
       const value = localStorage.getItem(key);
+
       if (value === null) return null;
 
       // Check if the value is valid JSON and contains theme-related data
       try {
         const parsed = JSON.parse(value);
+
         if (
           parsed &&
           typeof parsed === "object" &&
-          (parsed.theme || parsed.username || parsed.logo || parsed.state?.theme)
+          (parsed.theme ||
+            parsed.username ||
+            parsed.logo ||
+            parsed.state?.theme)
         ) {
           // This is theme data, don't return it as a string
           console.warn(`Theme data found in localStorage for key: ${key}`);
+
           return null;
         }
       } catch {
@@ -28,10 +34,13 @@ export const safeLocalStorage = {
           value.includes('"username"') ||
           value.includes('"logo"') ||
           value.includes('"state"') ||
-          value.includes('Team Sabbir Nasir') ||
-          value.includes('FA7E70')
+          value.includes("Team Sabbir Nasir") ||
+          value.includes("FA7E70")
         ) {
-          console.warn(`Corrupted theme string found in localStorage for key: ${key}`);
+          console.warn(
+            `Corrupted theme string found in localStorage for key: ${key}`,
+          );
+
           return null;
         }
       }
@@ -39,6 +48,7 @@ export const safeLocalStorage = {
       return value;
     } catch (error) {
       console.warn(`Error reading from localStorage for key ${key}:`, error);
+
       return null;
     }
   },
@@ -48,8 +58,9 @@ export const safeLocalStorage = {
       // Validate that we're not accidentally storing JSON as a simple string
       if (value.startsWith("{") && value.includes('"theme"')) {
         console.warn(
-          `Attempting to store theme JSON data as string for key: ${key}`
+          `Attempting to store theme JSON data as string for key: ${key}`,
         );
+
         return;
       }
 
@@ -61,8 +72,9 @@ export const safeLocalStorage = {
         value.includes('"logo"')
       ) {
         console.warn(
-          `Attempting to store corrupted theme JSON data for key: ${key}`
+          `Attempting to store corrupted theme JSON data for key: ${key}`,
         );
+
         return;
       }
 
@@ -94,12 +106,14 @@ export const safeLocalStorage = {
  */
 export const getNumberFromStorage = (
   key: string,
-  defaultValue: number = 0
+  defaultValue: number = 0,
 ): number => {
   const value = safeLocalStorage.getItem(key);
+
   if (value === null) return defaultValue;
 
   const parsed = parseInt(value, 10);
+
   return isNaN(parsed) ? defaultValue : parsed;
 };
 

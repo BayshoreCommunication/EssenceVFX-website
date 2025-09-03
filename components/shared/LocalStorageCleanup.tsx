@@ -1,7 +1,8 @@
 "use client";
 
-import { initializeCleanup } from "@/utils/cleanup";
 import { useEffect } from "react";
+
+import { initializeCleanup } from "@/utils/cleanup";
 
 const LocalStorageCleanup = () => {
   useEffect(() => {
@@ -18,11 +19,11 @@ const LocalStorageCleanup = () => {
       initializeCleanup();
     };
 
-    window.addEventListener('focus', handleFocus);
+    window.addEventListener("focus", handleFocus);
 
     return () => {
       clearTimeout(timeoutId);
-      window.removeEventListener('focus', handleFocus);
+      window.removeEventListener("focus", handleFocus);
     };
   }, []);
 
