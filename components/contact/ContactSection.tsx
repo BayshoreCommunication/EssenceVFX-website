@@ -27,7 +27,7 @@ const ContactSection = () => {
                 alt="Slider Video"
                 className="w-[300px h-auto"
                 height={500}
-                src={"/assets/home/contact.png"}
+                src={"/assets/home/contact.png?v=2"}
                 width={600}
               />
             </div>
@@ -40,7 +40,7 @@ const ContactSection = () => {
                   alt="Slider Video"
                   className="w-full h-auto shadow-5xl z-40 relative drop-shadow-[0_25px_35px_rgba(0,0,0,0.20)]"
                   height={500}
-                  src={"/assets/home/contact.png"}
+                  src={"/assets/home/contact.png?v=2"}
                   width={500}
                 />
                 <p className="text-xl font-normal absolute top-[3.5%] left-[100%] text-left  bg-primary w-[25px] h-[70px] group-hover:w-[72px] transition-all duration-300 flex items-center rounded-r-md z-50" />
