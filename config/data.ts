@@ -96,7 +96,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "July 17, 2024",
       createBy: "BEWISEYC & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/mr-fantastic.png",
@@ -111,7 +112,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "July 7, 2024",
       createBy: "SAADLEUP & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "DC",
     videoThum: "/assets/home/enhanced-bane-vs-batman.png",
@@ -126,7 +128,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "June 26, 2024",
       createBy: "SAADLEUP & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-spider-man-2099.png",
@@ -141,7 +144,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "June 15, 2024",
       createBy: "NIMBLENOOR & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Avatar",
     videoThum: "/assets/home/enhanced-azula.png",
@@ -156,7 +160,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "December 12, 2024",
       createBy: "COSPLAYPOWERS x SENTINEL x WEB WARRIORS WORKSHOP",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-spider-man-vs-the-prowler.png",
@@ -171,7 +176,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "December 1, 2023",
       createBy: "KI_ANN & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Horror",
     videoThum: "/assets/home/enhanced-haunting-your-house.png",
@@ -186,7 +192,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "February 5, 2024",
       createBy: "COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-miles-morales-in-squid-game.png",
@@ -201,7 +208,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "April 10, 2022",
       createBy: "FAZGUARDIAN & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/thor.png",
@@ -216,7 +224,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "February 2, 2024",
       createBy: "COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-miles-morales.png",
@@ -231,7 +240,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "February 6, 2024",
       createBy: "COSPLAYPOWERS & CARDBOARDCOMBAT",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-mister-negative.png",
@@ -246,7 +256,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "February 2025",
       createBy: "COSPLAYPOWERS, WEBSLINGER & XOXTABIGIRLX0X",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-miles-morales-fx.png",
@@ -261,7 +272,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "July 22, 2024",
       createBy: "TWITZAVEN & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-groot.png",
@@ -276,7 +288,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "July 2, 2024",
       createBy: "STAR.GAZER.COSPLAY, BROISALOVE_ & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "DC",
     videoThum: "/assets/home/star-fire-vs-black-manta.jpg",
@@ -291,7 +304,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "June 18, 2024",
       createBy: "HERBTZIU & COSPLAYPOWERS",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/antman.png",
@@ -306,7 +320,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "May 23, 2024",
       createBy: "COSPLAYPOWERS, SHOBSON2080 & WEBSLINGER",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-deadpool-spider-man.png",
@@ -321,7 +336,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "April 27, 2024",
       createBy: "COSPLAYPOWERS, ESSENCECARTOON & HANNAHDOVE_",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "DC",
     videoThum: "/assets/home/black-canary.png",
@@ -336,7 +352,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "August 26, 2024",
       createBy: "COSPLAYPOWERS & OL_SALTBEARD_C70",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-magneto.png",
@@ -351,7 +368,8 @@ VFX by @cosplaypowers
       location: "USA",
       date: "July 2, 2024",
       createBy: "COSPLAYPOWERS, ETHANGUZMAN.AE & ESSENCECARTOON",
-      igUrl: "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
+      igUrl:
+        "https://www.instagram.com/cosplaypowers?igsh=cTJhb2RydGs4YXNn&utm_source=qr",
     },
     categories: "Marvel",
     videoThum: "/assets/home/enhanced-spider-man-v-mysterio.png",
