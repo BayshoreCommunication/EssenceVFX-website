@@ -423,7 +423,7 @@ export const gallerySilderData = [
   { url: "/assets/gallery-img/fontaine-from-genshin-impact.png" },
   { url: "/assets/gallery-img/starfire-2.png" },
   { url: "/assets/gallery-img/mr-fantastic-2.png" },
-  { url: "/assets/gallery-img/fantastic.png" },
+  { url: "/assets/gallery-img/mr-fantastic-2.png" },
   { url: "/assets/gallery-img/wizard.png" },
   { url: "/assets/gallery-img/invisible-woman.png" },
   { url: "/assets/gallery-img/gyro-zeppeli.png" },
