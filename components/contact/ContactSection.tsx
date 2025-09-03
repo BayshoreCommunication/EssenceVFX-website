@@ -25,7 +25,7 @@ const ContactSection = () => {
             <div className="mt-3 flex justify-center items-center">
               <Image
                 alt="Slider Video"
-                className="w-[300px h-auto"
+                className="w-[300px] h-auto"
                 height={500}
                 src={"/assets/home/contact.png?v=2"}
                 width={600}
